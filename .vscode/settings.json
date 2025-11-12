@@ -35,7 +35,8 @@
     "love",
     "Back",
     "PB_UTIL",
-    "G"
+    "G",
+    "paperback_cine_table"
   ],
   "Lua.diagnostics.libraryFiles": "Disable"
 }

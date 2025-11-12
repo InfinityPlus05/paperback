@@ -277,6 +277,24 @@ function PB_UTIL.should_load_spectrum_items()
   )
 end
 
+if next(SMODS.find_mod('Reverie')) then
+  -- Register the Reverie cross-mod atlas
+  SMODS.Atlas {
+    key = 'reverie_atlas',
+    path = 'CineCards.png',
+    px = 71,
+    py = 95,
+  }
+
+  if PB_UTIL.config.minor_arcana_enabled then
+    local cine = {
+      "jester_of_marseilles_quest",
+      "jester_of_marseilles",
+    }
+    PB_UTIL.register_items(cine, "content/cine")
+  end
+end
+
 PB_UTIL.ENABLED_CROSS_MOD_JOKERS = {
   ['allinjest'] = {
     'moon_waltz'

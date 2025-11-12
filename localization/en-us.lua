@@ -130,6 +130,26 @@ return {
         }
       },
     },
+    Cine = {
+      c_paperback_jester_of_marseilles = {
+        name = "Jester of Marseilles",
+        text = {
+          "During this shop,",
+          "only {C:paperback_minor_arcana}Minor Arcana{}",
+          "cards appear",
+          "{s:0.8}Rerolls cards and {s:0.8,C:attention}Booster Packs"
+        }
+      },
+      c_paperback_jester_of_marseilles_quest = {
+        name = "Exchange Coupon",
+        text = {
+          "Converts to {C:cine}Jester of Marseilles{}",
+          "after using {C:attention}#1#{}",
+          "{C:paperback_minor_arcana}Minor Arcana{} cards",
+          "{C:inactive}(Currently {C:attention}#2#{C:inactive}/#1#)"
+        }
+      }
+    },
     Joker = {
       j_paperback_showdown = {
         name = "Showdown",
