@@ -43,7 +43,7 @@ end
 ---@param str string
 ---@return boolean
 function PB_UTIL.is_paperclip(str)
-  for _, v in ipairs(PB_UTIL.Paperclips) do
+  for _, v in ipairs(PB_UTIL.Paperclips or {}) do
     if v == str then
       return true
     end
