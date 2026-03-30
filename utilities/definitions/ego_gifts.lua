@@ -23,14 +23,10 @@ PB_UTIL.ENABLED_EGO_GIFTS = {
   'golden_bough',
   'dark_vestige',
 }
-
+PB_UTIL.ENABLED_EGO_GIFT_BOOSTERS = {
+  'ego_gift_normal_1',
+}
 if PB_UTIL.config.ego_gifts_enabled then
-  PB_UTIL.ENABLED_EGO_GIFT_BOOSTERS = {
-    'ego_gift_normal_1',
-  }
-
-
-
   -- Sin object for debuffs
   -- TODO: Make debuffs actual objects for ease of cross-mod and more intuitive handling
   PB_UTIL.EGO_GIFT_SINS = {
