@@ -7,6 +7,13 @@ SMODS.Joker {
       per_dollar = 2,
     }
   },
+  attributes = {
+    'economy',
+    'sell_value',
+    'on_sell',
+    'discard',
+    'boss_blind'
+  },
   rarity = 2,
   pos = { x = 19, y = 6 },
   atlas = 'jokers_atlas',
