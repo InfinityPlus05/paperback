@@ -45,6 +45,7 @@ SMODS.Joker {
     if not context.blueprint and context.end_of_round and context.main_eval then
       PB_UTIL.use_consumable_animation(nil, card, function()
         card:set_ability(G.P_CENTERS['j_paperback_hamsa_r'])
+        unlock_card(card)
       end)
       return {
         message = localize('paperback_hamsa_reverse'),
