@@ -70,6 +70,7 @@ SMODS.Joker {
           ref_table = card.ability.extra,
           ref_value = 'chips',
           scalar_value = 'chip_loss',
+          operation = '-',
           message_key = 'a_chips_minus',
           message_colour = G.C.CHIPS
         })

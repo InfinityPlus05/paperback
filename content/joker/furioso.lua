@@ -72,7 +72,6 @@ SMODS.Joker {
         local rank = not SMODS.has_no_rank(context.other_card) and context.other_card:get_id()
 
         if rank and not card.ability.extra.ranks[rank] then
-          card.ability.extra.x_mult = card.ability.extra.x_mult + card.ability.extra.x_mult_mod
           SMODS.scale_card(card, {
             ref_table = card.ability.extra,
             ref_value = 'x_mult',
