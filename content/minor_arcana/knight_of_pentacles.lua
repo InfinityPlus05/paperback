@@ -28,7 +28,8 @@ PB_UTIL.MinorArcana {
   loc_vars = function(self, info_queue, card)
     return {
       vars = {
-        (G.STATE == G.STATES.MENU and 5) or G.GAME.round_resets.reroll_cost
+        (G.STATE == G.STATES.MENU and 5) or G.GAME.round_resets.reroll_cost,
+        (G.STATE == G.STATES.MENU and 5) or G.GAME.current_round.reroll_cost
       }
     }
   end,

@@ -3152,7 +3152,8 @@ return {
       c_paperback_knight_of_pentacles = {
         name = "Knight of Pentacles",
         text = {
-          "Reset {C:green}Reroll{} cost to {C:money}$#1#{}"
+          "Reset {C:green}Reroll{} cost to {C:money}$#1#{}",
+          "{C:inactive}(Currently {C:money}$#2#{C:inactive})"
         }
       },
       c_paperback_queen_of_pentacles = {
