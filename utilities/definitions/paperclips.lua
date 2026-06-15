@@ -16,6 +16,7 @@ PB_UTIL.ENABLED_PAPERCLIPS = {
 if PB_UTIL.config.paperclips_enabled then
   -- Table to hold all paperclip keys regardless of mod of origin for easy reference
   PB_UTIL.Paperclips = {}
+  PB_UTIL.Paperclips_keys = {}
 
   PB_UTIL.Paperclip = SMODS.Sticker:extend {
     prefix_config = { key = true },
@@ -31,6 +32,7 @@ if PB_UTIL.config.paperclips_enabled then
 
     inject = function(self, i)
       SMODS.Sticker.inject(self, i)
+      PB_UTIL.Paperclips_keys[self.key] = true
       table.insert(PB_UTIL.Paperclips, self.key)
     end,
 
