@@ -25,8 +25,9 @@ payload = "end"
 [[patches]]
 [patches.pattern]
 target = "functions/state_events.lua"
-pattern = '''if G.GAME.round_resets.blind == G.P_BLINDS.bl_small then
-G.GAME.round_resets.blind_states.Small = 'Defeated'
+pattern = '''
+if G.GAME.round_resets.blind_states.Small == 'Current' then
+    G.GAME.round_resets.blind_states.Small = 'Defeated'
 '''
 position = "before"
 match_indent = true
