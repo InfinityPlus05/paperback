@@ -2200,6 +2200,12 @@ return {
           "Spend {C:money,E:1}$50{} in one shop"
         }
       },
+      j_paperback_membership_card = {
+        name = "Membership Card",
+        text = {
+          "All cards and packs in shop are {C:attention}#1#%{} off",
+        },
+      },
       j_paperback_cakepop = {
         name = "Cakepop",
         text = {

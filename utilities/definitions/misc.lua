@@ -164,6 +164,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "mandela_effect",
   "jester_of_nihil",
   "shopkeep",
+  "membership_card",
   "wild_prize",
   "deadringer",
   "penumbra_phantasm",
