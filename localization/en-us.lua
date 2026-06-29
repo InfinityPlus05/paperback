@@ -2206,6 +2206,20 @@ return {
           "All cards and packs in shop are {C:attention}#1#%{} off",
         },
       },
+      j_paperback_normalJKR = {
+        name = "normalJKR",
+        text = {
+          "The first card or pack in shop",
+          "you buy is {C:attention}free{}"
+        },
+      },
+      j_paperback_normalJKR_alt = {
+        name = "jimbo_follower_c",
+        text = {
+          "The first card or pack in shop",
+          "you buy is {C:attention}free{}"
+        },
+      },
       j_paperback_cakepop = {
         name = "Cakepop",
         text = {
