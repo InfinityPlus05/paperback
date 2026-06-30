@@ -1,6 +1,6 @@
 SMODS.Joker {
   key = 'normalJKR',
-  rarity = 2,
+  rarity = 1,
   pos = { x = 23, y = 12 },
   atlas = 'jokers_atlas',
   cost = 6,
@@ -45,7 +45,7 @@ local set_cost_ref = Card.set_cost
 function Card.set_cost(self)
   set_cost_ref(self)
   
-  if G.GAME.paperback.free_purchases and G.GAME.paperback.free_purchases > 0 then
+  if G.GAME.paperback.free_purchases and G.GAME.paperback.free_purchases > 0 and not (self.ability.set == "Voucher" or self.ability.set == "Booster") then
     self.cost = 0
     self.sell_cost = math.max(1, math.floor(self.cost/2)) + (self.ability.extra_value or 0)
   end
