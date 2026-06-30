@@ -2088,6 +2088,13 @@ return {
           "Joker {C:attention}destroyed",
         },
       },
+      j_paperback_superjoker = {
+        name = "SUPERJOKER",
+        text = {
+          "RETRIGGER {C:attention}ALL{} CARDS IN {C:attention}FIRST HAND",
+          "GIVES {X:mult,C:white}X#1#{} MULT ON SUBSEQUENTLY PLAYED HANDS",
+        },
+      },
       j_paperback_photocopy = {
         name = "Photocopy",
         text = {
@@ -4184,6 +4191,8 @@ return {
       paperback_warning_ex = "Warning!",
       paperback_watch_ex = "Watch!",
       paperback_red_ex = "Ultra Secret!",
+      paperback_superhot_true = "SUPER",
+      paperback_superhot_false = "HOT",
 
       paperback_ui_requires_restart = "Requires Restart",
       paperback_ui_no_requires_restart = "Doesn't Require Restart",

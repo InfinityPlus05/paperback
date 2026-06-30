@@ -227,6 +227,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "off_alpha",
   "off_omega",
   "off_epsilon",
+  "superjoker",
   "jestrica",
   "you_are_a_fool",
   "alert",
