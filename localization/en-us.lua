@@ -997,6 +997,14 @@ return {
           "{S:1.1,C:red,E:2}self-destructs",
         }
       },
+      j_paperback_red_key = {
+        name = "Red Key",
+        text = {
+          "When {C:attention}Blind{} is selected, create",
+          "a {C:paperback_temporary}temporary{} {C:red}Ultra Secret{} Joker",
+          "When sold, remove {C:paperback_temporary}temporary{} from {C:attention}all{} Jokers"
+        }
+      },
       j_paperback_book_of_vengeance = {
         name = "Book of Vengeance",
         text = {
@@ -4175,6 +4183,7 @@ return {
       paperback_one_shift_more_false = "Beat!",
       paperback_warning_ex = "Warning!",
       paperback_watch_ex = "Watch!",
+      paperback_red_ex = "Ultra Secret!",
 
       paperback_ui_requires_restart = "Requires Restart",
       paperback_ui_no_requires_restart = "Doesn't Require Restart",

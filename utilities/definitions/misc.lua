@@ -206,6 +206,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "tropic_birds",
   "attacking_vertical",
   "resurrections",
+  "red_key",
   "summoning_circle",
   "the_sun",
   "union_card",

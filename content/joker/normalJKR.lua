@@ -15,7 +15,7 @@ SMODS.Joker {
   },
 
   paperback_credit = {
-    coder = { 'Dowfrin' }
+    coder = { 'dowfrin' }
   },
 
   generate_ui = function(self, info_queue, card, desc_nodes, specific_vars, full_UI_table)
