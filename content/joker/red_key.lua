@@ -10,7 +10,8 @@ SMODS.Joker {
     'red'
   },
   rarity = 2,
-  pos = { x = 9, y = 12 },
+  pos = { x = 8, y = 12 },
+  soul_pos = { x = 9, y = 12 },
   atlas = "jokers_atlas",
   cost = 7,
   blueprint_compat = true,
