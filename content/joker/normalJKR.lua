@@ -52,7 +52,7 @@ SMODS.Joker {
 
 local set_cost_ref = Card.set_cost
 function Card.set_cost(self)
-  set_cost_ref(self)
+  local ret = set_cost_ref(self)
   
   if G.GAME.paperback.free_purchases and G.GAME.paperback.free_purchases > 0 and not (self.ability.set == "Voucher" or self.ability.set == "Booster") then
     self.cost = 0

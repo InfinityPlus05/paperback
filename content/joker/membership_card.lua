@@ -53,7 +53,7 @@ function Card.set_cost(self)
     end
   end
   
-  set_cost_ref(self)
+  local ret = set_cost_ref(self)
   
   if (discount ~= 0) and (self.cost ~= 0) then
     self.cost = math.max(1, math.floor((self.base_cost + self.extra_cost + 0.5)*(100-G.GAME.discount_percent)/100*(discount)))
