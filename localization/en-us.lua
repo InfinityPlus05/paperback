@@ -2224,7 +2224,7 @@ return {
       j_paperback_normalJKR = {
         name = "normalJKR",
         text = {
-          "The first card or pack in shop",
+          "The first card in shop",
           "you buy is {C:attention}free{}"
         },
       },
