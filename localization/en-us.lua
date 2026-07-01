@@ -512,6 +512,7 @@ return {
           "Scored {V:1}#1#{} have a",
           "{C:green}#2# in #3#{} chance to create",
           "a {C:dark_edition}Negative {C:attention}Tag{}",
+	        "{s:0.9,C:inactive}Once per round{}"
         }
       },
       j_paperback_shooting_star = {
@@ -3382,7 +3383,7 @@ return {
         name = "Chalice of Trickle Down",
         text = {
           "During {C:attention}Boss Blinds{}, gives",
-          "{C:money}money{} equal to lowest rank",
+          "{C:money}money{} equal to half lowest rank",
           "in {C:attention}scoring hand"
         }
       },
