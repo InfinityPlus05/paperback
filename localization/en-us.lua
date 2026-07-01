@@ -2232,8 +2232,8 @@ return {
       j_paperback_normalJKR_alt = {
         name = "jimbo_follower_c",
         text = {
-          "The first card or pack in shop",
-          "you buy is {C:attention}free{}"
+          "The first card in shop",
+          "you buy is {C:attention}2G{}"
         },
       },
       j_paperback_cakepop = {

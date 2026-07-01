@@ -18,6 +18,15 @@ SMODS.Joker {
     coder = { 'dowfrin' }
   },
 
+  -- Alt Description
+  loc_vars = function(self, info_queue, card)
+      return {
+        key = math.random() > 0.063 and "j_paperback_normalJKR" or "j_paperback_normalJKR_alt"
+      }
+  end,
+
+
+  -- Alt Name
   generate_ui = function(self, info_queue, card, desc_nodes, specific_vars, full_UI_table)
     full_UI_table.name = localize { type = 'name', set = "Joker",
       key = math.random() > 0.063 and "j_paperback_normalJKR" or "j_paperback_normalJKR_alt"
