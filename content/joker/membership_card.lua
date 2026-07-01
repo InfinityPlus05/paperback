@@ -1,6 +1,6 @@
 SMODS.Joker {
   key = 'membership_card',
-  rarity = 2,
+  rarity = 3,
   pos = { x = 18, y = 11 },
   atlas = 'jokers_atlas',
   cost = 8,
@@ -55,7 +55,7 @@ function Card.set_cost(self)
   
   set_cost_ref(self)
   
-  if discount ~= 0 then
+  if (discount ~= 0) and (self.cost ~= 0) then
     self.cost = math.max(1, math.floor((self.base_cost + self.extra_cost + 0.5)*(100-G.GAME.discount_percent)/100*(discount)))
     self.sell_cost = math.max(1, math.floor(self.cost/2)) + (self.ability.extra_value or 0)
   end
