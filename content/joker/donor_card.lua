@@ -14,6 +14,7 @@ SMODS.Joker {
     'destroy_card',
     'modify_card',
     'hearts',
+    'red'
   },
   rarity = 2,
   pos = { x = 16, y = 11 },
