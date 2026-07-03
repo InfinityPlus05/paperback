@@ -225,7 +225,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "jacks",
   "the_sun_rises",
   "blood_rain",
-  -- "war_without_reason",
+  "war_without_reason",
   "paranoia",
   "der_fluschutze",
   "touch_tone_joker",

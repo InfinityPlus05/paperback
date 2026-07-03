@@ -334,6 +334,15 @@ return {
           "instead of giving {C:chips}Chips"
         }
       },
+      j_paperback_war_without_reason = {
+        name = "War Without Reason",
+        text = {
+          "When {C:attention}first hand{} is drawn,",
+          "destroy Joker to the right",
+          "and add a random {C:attention}seal",
+          "to a card {C:attention}held in hand{}",
+        }
+      },
       j_paperback_pinot_noir = {
         name = "Pinot Noir",
         text = {
