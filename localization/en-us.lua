@@ -2760,6 +2760,39 @@ return {
           "Increases by {C:money}$#2#{} each time",
         },
       },
+      j_paperback_freedom_of_choice = {
+        name = "Freedom of Choice",
+        text = {
+          "If played hand contains a",
+          "{C:attention}#1#{}, scored cards",
+          "permanently gain {X:mult,C:white}X#2#{} Mult",
+        }
+      },
+      j_paperback_magic_mushroom = {
+        name = "Magic Mushroom",
+        text = {
+          "{X:mult,C:white}X#1#{} Mult",
+          "Loses {X:mult,C:white}X#2#{} Mult for every hand played",
+          "Resets after clearing a Blind",
+          "{C:inactive}(Cannot exceed {X:mult,C:white}X#1#{C:inactive} Mult)"
+        }
+      },
+      j_paperback_bergentrucking = {
+        name = "Bergentrücking",
+        text = {
+          "Scored {C:paperback_crowns}#1#{} gain {X:mult,C:white}X#2#{} Mult",
+          "if scored hand contains a {C:hearts}#3#{}",
+          "and scored {C:hearts}#4#{} are {C:attention}destroyed"
+        }
+      },
+      j_paperback_technology = {
+        name = "Technology",
+        text = {
+          "This Joker gives {X:mult,C:white}X#1#{} Mult for each",
+          "played and scored {C:attention}#2#{} this round",
+          "{C:inactive}(Currently {X:mult,C:white}X#3#{C:inactive} Mult){}"
+        }
+      },
       -- Cross-Mod jokers start here
       j_paperback_moon_waltz = {
         name = "Moon Waltz",
