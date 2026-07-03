@@ -1893,6 +1893,15 @@ return {
           "{C:inactive}(Currently {X:chips,C:white}X#1#{C:inactive} Chips)",
         },
       },
+      j_paperback_the_girl_from_024 = {
+        name = "The Girl From 024",
+        text = {
+          "This Joker gains {X:mult,C:white}X#1#{} Mult",
+          "for every {C:attention}Queen held in hand{}",
+          "at the end of round",
+          "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
+        },
+      },
       j_paperback_solar_system = {
         name = "Solar System",
         text = {

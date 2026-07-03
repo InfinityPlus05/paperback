@@ -154,6 +154,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "grand_strategy",
   "moving_out",
   "ready_to_fly",
+  "the_girl_from_024",
   "great_wave",
   'one_shift_more',
   'donor_card',
