@@ -156,6 +156,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "ready_to_fly",
   "great_wave",
   'one_shift_more',
+  'donor_card',
   'normalJKR',
   "let_it_happen",
   "paralyzed",

@@ -512,7 +512,7 @@ return {
           "Scored {V:1}#1#{} have a",
           "{C:green}#2# in #3#{} chance to create",
           "a {C:dark_edition}Negative {C:attention}Tag{}",
-	        "{s:0.9,C:inactive}Once per round{}"
+          "{s:0.9,C:inactive}Once per round{}"
         }
       },
       j_paperback_shooting_star = {
@@ -716,6 +716,15 @@ return {
           "This Joker gains {X:mult,C:white}X#1#{} Mult",
           "for every {C:attention}#2#{C:inactive} [#3#]{} scored {C:hearts}#5#{} cards",
           "{C:inactive}(Currently {X:mult,C:white}X#4#{C:inactive} Mult)",
+        },
+      },
+      j_paperback_donor_card = {
+        name = "Donor Card",
+        text = {
+          { "This Joker gains {C:mult}+#1#{} Mult for",
+            "every scored {C:hearts}Heart{} card" },
+          { "Scored {C:hearts}Hearts{} lose {C:chips}#2#{} chips",
+            "and are {C:attention}destroyed{} upon reaching {C:attention}0{}" },
         },
       },
       j_paperback_the_normal_joker = {
