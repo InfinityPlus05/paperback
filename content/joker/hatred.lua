@@ -59,9 +59,11 @@ SMODS.Joker {
 
     -- Checks for destroying the marked card
     if not context.blueprint then
+      local destroyed = false
       if context.discard then
         for i, v in ipairs(context.full_hand) do
           if v.ability.paperback_hatred_mark then
+            destroyed = true
             SMODS.destroy_cards { v }
           end
         end
@@ -69,19 +71,28 @@ SMODS.Joker {
 
       if context.destroy_card and context.cardarea == 'unscored' and context.destroy_card.ability.paperback_hatred_mark then
         return {
-          remove = true
+          remove = true,
+          message = localize('paperback_hatred_death_ex'),
+          colour = G.C.MULT
         }
       end
 
       if context.after then
         for i, v in ipairs(G.hand.cards) do
           if v.ability.paperback_hatred_mark then
+            destroyed = true
             SMODS.destroy_cards { v }
           end
         end
         for i, v in ipairs(context.scoring_hand) do
           v.ability.paperback_hatred_mark = nil
         end
+      end
+      if destroyed then
+        return {
+          message = localize('paperback_hatred_death_ex'),
+          colour = G.C.MULT
+        }
       end
     end
   end,

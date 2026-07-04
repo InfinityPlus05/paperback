@@ -4302,6 +4302,7 @@ return {
       paperback_superhot_true = "SUPER",
       paperback_superhot_false = "HOT",
       paperback_goner_ex = "Goner!",
+      paperback_hatred_death_ex = "DREAD",
 
       paperback_ui_requires_restart = "Requires Restart",
       paperback_ui_no_requires_restart = "Doesn't Require Restart",
