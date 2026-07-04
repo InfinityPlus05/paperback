@@ -2017,6 +2017,15 @@ return {
           "{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)"
         },
       },
+      j_paperback_hatred = {
+        name = "HATRED",
+        text = {
+          "At the start of every hand {C:red,E:1,7}mark{} a random",
+          "card {C:attention}held in hand{}",
+          "{C:red,E:1,7}Marked{} cards give {X:mult,C:white}X#1#{} Mult when scored",
+          "and are destroyed if not scored"
+        },
+      },
       j_paperback_unholy_alliance = {
         name = "Unholy Alliance",
         text = {

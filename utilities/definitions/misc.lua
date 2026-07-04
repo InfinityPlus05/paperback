@@ -228,6 +228,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "blood_rain",
   "war_without_reason",
   "paranoia",
+  "hatred",
   "der_fluschutze",
   "touch_tone_joker",
   "the_batter",
