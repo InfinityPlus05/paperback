@@ -2025,6 +2025,13 @@ return {
           "{C:inactive}(Currently {C:chips}+#2#{C:inactive} Chips)",
         },
       },
+      j_paperback_blazing_trails = {
+        name = "Blazing Trails",
+        text = {
+          "If discard has exactly {C:attention}#1#{} cards,",
+          "destroy the {C:attention}last{} card"
+        }
+      },
       j_paperback_summoning_circle = {
         name = "Summoning Circle",
         text = {

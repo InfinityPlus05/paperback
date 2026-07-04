@@ -61,6 +61,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "sacrificial_lamb",
   "the_one_who_waits",
   "unholy_alliance",
+  "blazing_trails",
   "stamp",
   "solar_system",
   "pool_table",
