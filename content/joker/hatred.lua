@@ -20,7 +20,8 @@ SMODS.Joker {
 
   },
   paperback_credit = {
-    coder = { 'dowfrin' }
+    coder = { 'dowfrin' },
+    artist = { 'shizi' }
   },
 
   loc_vars = function(self, info_queue, card)
