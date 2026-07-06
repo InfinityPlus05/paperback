@@ -185,16 +185,17 @@ if PB_UTIL.config.ego_gifts_enabled then
     add_to_deck = function(self, card, from_debuff)
       PB_UTIL.set_sell_value(card, 0)
       local dupe = false
+
       for i, v in ipairs(G.consumeables.cards) do
         if v.config.center.key == card.config.center.key and v.ability.sin ~= 'none' and card.ability.sin ~= 'none' and v ~= card then
           dupe = true
         end
       end
+
       if dupe then
-        local vestige = SMODS.add_card { key = 'c_paperback_dark_vestige' }
-        G.GAME.paperback.destroy_no_calc = true
-        SMODS.destroy_cards({ card })
-        G.GAME.paperback.destroy_no_calc = nil
+        SMODS.add_card { key = 'c_paperback_dark_vestige' }
+        card.paperback_no_destroy_calc = true
+        SMODS.destroy_cards(card)
       end
 
       if self.ego_add then

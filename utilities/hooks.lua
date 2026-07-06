@@ -439,3 +439,31 @@ function SMODS.calculate_individual_effect(effect, scored_card, key, amount, fro
   end
   return calculate_individual_effect_ref(effect, scored_card, key, amount, from_edition)
 end
+
+-- Removes flagged cards from destruction calculation
+local calculate_context_ref = SMODS.calculate_context
+function SMODS.calculate_context(context, return_table, no_resolve)
+  -- Remove non playing cards
+  if context.joker_type_destroyed and context.card.paperback_no_destroy_calc then
+    return not return_table and {}
+  end
+
+  -- Remove playing cards
+  if context.remove_playing_cards then
+    local calc_cards = {}
+    for _, card in ipairs(context.removed) do
+      if not card.paperback_no_destroy_calc then
+        table.insert(calc_cards, card)
+      end
+    end
+
+    -- Cancel the context call if there are no removed cards
+    if #calc_cards <= 0 then
+      return not return_table and {}
+    end
+
+    context.removed = calc_cards
+  end
+
+  return calculate_context_ref(context, return_table, no_resolve)
+end
