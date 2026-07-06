@@ -2038,7 +2038,7 @@ return {
         name = "Blazing Trails",
         text = {
           "If discard has exactly {C:attention}#1#{} cards,",
-          "destroy the {C:attention}last{} card"
+          "destroy the {C:attention}rightmost{} card"
         }
       },
       j_paperback_summoning_circle = {
