@@ -1158,8 +1158,8 @@ return {
           "{E:1,s:1.3}?????",
         }
       },
-      j_paperback_insurance_policy = {
-        name = "Insurance Policy",
+      j_paperback_redscreen = {
+        name = "Redscreen",
         text = {
           "{X:mult,C:white}+X#1#{} Mult for each {C:paperback_light_suit}light suit{}",
           "and {X:mult,C:white}-X#1#{} Mult for each {C:paperback_dark_suit}dark suit{}",
@@ -1167,7 +1167,8 @@ return {
           "{C:inactive}(Currently {X:mult,C:white}#2#{C:inactive} Mult){}",
         },
         unlock = {
-          "",
+          "Have a deck containing {C:attention}only{}",
+          "{C:paperback_light_suit}light suits{}"
         }
       },
       j_paperback_telamon = {
