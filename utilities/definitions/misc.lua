@@ -241,7 +241,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "you_are_a_fool",
   "alert",
   "legacy",
-  -- "redscreen",
+  "redscreen",
   "technology",
   "freedom_of_choice",
   "telamon",
