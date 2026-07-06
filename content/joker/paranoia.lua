@@ -77,16 +77,3 @@ SMODS.Joker {
     }
   end,
 }
-
-local calc_context_ref = SMODS.calculate_context
-function SMODS.calculate_context(context, return_table)
-  if context.remove_playing_cards then
-    for _, v in ipairs(context.removed or {}) do
-      if PB_UTIL.is_suit(v, 'dark', false, true) then
-        G.GAME.paperback.destroyed_dark_suits = G.GAME.paperback.destroyed_dark_suits + 1
-      end
-    end
-  end
-
-  return calc_context_ref(context, return_table)
-end

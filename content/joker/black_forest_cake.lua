@@ -54,9 +54,8 @@ SMODS.Joker {
       return nil, true
     end
 
-    if not context.blueprint and PB_UTIL.count_destroyed_things(context) > 0
-    and not (context.paperback and context.paperback.destroyed_joker and card == context.paperback.destroyed_joker)
-    then
+    local count = PB_UTIL.count_destroyed_things(context)
+    if not context.blueprint and count > 0 and not (context.joker_type_destroyed and context.card == card) then
       PB_UTIL.destroy_joker(card)
       return {
         message = localize('k_eaten_ex'),

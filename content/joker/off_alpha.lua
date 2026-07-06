@@ -50,9 +50,7 @@ SMODS.Joker {
 
 
   calculate = function(self, card, context)
-    if not context.blueprint
-    and context.paperback and context.paperback.destroyed_joker and not (card == context.paperback.destroyed_joker) and not (context.paperback.destroyed_joker.config.center.paperback and context.paperback.destroyed_joker.config.center.paperback.addon)
-    then
+    if PB_UTIL.is_joker_destroyed(context, card, true) and not context.blueprint then
       SMODS.scale_card(card, {
         ref_table = card.ability.extra,
         ref_value = 'chips',

@@ -45,43 +45,42 @@ SMODS.Joker {
   end,
 
   calculate = function(self, card, context)
-    if not context.blueprint_card and context.paperback and context.paperback.destroyed_joker and not (card == context.paperback.destroyed_joker) and not (context.paperback.destroyed_joker.config.center.paperback and context.paperback.destroyed_joker.config.center.paperback.addon) then
-      if context.paperback.destroyed_joker.config.center.key == "j_paperback_lager" then
-        -- Just Queen of Swords it
-        local ref = card.ability.extra.suit
-        local targets = {}
-        local possible_targets = {}
-        -- Collect the possible targets
-        for _, c in ipairs(G.playing_cards) do
-          if not SMODS.has_no_suit(c) and c.base.suit ~= ref then
-            table.insert(possible_targets, c)
-          end
+    if context.joker_type_destroyed and context.card.config.center_key == "j_paperback_lager" and not context.blueprint then
+      -- Just Queen of Swords it
+      local ref = card.ability.extra.suit
+      local targets = {}
+      local possible_targets = {}
+      -- Collect the possible targets
+      for _, c in ipairs(G.playing_cards) do
+        if not SMODS.has_no_suit(c) and c.base.suit ~= ref then
+          table.insert(possible_targets, c)
         end
-
-        local shake_deck = false
-        while #targets < card.ability.extra.spillage and #possible_targets > 0 do
-          local target = pseudorandom_element(possible_targets, pseudoseed('j_paperback_bergentrucking'))
-          table.insert(targets, target)
-          if target.area == G.deck then
-            shake_deck = true
-          end
-          -- Get rid of possible targets with the same suit as chosen `target`
-          for i = #possible_targets, 1, -1 do
-            if possible_targets[i].base.suit == target.base.suit then
-              table.remove(possible_targets, i)
-            end
-          end
-        end
-        for _, v in ipairs(targets) do
-          v:juice_up()
-          assert(SMODS.change_base(v, ref))
-        end
-        if shake_deck then G.deck.cards[1]:juice_up() end
-        return {
-          message = localize('k_drank_ex')
-        }
       end
+
+      local shake_deck = false
+      while #targets < card.ability.extra.spillage and #possible_targets > 0 do
+        local target = pseudorandom_element(possible_targets, pseudoseed('j_paperback_bergentrucking'))
+        table.insert(targets, target)
+        if target.area == G.deck then
+          shake_deck = true
+        end
+        -- Get rid of possible targets with the same suit as chosen `target`
+        for i = #possible_targets, 1, -1 do
+          if possible_targets[i].base.suit == target.base.suit then
+            table.remove(possible_targets, i)
+          end
+        end
+      end
+      for _, v in ipairs(targets) do
+        v:juice_up()
+        assert(SMODS.change_base(v, ref))
+      end
+      if shake_deck then G.deck.cards[1]:juice_up() end
+      return {
+        message = localize('k_drank_ex')
+      }
     end
+
     if context.individual and context.cardarea == G.play then
       if context.other_card:is_suit(card.ability.extra.suit) then
         card.ability.extra.active.suit = true

@@ -49,11 +49,8 @@ SMODS.Joker {
 
   calculate = function(self, card, context)
     local count = PB_UTIL.count_destroyed_things(context)
-    -- Gains mult when any cards are destroyed. Each card destroyed provides the specified mult_mod
-    if not context.blueprint and count > 0
-    -- Make sure that this joker isn't being removed
-    and not (context.paperback and context.paperback.destroyed_joker and card == context.paperback.destroyed_joker)
-    then
+    -- Gains mult when any cards are destroyed, making sure that this joker isn't the one being destroyed
+    if not context.blueprint and count > 0 and not (context.joker_type_destroyed and context.card == card) then
       SMODS.scale_card(card, {
         ref_table = card.ability.extra,
         ref_value = 'mult',
@@ -91,14 +88,3 @@ SMODS.Joker {
     }
   end,
 }
-
-local calc_context_ref = SMODS.calculate_context
-function SMODS.calculate_context(context, return_table)
-  if context.remove_playing_cards then
-    for _, v in ipairs(context.removed or {}) do
-      G.GAME.paperback.destroyed_cards = G.GAME.paperback.destroyed_cards + 1
-    end
-  end
-
-  return calc_context_ref(context, return_table)
-end

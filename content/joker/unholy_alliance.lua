@@ -38,11 +38,8 @@ SMODS.Joker {
 
   calculate = function(self, card, context)
     local count = PB_UTIL.count_destroyed_things(context)
-    -- Gains chips when any cards are destroyed. Each card destroyed provides the specified chip_mod
-    if not context.blueprint and count > 0
-    -- Make sure that this joker isn't being removed
-    and not (context.paperback and context.paperback.destroyed_joker and card == context.paperback.destroyed_joker)
-    then
+    -- Gains chips when any cards are destroyed, making sure that this joker isn't the one being destroyed
+    if not context.blueprint and count > 0 and not (context.joker_type_destroyed and context.card == card) then
       SMODS.scale_card(card, {
         ref_table = card.ability.extra,
         ref_value = 'chips',
@@ -59,6 +56,7 @@ SMODS.Joker {
           colour = G.C.CHIPS
         }
       })
+
       return nil, true
     end
 

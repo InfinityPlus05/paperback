@@ -46,11 +46,8 @@ SMODS.Joker {
     }
   end,
 
-
   calculate = function(self, card, context)
-    if not context.blueprint
-    and context.paperback and context.paperback.destroyed_joker and not (card == context.paperback.destroyed_joker) and not (context.paperback.destroyed_joker.config.center.paperback and context.paperback.destroyed_joker.config.center.paperback.addon)
-    then
+    if PB_UTIL.is_joker_destroyed(context, card, true) and not context.blueprint then
       return {
         dollars = card.ability.extra.dollars,
       }

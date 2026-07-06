@@ -172,33 +172,6 @@ function Tag.yep(self, message, _colour, func)
   return yep_ref(self, message, _colour, func)
 end
 
--- Add new context that happens after destroying things
-local remove_ref = Card.remove
-function Card.remove(self)
-  -- Check that the card being removed is owned by the player and that it's not being sold/used
-  if not self.playing_card and self.added_to_deck
-  and not (self.paperback_sell_flag or self.paperback_use_flag) then
-    if self.ability.set == 'Joker' then
-      SMODS.calculate_context({
-        paperback = {
-          destroying_joker = true,
-          destroying_non_playing_card = true,
-          destroyed_joker = self,
-          destroyed_card = self
-        }
-      })
-    else
-      SMODS.calculate_context({
-        paperback = {
-          destroying_non_playing_card = true,
-          destroyed_card = self
-        }
-      })
-    end
-  end
-  return remove_ref(self)
-end
-
 -- Add new context that happens when pressing the cash out button
 local cash_out_ref = G.FUNCS.cash_out
 G.FUNCS.cash_out = function(e)

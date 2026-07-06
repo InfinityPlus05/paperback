@@ -103,8 +103,7 @@ SMODS.Joker {
       end
     end
 
-    if not context.blueprint and context.paperback and context.paperback.destroyed_joker and
-    not (card == context.paperback.destroyed_joker) then
+    if PB_UTIL.is_joker_destroyed(context, card) and not context.blueprint then
       SMODS.scale_card(card, {
         ref_table = card.ability.extra,
         ref_value = 'x_mult',

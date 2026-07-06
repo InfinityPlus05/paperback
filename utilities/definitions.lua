@@ -10,6 +10,24 @@ SMODS.current_mod.optional_features = {
 
 -- Global mod calculate
 SMODS.current_mod.calculate = function(self, context)
+  -- Count the amount of removed playing cards
+  if context.remove_playing_cards then
+    for _, v in ipairs(context.removed or {}) do
+      G.GAME.paperback.destroyed_cards = G.GAME.paperback.destroyed_cards + 1
+      G.GAME.paperback.destroyed_cards_this_round = G.GAME.paperback.destroyed_cards_this_round + 1
+
+      -- Count the amount of destroyed dark suits
+      if PB_UTIL.is_suit(v, 'dark', false, true) then
+        G.GAME.paperback.destroyed_dark_suits = G.GAME.paperback.destroyed_dark_suits + 1
+      end
+    end
+  end
+
+  -- Reset the amount of removed playing cards this round
+  if context.end_of_round then
+    G.GAME.paperback.destroyed_cards_this_round = 0
+  end
+
   -- green clip: gain mult for every other played and scored clip
   if context.before then
     local clips_played = PB_UTIL.count_paperclips { area = context.scoring_hand }
@@ -102,14 +120,15 @@ SMODS.current_mod.calculate = function(self, context)
   end
 
   -- subtracts a free purchase if available and used
-  if context.buying_card and context.card.cost == 0 and (context.card.ability.set ~= "Voucher" and context.card.ability.set ~= "Booster")then
+  if context.buying_card and context.card.cost == 0 and (context.card.ability.set ~= "Voucher" and context.card.ability.set ~= "Booster") then
     G.GAME.paperback.free_purchases = math.max(0, G.GAME.paperback.free_purchases - 1)
     PB_UTIL.refresh_shop_cost()
   end
 
   -- reset free purchases from normalJKRs (done this way to allow for other forms of stored free purchases)
   if context.ending_shop then
-    G.GAME.paperback.free_purchases = math.max(0, G.GAME.paperback.free_purchases - #SMODS.find_card("j_paperback_normalJKR", false))
+    G.GAME.paperback.free_purchases = math.max(0,
+      G.GAME.paperback.free_purchases - #SMODS.find_card("j_paperback_normalJKR", false))
   end
 end
 

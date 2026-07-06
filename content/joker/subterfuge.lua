@@ -53,17 +53,3 @@ SMODS.Joker {
     end
   end
 }
-
-local calc_context_ref = SMODS.calculate_context
-function SMODS.calculate_context(context, return_table)
-  if context.remove_playing_cards then
-    for _, v in ipairs(context.removed or {}) do
-      G.GAME.paperback.destroyed_cards_this_round = G.GAME.paperback.destroyed_cards_this_round + 1
-    end
-  end
-  if context.end_of_round then
-    G.GAME.paperback.destroyed_cards_this_round = 0
-  end
-
-  return calc_context_ref(context, return_table)
-end

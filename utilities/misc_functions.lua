@@ -493,31 +493,25 @@ end
 ---@param card table
 ---@param after function?
 function PB_UTIL.destroy_joker(card, after)
-  G.E_MANAGER:add_event(Event({
+  G.E_MANAGER:add_event(Event {
     func = function()
-      play_sound('tarot1')
-      card.T.r = -0.2
-      card:juice_up(0.3, 0.4)
-      card.states.drag.is = true
-      card.children.center.pinch.x = true
-      G.E_MANAGER:add_event(Event({
+      SMODS.destroy_cards(card, { immediate = true, pinch_anim = true })
+
+      G.E_MANAGER:add_event(Event {
         trigger = 'after',
         delay = 0.3,
         blockable = false,
         func = function()
-          G.jokers:remove_card(card)
-          card:remove()
-
           if after and type(after) == "function" then
             after()
           end
-
           return true
         end
-      }))
+      })
+
       return true
     end
-  }))
+  })
 end
 
 ---This function is basically a copy of how the base game does the flipping animation
@@ -1290,8 +1284,24 @@ end
 ---@return number
 function PB_UTIL.count_destroyed_things(context)
   if context.remove_playing_cards then return #context.removed end
-  if context.paperback and context.paperback.destroying_non_playing_card then return 1 end
+  if context.joker_type_destroyed then return 1 end
   return 0
+end
+
+--- Returns whether a joker was destroyed in `context`.
+--- If `exclude_card` is specified, it does not take said card into consideration.
+--- If `exclude_addons` is specified, it does not take cards that have the paperback `addon` flag into consideration.
+---@param context CalcContext
+---@param exclude_card Card | nil
+---@param exclude_addons boolean | nil
+---@return boolean
+function PB_UTIL.is_joker_destroyed(context, exclude_card, exclude_addons)
+  if context.joker_type_destroyed and context.card.ability.set == "Joker" then
+    if exclude_card and context.card == exclude_card then return false end
+    if exclude_addons and (context.card.config.center.paperback or {}).addon then return false end
+    return true
+  end
+  return false
 end
 
 -- Returns true if a jimbocards is at 0 hands left
@@ -1415,9 +1425,12 @@ end
 
 --- Calls set cost on every shop card to refresh pricing
 function PB_UTIL.refresh_shop_cost()
-  G.E_MANAGER:add_event(Event({func = function()
-    for k, v in pairs(G.I.CARD) do
-      if v.set_cost then v:set_cost() end
+  G.E_MANAGER:add_event(Event({
+    func = function()
+      for k, v in pairs(G.I.CARD) do
+        if v.set_cost then v:set_cost() end
+      end
+      return true
     end
-  return true end }))
+  }))
 end
