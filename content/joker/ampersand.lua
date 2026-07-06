@@ -21,6 +21,9 @@ SMODS.Joker {
   eternal_compat = true,
   perishable_compat = true,
 
+  pools = {
+    Music = true
+  },
   paperback_credit = {
     coder = { 'dowfrin' }
   },
