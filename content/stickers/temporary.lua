@@ -24,6 +24,7 @@ function end_round()
   -- Destroy jokers
   for _, v in ipairs(G.jokers and G.jokers.cards or {}) do
     if v.ability.paperback_temporary then
+      v.paperback_temporary_removed = true
       to_destroy[#to_destroy + 1] = v
     end
   end
@@ -31,6 +32,7 @@ function end_round()
   -- Destroy consumables
   for _, v in ipairs(G.consumeables and G.consumeables.cards or {}) do
     if v.ability.paperback_temporary then
+      v.paperback_temporary_removed = true
       to_destroy[#to_destroy + 1] = v
     end
   end
@@ -38,15 +40,42 @@ function end_round()
   -- Destroy playing cards
   for _, v in ipairs(G.playing_cards or {}) do
     if v.ability.paperback_temporary then
+      v.paperback_temporary_removed = true
       to_destroy[#to_destroy + 1] = v
     end
   end
 
   if #to_destroy > 0 then
-    G.GAME.paperback.destroy_no_calc = true
     SMODS.destroy_cards(to_destroy)
-    G.GAME.paperback.destroy_no_calc = nil
   end
 
   return end_round_ref()
+end
+
+-- Removes cards destroyed due to temporary sticker from calculation
+local calculate_context_ref = SMODS.calculate_context
+function SMODS.calculate_context(context, return_table, no_resolve)
+  -- Remove non playing cards
+  if context.joker_type_destroyed and context.card.paperback_temporary_removed then
+    return not return_table and {}
+  end
+
+  -- Remove playing cards
+  if context.remove_playing_cards then
+    local non_temporary_removed = {}
+    for _, card in ipairs(context.removed) do
+      if not card.paperback_temporary_removed then
+        table.insert(non_temporary_removed, card)
+      end
+    end
+
+    -- Cancel the context call if there are no removed cards
+    if #non_temporary_removed <= 0 then
+      return not return_table and {}
+    end
+
+    context.removed = non_temporary_removed
+  end
+
+  return calculate_context_ref(context, return_table, no_resolve)
 end
