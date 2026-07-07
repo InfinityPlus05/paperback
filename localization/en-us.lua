@@ -1164,7 +1164,7 @@ return {
           "{X:mult,C:white}+X#1#{} Mult for each {C:paperback_light_suit}light suit{}",
           "and {X:mult,C:white}-X#1#{} Mult for each {C:paperback_dark_suit}dark suit{}",
           "in your full deck",
-          "{C:inactive}(Currently {X:mult,C:white}#2#{C:inactive} Mult){}",
+          "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult){}",
         },
         unlock = {
           "Have a deck containing {C:attention}only{}",
@@ -2830,6 +2830,25 @@ return {
           "This Joker gives {X:mult,C:white}X#1#{} Mult for each",
           "played and scored {C:attention}#2#{} this round",
           "{C:inactive}(Currently {X:mult,C:white}X#3#{C:inactive} Mult){}"
+        }
+      },
+      j_paperback_doppler_radar = {
+        name = "Doppler Radar",
+        text = {
+          "Create a random {C:planet}#1#{} card",
+          "for each empty {C:attention}consumable{} slot",
+          "upon clearing a blind"
+        }
+      },
+      j_paperback_cardboard_box = {
+        name = "Cardboard Box",
+        text = {
+          "If the first played hand of round",
+          "contains a scoring queen",
+          "add {C:money}$#1#{} of {C:attention}sell value",
+          "to every {C:attention}Joker{}",
+          "Increases by {C:money}$#2#{} when",
+          "a {C:attention}Food Joker{} is destroyed"
         }
       },
       -- Cross-Mod jokers start here
