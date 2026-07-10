@@ -2851,6 +2851,29 @@ return {
           "a {C:attention}Food Joker{} is destroyed"
         }
       },
+      j_paperback_malibu = {
+        name = "Malibu",
+        text = {
+          "This {C:attention}Joker{} gives {C:chips}Chips{} equal to",
+          "{C:attenttion}#1#{} times the {C:attenttion}lowest{} Chip value",
+          "card in scored hand"
+        },
+      },
+      j_paperback_spirit_box = {
+        name = "Spirit Box",
+        text = {
+          "Create a random {C:attention}Tag{} if",
+          "{C:attention}played hand{} contains a {C:attention}#1#{}.",
+          "{C:inactive}(Once per round)",
+          "{s:0.75}poker hand changes at end of round"
+        }
+      },
+      j_paperback_seven_stars = {
+        name = "Seven Stars",
+        text = {
+          "Retrigger all scored {C:paperback_stars}#1#{}"
+        }
+      },
       -- Cross-Mod jokers start here
       j_paperback_moon_waltz = {
         name = "Moon Waltz",
