@@ -52,16 +52,8 @@ SMODS.Joker {
           func = function()
             -- Only redeem once the first redeem is over
             if G.STATE ~= G.STATES.SMODS_REDEEM_VOUCHER then
-              G.E_MANAGER:add_event(Event {
-                trigger = 'after',
-                delay = 1,
-                func = function()
-                  PB_UTIL.redeem_voucher(voucher)
-                  card:juice_up()
-                  return true
-                end
-              })
-
+              PB_UTIL.redeem_voucher(voucher)
+              card:juice_up()
               return true
             end
           end
