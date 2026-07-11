@@ -33,8 +33,9 @@ SMODS.Joker {
       for _, c in ipairs(context.scoring_hand) do
         table.insert(chip_table, c:get_chip_bonus())
       end
+
       return {
-        chips = math.min(table.unpack(chip_table)) * card.ability.extra.multiplier
+        chips = math.min(unpack(chip_table)) * card.ability.extra.multiplier
       }
     end
   end
