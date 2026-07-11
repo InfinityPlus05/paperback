@@ -43,14 +43,14 @@ SMODS.Joker {
 
   calculate = function(self, card, context)
     if context.modify_hand then
-      hand_chips = card.ability.extra.set_base_chips
-      update_hand_text({ sound = 'chips2', modded = true }, { chips = hand_chips, mult = mult })
-      return
+      SMODS.Scoring_Parameters.chips.current = card.ability.extra.set_base_chips
+      update_hand_text(
+        { sound = 'chips2', modded = true },
+        { chips = card.ability.extra.set_base_chips }
+      )
     end
 
-    if context.individual and context.cardarea == G.play
-    and PB_UTIL.is_suit(context.other_card, 'light') then
-      local chips = card.ability.extra.chips
+    if context.individual and context.cardarea == G.play and PB_UTIL.is_suit(context.other_card, 'light') then
       if not context.blueprint then
         SMODS.scale_card(card, {
           ref_table = card.ability.extra,
@@ -59,8 +59,9 @@ SMODS.Joker {
           no_message = true
         })
       end
+
       return {
-        chips = chips
+        chips = card.ability.extra.chips
       }
     end
   end,
