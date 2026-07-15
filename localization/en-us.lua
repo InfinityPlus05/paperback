@@ -2874,6 +2874,43 @@ return {
           "Retrigger all scored {C:paperback_stars}#1#{}"
         }
       },
+      j_paperback_lone_digger = {
+        name = "Lone Digger",
+        text = {
+          "If {C:attention}scored hand{} has only",
+          "one face card, {C:attention}retrigger{} it",
+          "for each scored card"
+        }
+      },
+      j_paperback_sinister_minds = {
+        name = "Sinister Minds",
+        text = {
+          "Retrigger all scored cards {C:attention}#1#{} time#2#",
+          "if played hand was a {C:attention}#7#",
+          "Increases by {C:attention}#3#{} when",
+          "using {C:attention}#4#{} {C:spectral}#5#{} card#6#",
+          "{C:inactive}(Currently {C:attention}#8#{C:inactive} #5# card#6# left)"
+        }
+      },
+      j_paperback_joker_jacks = {
+        name = "Joker Jacks",
+        text = {
+          "Scored {C:attention}#2#{} give {C:money}$#1#",
+          "Decreases by {C:money}$#3#",
+          "Create a {C:attention}prize{}",
+          "after being consumed",
+          "{C:inactive}(Must have room)"
+        }
+      },
+      j_paperback_ponzu = {
+        name = "Ponzu",
+        text = {
+          "{V:1}#4#{} held in hand have a ",
+          "{C:green}#1# in #2#{} chance to give {C:money}$#3#",
+          "{C:red,E:1}Consumed{} if not triggered",
+          "{s:0.8}suit changes at end of round"
+        }
+      },
       -- Cross-Mod jokers start here
       j_paperback_moon_waltz = {
         name = "Moon Waltz",
@@ -4480,6 +4517,7 @@ return {
       paperback_a_plus_cards = "+#1# #2#s",
       paperback_a_plus_tags = "+#1# Tags",
       paperback_a_dollars = "$#1#",
+      paperback_a_dollars_minus = "-$#1#",
       paperback_a_odds = "+#1# Odds",
 
       paperback_a_plus_consumable_slot = "+#1# Consumable Slots",
