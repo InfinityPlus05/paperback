@@ -46,7 +46,7 @@ SMODS.Joker {
   check_for_unlock = function(self, args)
     if args.type == 'modify_deck' and next(G.playing_cards) then
       for k, v in pairs(G.playing_cards) do
-        if not PB_UTIL.is_suit(v, 'light') then break end
+        if not PB_UTIL.is_suit(v, 'light') then return false end
       end
       return true
     end
