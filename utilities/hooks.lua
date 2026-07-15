@@ -36,10 +36,10 @@ function Game.init_game_object(self)
     arcana_used = {},
     sold_ego_gifts = {},
     finished_antes = {},
-    find_jimbo_unlock = false,
     max_consumeables = 0,
     jester_destroying_cards = false,
     coin_collection_adding_money = false,
+    hand_has_jack = false,
 
     permabonus_odds = 0,
 
@@ -245,7 +245,14 @@ end
 -- For nichola
 local calculate_main_scoring_ref = SMODS.calculate_main_scoring
 function SMODS.calculate_main_scoring(context, scoring_hand)
+  G.GAME.paperback.find_jimbo_unlock = false
   calculate_main_scoring_ref(context, scoring_hand)
+  -- for find jimbo unlock
+  for _, card in ipairs(context.scoring_hand) do
+    if PB_UTIL.is_rank(card, "Jack") then
+      G.GAME.paperback.find_jimbo_unlock = true
+    end
+  end
   if context.cardarea == G.play or context.cardarea == 'unscored' then
     SMODS.calculate_context {
       paperback = {
