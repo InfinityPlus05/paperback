@@ -2114,13 +2114,16 @@ return {
           "{s:0.9,C:inactive}(Doesn't require room..?){}",
         }
       },
-      j_paperback_off_switch = {
+      j_paperback_off_switch = { 
         name = "OFF Switch",
         text = {
           "When a {C:attention}playing card{} is destroyed,",
           "attempt to destroy leftmost destructible Joker",
           "and gain {X:mult,C:white}X#1#{} Mult if successful",
           "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
+        },
+        unlock = {
+          "{E:1,s:1.3}?????",
         }
       },
       j_paperback_off_alpha = {
@@ -2130,6 +2133,9 @@ return {
           "Joker {C:attention}destroyed",
           "{C:inactive}(Currently {C:chips}+#2# {C:inactive}Chips)",
         },
+        unlock = {
+          "{E:1,s:1.3}?????",
+        }
       },
       j_paperback_off_omega = {
         name = "Omega",
@@ -2138,6 +2144,9 @@ return {
           "Joker {C:attention}destroyed",
           "{C:inactive}(Currently {C:mult}+#2# {C:inactive}Mult)",
         },
+        unlock = {
+          "{E:1,s:1.3}?????",
+        }
       },
       j_paperback_off_epsilon = {
         name = "Epsilon",
@@ -2145,6 +2154,9 @@ return {
           "Earns {C:gold}$#1#{} for each",
           "Joker {C:attention}destroyed",
         },
+        unlock = {
+          "{E:1,s:1.3}?????",
+        }
       },
       j_paperback_superjoker = {
         name = "SUPERJOKER",
@@ -3846,6 +3858,12 @@ return {
         name = "Locked",
         text = {
           "Activate {C:attention,E:1}#1#{}'s ability",
+        }
+      },
+      paperback_upgrade_locked = {
+        name = "Locked",
+        text = {
+          "{E:1,s:1.3}?????"
         }
       },
       paperback_illusion_clips = {

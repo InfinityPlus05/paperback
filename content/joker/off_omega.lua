@@ -36,7 +36,7 @@ SMODS.Joker {
   end,
 
   locked_loc_vars = function(self, info_queue, card)
-    return { vars = { G.localization.descriptions.Joker.j_paperback_off_switch.name } }
+    return { vars = { G.localization.descriptions.Joker.j_paperback_the_batter.name } }
   end,
 
   loc_vars = function(self, info_queue, card)
