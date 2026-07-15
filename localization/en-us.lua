@@ -1832,6 +1832,11 @@ return {
           "or trigger its {C:attention}ability{}",
           "{C:inactive}(Currently {}{X:red,C:white}X#2#{}{C:inactive} Mult){}",
         },
+        unlock = {
+          "Disable the",
+          "{C:attention,E:1}Crimson Heart",
+          "Boss Blind"
+        }
       },
       j_paperback_subterfuge = {
         name = "Subterfuge",
