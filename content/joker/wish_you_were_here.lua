@@ -15,7 +15,7 @@ SMODS.Joker {
   pos = { x = 4, y = 0 },
   atlas = "jokers_atlas",
   cost = 6,
-  unlocked = true,
+  unlocked = false,
   discovered = false,
   blueprint_compat = true,
   eternal_compat = true,
@@ -35,6 +35,20 @@ SMODS.Joker {
       }
     }
   end,
+
+  check_for_unlock = function(self, args)
+    if args.type == 'paperback_wywh_sell_value' then
+      return true
+    end
+  end,
+
+  locked_loc_vars = function(self, info_queue, back)
+      return {
+        vars = {
+          50
+        }
+      }
+    end,
 
   calculate = function(self, card, context)
     if context.joker_main then
@@ -82,3 +96,10 @@ SMODS.Joker {
     }
   end,
 }
+local set_sell_value_ref = Card.set_sell_value
+function Card:set_sell_value()
+  set_sell_value_ref(self)
+  if self.sell_cost >= 50 then
+    check_for_unlock({ type = 'paperback_wywh_sell_value' })
+  end
+end
