@@ -29,7 +29,7 @@ return {
           "and a {C:paperback_minor_arcana,T:c_paperback_nine_of_cups}#2#"
         },
         unlock = {
-          "Discover {C:attention}#1#{}",
+          "Discover {C:attention,E:1}#1#{}",
           "{C:paperback_minor_arcana,E:1}Minor Arcana{} cards"
         },
       },
@@ -294,8 +294,8 @@ return {
           "{C:inactive}(Currently {C:money}$#3#{C:inactive})",
         },
         unlock = {
-          "Have {C:attention}#1#{} or more {C:attention}Gold{}",
-          "{C:attention}Aces{} in your deck",
+          "Have {C:attention,E:1}#1#{} or more {C:attention,E:1}Gold{}",
+          "{C:attention,E:1}Aces{} in your deck",
         }
       },
       j_paperback_pear = {
@@ -324,6 +324,11 @@ return {
           "{C:inactive}(Currently {X:mult,C:white}X#8#{C:inactive} Mult)",
           "{C:green}#5# in #6#{} chance to create a {C:tarot}#7#{} Tarot",
           "{C:inactive}(Must have room)",
+        },
+        unlock = {
+          "Acquire both {C:attention,E:1}#1#{}",
+          "and {C:attention,E:1}#2#{} in",
+          "the same run",
         }
       },
       j_paperback_blood_rain = {
@@ -589,7 +594,7 @@ return {
           "create a random {C:attention}Tag{}",
         },
         unlock = {
-          "Have {C:attention}#1#{} Aces",
+          "Have {C:attention,E:1}#1#{} Aces",
           "in your deck",
         }
       },
@@ -619,8 +624,8 @@ return {
           "{C:green}+#1#{} to all {C:green}listed probabilites{}",
         },
         unlock = {
-          "Have {C:attention}#1#{}",
-          "for {C:attention}#2#{} round",
+          "Have {C:attention,E:1}#1#{}",
+          "for {C:attention,E:1}#2#{} round",
         }
       },
       j_paperback_hamsa_r_collection = {
@@ -630,8 +635,8 @@ return {
           "{C:green}+#1#{} to all {C:green}listed probabilites{}",
         },
         unlock = {
-          "Have {C:attention}#1#{}",
-          "for {C:attention}#2#{} round",
+          "Have {C:attention,E:1}#1#{}",
+          "for {C:attention,E:1}#2#{} round",
         }
       },
       j_paperback_nazar = {
@@ -655,8 +660,8 @@ return {
           "{C:attention}shuffled{} before scoring",
         },
         unlock = {
-          "Use the {C:attention}Ouija{}",
-          "{C:spectral}Spectral{} card",
+          "Use the {C:attention,E:1}Ouija{}",
+          "{C:spectral,E:1}Spectral{} card",
         }
       },
       j_paperback_planchette = {
@@ -667,7 +672,7 @@ return {
           "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
         },
         unlock = {
-          "Use {C:attention}#1# {C:spectral}Spectral",
+          "Use {C:attention,E:1}#1# {C:spectral,E:1}Spectral",
           "cards in one run",
         }
       },
@@ -1079,7 +1084,7 @@ return {
         },
         unlock = {
           "Win a run with",
-          "{C:attention}#1#{}"
+          "{C:attention,E:1}#1#{}"
         }
       },
       j_paperback_black_forest_cake = {
@@ -1167,8 +1172,8 @@ return {
           "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult){}",
         },
         unlock = {
-          "Have a deck containing {C:attention}only{}",
-          "{C:paperback_light_suit}light suits{}"
+          "Have a deck containing {C:attention,E:1}only{}",
+          "{C:paperback_light_suit,E:1}light suits{}"
         }
       },
       j_paperback_telamon = {
@@ -1413,7 +1418,7 @@ return {
           "after defeating a {C:attention}Boss Blind{}",
         },
         unlock = {
-          "Own a {C:dark_edition}Negative{}",
+          "Own a {C:dark_edition,E:1}Negative{}",
           "{C:attention,E:1}Food Joker"
         }
       },
@@ -1944,7 +1949,7 @@ return {
           "{C:inactive}(Currently {X:mult,C:white}X#2#{} {C:inactive}Mult)",
         },
         unlock = {
-          "Use {C:attention,E:1}#1#{} different {C:planet}#2#{}",
+          "Use {C:attention,E:1}#1#{} different {C:planet,E:1}#2#{}",
           "cards in a run"
         }
       },
@@ -2230,8 +2235,8 @@ return {
         },
         unlock = {
           "Win a run with",
-          "{C:attention}#1#{} on at least",
-          "{V:1}#2#{} difficulty",
+          "{C:attention,E:1}#1#{} on at least",
+          "{V:1,E:1}#2#{} difficulty",
         }
       },
       j_paperback_in_case_i_make_it = {

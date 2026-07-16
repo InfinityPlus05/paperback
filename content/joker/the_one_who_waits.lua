@@ -25,6 +25,7 @@ SMODS.Joker {
   blueprint_compat = true,
   eternal_compat = true,
   perishable_compat = false,
+  unlocked = false,
   paperback = {
     requires_custom_suits = true
   },
@@ -34,6 +35,13 @@ SMODS.Joker {
 
   in_pool = function(self, args)
     return PB_UTIL.spectrum_played() or PB_UTIL.has_suit_in_deck('paperback_Crowns', true)
+  end,
+
+  check_for_unlock = function(self, args) 
+    local owned = G.GAME.paperback.jokers_owned_this_run
+
+    return (owned["j_paperback_unholy_alliance"] or 0) >= 1 
+      and (owned["j_paperback_sacrificial_lamb"] or 0) >= 1
   end,
 
   loc_vars = function(self, info_queue, card)
@@ -59,6 +67,24 @@ SMODS.Joker {
         colours = {
           G.C.SUITS[card.ability.extra.suit] or G.C.PAPERBACK_CROWNS_LC
         }
+      }
+    }
+  end,
+
+  locked_loc_vars = function(self, info_queue, card)
+    local other_name = localize('k_unknown')
+    local other_other_name = localize('k_unknown')
+    if G.P_CENTERS['j_paperback_sacrificial_lamb'].unlocked then
+      other_name = localize { type = 'name_text', set = 'Joker', key = 'j_paperback_sacrificial_lamb' }
+    end
+    if G.P_CENTERS['j_paperback_unholy_alliance'].unlocked then
+      other_other_name = localize { type = 'name_text', set = 'Joker', key = 'j_paperback_unholy_alliance' }
+    end
+  
+    return {
+      vars = {
+        other_name,
+        other_other_name
       }
     }
   end,

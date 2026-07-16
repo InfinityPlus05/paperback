@@ -39,7 +39,8 @@ function Game.init_game_object(self)
     max_consumeables = 0,
     jester_destroying_cards = false,
     coin_collection_adding_money = false,
-    hand_has_jack = false,
+    find_jimbo_unlock = false,
+    jokers_owned_this_run = {},
 
     permabonus_odds = 0,
 
@@ -245,14 +246,7 @@ end
 -- For nichola
 local calculate_main_scoring_ref = SMODS.calculate_main_scoring
 function SMODS.calculate_main_scoring(context, scoring_hand)
-  G.GAME.paperback.find_jimbo_unlock = false
   calculate_main_scoring_ref(context, scoring_hand)
-  -- for find jimbo unlock
-  for _, card in ipairs(context.scoring_hand) do
-    if PB_UTIL.is_rank(card, "Jack") then
-      G.GAME.paperback.find_jimbo_unlock = true
-    end
-  end
   if context.cardarea == G.play or context.cardarea == 'unscored' then
     SMODS.calculate_context {
       paperback = {
@@ -473,4 +467,17 @@ function SMODS.calculate_context(context, return_table, no_resolve)
   end
 
   return calculate_context_ref(context, return_table, no_resolve)
+end
+
+-- Keeps track of Jokers obtained this run
+local add_to_deck_ref = Card.add_to_deck
+function Card:add_to_deck(from_debuff)
+  add_to_deck_ref(self, from_debuff)
+  if self.ability.set == 'Joker' then
+    if not G.GAME.paperback.jokers_owned_this_run[self.config.center.key] then
+      G.GAME.paperback.jokers_owned_this_run[self.config.center.key] = 1
+    else
+      G.GAME.paperback.jokers_owned_this_run[self.config.center.key] = 1 + G.GAME.paperback.jokers_owned_this_run[self.config.center.key]
+    end
+  end
 end
