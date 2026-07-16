@@ -1695,9 +1695,10 @@ return {
           "at end of round...",
         },
         unlock = {
-          "Have a hand",
-          "size of {C:attention,E:1}#1#",
-          "or more cards"
+          "Increase hand",
+          "size by {C:attention,E:1}#1#",
+          "or more cards",
+          "during a run"
         }
       },
       j_paperback_skydiver = {
