@@ -1692,7 +1692,11 @@ return {
         text = {
           "{C:attention}+#1#{} hand size",
           "{C:blue}#2#{} Hand"
-        }
+        },
+        unlock = {
+          "Play a",
+          "{C:attention,E:1}Wild 4",
+        },
       },
       j_paperback_quick_fix = {
         name = "Quick Fix",
