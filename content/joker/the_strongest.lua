@@ -36,7 +36,7 @@ SMODS.Joker {
   end,
 
   in_pool = function(self, args)
-    for _, v in ipairs(G.consumeables or {}) do
+    for _, v in ipairs(G.consumeables.cards or {}) do
       if PB_UTIL.is_ego_gift(v) then return true end
     end
   end,
