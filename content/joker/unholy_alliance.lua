@@ -16,7 +16,7 @@ SMODS.Joker {
   pos = { x = 6, y = 4 },
   atlas = 'jokers_atlas',
   cost = 6,
-  unlocked = true,
+  unlocked = false,
   discovered = false,
   blueprint_compat = true,
   eternal_compat = true,
@@ -32,6 +32,24 @@ SMODS.Joker {
       vars = {
         card.ability.extra.a_chips,
         card.ability.extra.chips,
+      }
+    }
+  end,
+
+  check_for_unlock = function(self, args)
+    if args.type == 'paperback_sacrificial_lamb_loss' then
+      return true
+    end
+  end,
+
+  locked_loc_vars = function(self, info_queue, card)
+    local other_name = localize('k_unknown')
+    if G.P_CENTERS['j_paperback_sacrificial_lamb'].unlocked then
+      other_name = localize { type = 'name_text', set = 'Joker', key = 'j_paperback_sacrificial_lamb' }
+    end
+    return {
+      vars = {
+        other_name, 15
       }
     }
   end,

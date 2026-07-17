@@ -2062,6 +2062,11 @@ return {
           "when a card or Joker is {C:attention}destroyed{}",
           "{C:inactive}(Currently {C:chips}+#2#{C:inactive} Chips)",
         },
+        unlock = {
+          "Lose a run with",
+          "{C:attention,E:1}#1#{}",
+          "at {C:mult,E:1}+#2#{} Mult or more",
+        }
       },
       j_paperback_blazing_trails = {
         name = "Blazing Trails",
