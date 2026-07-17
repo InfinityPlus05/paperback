@@ -1683,8 +1683,15 @@ return {
           "This Joker gains {X:mult,C:white}X#1#",
           "Mult if discard contains",
           "exactly {C:attention}one{} card",
-          "Resets if played hand contains a {C:attention}Pair{}",
+          "Resets if played hand",
+          "contains a {C:attention}Pair{}",
           "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
+        },
+        unlock = {
+          "Win a run",
+          "without playing",
+          "a hand that",
+          "contains a {E:1,C:attention}#1#",
         },
       },
       j_paperback_wild_plus_four = {

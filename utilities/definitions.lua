@@ -38,8 +38,9 @@ SMODS.current_mod.calculate = function(self, context)
     end
   end
 
-  -- green clip: gain mult for every other played and scored clip
+  
   if context.before then
+    -- green clip: gain mult for every other played and scored clip
     local clips_played = PB_UTIL.count_paperclips { area = context.scoring_hand }
     if clips_played > 0 then
       for _, v in ipairs(G.playing_cards) do
@@ -53,6 +54,11 @@ SMODS.current_mod.calculate = function(self, context)
           clip_table.odd = clips_played_plus_odd % 2
         end
       end
+    end
+
+    -- checks if played hand contains a pair for Mismatched Sock's unlock
+    if next(context.poker_hands['Pair']) then
+      G.GAME.paperback.played_pair_this_run = true
     end
   end
 

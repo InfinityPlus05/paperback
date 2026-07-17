@@ -45,6 +45,7 @@ function Game.init_game_object(self)
     coin_collection_adding_money = false,
     find_jimbo_unlock = false,
     jokers_owned_this_run = {},
+    played_pair_this_run = false,
 
     permabonus_odds = 0,
 
