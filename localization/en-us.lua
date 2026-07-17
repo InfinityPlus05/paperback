@@ -832,7 +832,11 @@ return {
           "{C:attention}#1#s{} have a",
           "{C:green}#2# in #3#{} chance to",
           "give {C:red}+#4#{} additional Mult"
-        }
+        },
+        unlock = {
+          "Play a",
+          "{C:attention,E:1}Mult 4",
+        },
       },
       j_paperback_festive_joker = {
         name = "Festive Joker",
