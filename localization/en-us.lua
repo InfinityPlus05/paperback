@@ -2073,6 +2073,10 @@ return {
         text = {
           "If discard has exactly {C:attention}#1#{} cards,",
           "destroy the {C:attention}rightmost{} card"
+        },
+        unlock = {
+          "Destroy a", 
+          "{C:paperback_stars,E:1}Star{} Card"
         }
       },
       j_paperback_summoning_circle = {
