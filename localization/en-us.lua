@@ -1657,6 +1657,11 @@ return {
           "{C:paperback_dark_suit}dark{} and {C:paperback_light_suit}light suits{}",
           "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
         },
+        unlock = {
+          "Score a card",
+          "{C:attention,E:1}#1#{} times in",
+          "one run"
+        },
       },
       j_paperback_hole_in_one = {
         name = "Hole in One",

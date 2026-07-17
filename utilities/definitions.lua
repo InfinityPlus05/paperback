@@ -14,7 +14,7 @@ SMODS.current_mod.calculate = function(self, context)
   if context.remove_playing_cards then
     for _, v in ipairs(context.removed or {}) do
       G.GAME.paperback.destroyed_cards = G.GAME.paperback.destroyed_cards + 1
-      G.GAME.paperback.destroyed_cards_this_round = G.GAME.paperback.destroyed_cards_this_round + 1
+      G.GAME.paperback.round.destroyed_cards_this_round = G.GAME.paperback.round.destroyed_cards_this_round + 1
 
       -- Count the amount of destroyed dark suits
       if PB_UTIL.is_suit(v, 'dark', false, true) then
@@ -102,6 +102,13 @@ SMODS.current_mod.calculate = function(self, context)
       -- counting face cards
       if v:is_face() then
         G.GAME.paperback.round.scored_face_cards = G.GAME.paperback.round.scored_face_cards + 1
+      end
+    end
+    for i, v in ipairs(context.full_hand) do
+      if not v.paperback_num_times_played then
+        v.paperback_num_times_played = 1
+      else
+        v.paperback_num_times_played = v.paperback_num_times_played + 1
       end
     end
   end

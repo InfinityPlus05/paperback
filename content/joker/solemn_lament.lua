@@ -18,7 +18,7 @@ SMODS.Joker {
   pos = { x = 3, y = 1 },
   atlas = "jokers_atlas",
   cost = 8,
-  unlocked = true,
+  unlocked = false,
   discovered = false,
   blueprint_compat = true,
   eternal_compat = true,
@@ -41,9 +41,24 @@ SMODS.Joker {
     }
   end,
 
-  -- check_for_unlock = function(self, args)
-  --       Not implementable atm without custom args :(
-  -- end,
+  check_for_unlock = function(self, args)
+    if args.type == 'hand_contents' then
+      for k, v in pairs(G.playing_cards) do
+        -- Check being -1 is intentional - function runs before the variable is incremented
+        if v.paperback_num_times_played and v.paperback_num_times_played >= 7 then
+          return true
+        end
+      end
+    end
+  end,
+
+  locked_loc_vars = function(self, info_queue, card)
+    return {
+      vars = {
+        8
+      }
+    }
+  end,
 
   calculate = function(self, card, context)
     if context.before and not context.blueprint then
