@@ -14,7 +14,7 @@ SMODS.Joker {
   pos = { x = 1, y = 6 },
   atlas = 'jokers_atlas',
   cost = 6,
-  unlocked = true,
+  unlocked = false,
   discovered = false,
   blueprint_compat = true,
   eternal_compat = true,
@@ -32,6 +32,16 @@ SMODS.Joker {
         denominator
       }
     }
+  end,
+
+  check_for_unlock = function(self, args)
+    if G.consumeables then
+      for k, v in ipairs(G.consumeables.cards) do
+        if v.edition and v.edition.negative then
+          return true
+        end
+      end
+    end
   end,
 
   calculate = function(self, card, context)

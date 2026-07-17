@@ -1375,6 +1375,10 @@ return {
           "{C:green}#1# in #2#{} chance to make a copy",
           "{C:inactive}(Cannot make copy of a copy)",
           "{C:inactive}(Must have room)"
+        },
+        unlock = {
+          "Acquire a",
+          "{C:dark_edition,E:1}Negative {C:attention,E:1}Consumable",
         }
       },
       j_paperback_big_misser = {
@@ -3636,7 +3640,9 @@ return {
           "appear in the {C:money}Shop"
         },
         unlock = {
-          "Use {C:attention,E:1}#1#{} {C:paperback_minor_arcana,E:1}Minor Arcana{} in one Run"
+          "Use at least",
+          "{C:attention,E:1}#1#{} {C:paperback_minor_arcana,E:1}Minor Arcana{}",
+          "in one Run"
         }
       },
       v_paperback_second_trumpet = {
@@ -3653,7 +3659,9 @@ return {
           "{C:attention}disables{} the current {C:attention}Boss Blind"
         },
         unlock = {
-          "Sell {C:attention,E:1}#1#{} {C:paperback_ego_gift,E:1}E.G.O Gifts{} in one Run"
+          "Sell at least",
+          "{C:attention,E:1}#1#{} {C:paperback_ego_gift,E:1}E.G.O Gifts{}",
+          "in one Run"
         }
       },
     },
