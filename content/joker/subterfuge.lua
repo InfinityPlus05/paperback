@@ -23,7 +23,7 @@ SMODS.Joker {
   },
 
   check_for_unlock = function(self, args)
-    if G.GAME.paperback.destroyed_cards_this_round >= 6 then
+    if G.GAME.paperback.round.destroyed_cards_this_round >= 6 then
       return true
     end
   end,

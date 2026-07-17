@@ -2352,7 +2352,12 @@ return {
           "a scoring {C:attention}face{} card,",
           "{C:green}#1# in #2#{} chance to gain",
           "{C:mult}+#3#{} discard this round",
-        }
+        },
+        unlock = {
+          "Score {C:attention,E:1}#1#{}",
+          "Face Cards in",
+          "{C:attention,E:1}one round",
+        },
       },
       j_paperback_apple = {
         name = "Apple",

@@ -16,7 +16,9 @@ function Game.init_game_object(self)
     reference_card_ct = 0,
 
     round = {
-      scored_clips = 0
+      scored_clips = 0,
+      scored_face_cards = 0,
+      destroyed_cards_this_round = 0,
     },
     ceramic_inc = 0,
     bandaged_inc = 0,
@@ -26,7 +28,6 @@ function Game.init_game_object(self)
     destroyed_crowns = 0,
     destroyed_stars = 0,
     destroyed_cards = 0,
-    destroyed_cards_this_round = 0,
     last_tarot_energized = false,
     ranks_scored_this_ante = {},
     last_scored_suit = 'Spades',

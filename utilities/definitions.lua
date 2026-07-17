@@ -38,11 +38,6 @@ SMODS.current_mod.calculate = function(self, context)
     end
   end
 
-  -- Reset the amount of removed playing cards this round
-  if context.end_of_round then
-    G.GAME.paperback.destroyed_cards_this_round = 0
-  end
-
   -- green clip: gain mult for every other played and scored clip
   if context.before then
     local clips_played = PB_UTIL.count_paperclips { area = context.scoring_hand }
@@ -100,10 +95,14 @@ SMODS.current_mod.calculate = function(self, context)
     PB_UTIL.calculate_highest_shared_played(card)
   end
 
-  -- handle permabonus odds
   if context.before then
     for i, v in ipairs(context.scoring_hand) do
+      -- handle permabonus odds
       G.GAME.paperback.permabonus_odds = G.GAME.paperback.permabonus_odds + v.ability.perma_paperback_plus_odds
+      -- counting face cards
+      if v:is_face() then
+        G.GAME.paperback.round.scored_face_cards = G.GAME.paperback.round.scored_face_cards + 1
+      end
     end
   end
   if context.mod_probability then
@@ -157,6 +156,8 @@ end
 -- Update values that get reset at the start of each round
 SMODS.current_mod.reset_game_globals = function(run_start)
   G.GAME.paperback.round.scored_clips = 0
+  G.GAME.paperback.round.played_face_cards = 0
+  G.GAME.paperback.round.destroyed_cards_this_round = 0
   G.GAME.paperback.highest_rank_this_round = nil
   G.GAME.paperback.weather_radio_hand = PB_UTIL.get_random_visible_hand('weather_radio')
   G.GAME.paperback.joke_master_hand = PB_UTIL.get_random_visible_hand('joke_master')
