@@ -20,6 +20,21 @@ SMODS.current_mod.calculate = function(self, context)
       if PB_UTIL.is_suit(v, 'dark', false, true) then
         G.GAME.paperback.destroyed_dark_suits = G.GAME.paperback.destroyed_dark_suits + 1
       end
+
+      -- Count the amount of destroyed light suits
+      if PB_UTIL.is_suit(v, 'light', false, true) then
+        G.GAME.paperback.destroyed_light_suits = G.GAME.paperback.destroyed_light_suits + 1
+      end
+
+      -- Count the amount of destroyed crowns
+      if v:is_suit('paperback_Crowns') then
+        G.GAME.paperback.destroyed_crowns = G.GAME.paperback.destroyed_crowns + 1
+      end
+
+      -- Count the amount of destroyed stars
+      if v:is_suit('paperback_Stars') then
+        G.GAME.paperback.destroyed_stars = G.GAME.paperback.destroyed_stars + 1
+      end
     end
   end
 

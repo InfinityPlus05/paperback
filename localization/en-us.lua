@@ -326,9 +326,8 @@ return {
           "{C:inactive}(Must have room)",
         },
         unlock = {
-          "Acquire both {C:attention,E:1}#1#{}",
-          "and {C:attention,E:1}#2#{} in",
-          "the same run",
+          "Destroy a", 
+          "{C:paperback_crowns,E:1}Crown{} Card"
         }
       },
       j_paperback_blood_rain = {
