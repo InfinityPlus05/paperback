@@ -399,6 +399,11 @@ return {
           "each card {C:attention}held in hand{} has a",
           "{C:green}#1# in #2#{} chance to get a random {C:attention}enhancement{}",
           "and a {C:green}#1# in #3#{} chance to get a random {C:attention}seal{}"
+        },
+        unlock = {
+          "Have a playing card",
+          "with an {C:attention,E:1}enhancement{}, {C:attention,E:1}seal{},",
+          "{C:attention,E:1}edition{}, and {C:attention,E:1}paperclip"
         }
       },
       j_paperback_one_sin_and_hundreds_of_good_deeds = {
@@ -3665,7 +3670,7 @@ return {
         },
         unlock = {
           "Use at least",
-          "{C:attention,E:1}#1#{} {C:paperback_minor_arcana,E:1}Minor Arcana{}",
+          "{C:attention}#1#{} {C:paperback_minor_arcana}Minor Arcana{}",
           "in one Run"
         }
       },
@@ -3684,7 +3689,7 @@ return {
         },
         unlock = {
           "Sell at least",
-          "{C:attention,E:1}#1#{} {C:paperback_ego_gift,E:1}E.G.O Gifts{}",
+          "{C:attention}#1#{} {C:paperback_ego_gift}E.G.O Gifts{}",
           "in one Run"
         }
       },
