@@ -115,8 +115,6 @@ if PB_UTIL.config.minor_arcana_enabled then
     end,
 
     use = function(self, card, area)
-      PB_UTIL.minor_arcana_profile_usage(1)
-
       if not self.config then return end
 
       if card.ability.paperclip or card.ability.mod_conv or card.ability.suit_conv then

@@ -19,8 +19,6 @@ PB_UTIL.MinorArcana {
   end,
 
   use = function(self, card, area)
-    PB_UTIL.minor_arcana_profile_usage(1)
-    
     local left = G.hand.highlighted[1]
     local right = G.hand.highlighted[2]
 

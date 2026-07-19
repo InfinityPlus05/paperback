@@ -20,8 +20,6 @@ PB_UTIL.MinorArcana {
   end,
 
   use = function(self, card, area)
-    PB_UTIL.minor_arcana_profile_usage(1)
-
     local pool = {}
 
     if PB_UTIL.get_unique_suits(G.hand.highlighted, nil, true) >= card.ability.max_highlighted then

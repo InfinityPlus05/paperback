@@ -11,8 +11,6 @@ PB_UTIL.MinorArcana {
   end,
 
   use = function(self, card, area)
-    PB_UTIL.minor_arcana_profile_usage(1)
-    
     PB_UTIL.use_consumable_animation(card, nil, function()
       PB_UTIL.try_spawn_card { set = 'paperback_minor_arcana', instant = true }
       PB_UTIL.try_spawn_card { set = 'Tarot', instant = true }

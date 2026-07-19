@@ -35,8 +35,6 @@ PB_UTIL.MinorArcana {
   end,
 
   use = function(self, card, area)
-    PB_UTIL.minor_arcana_profile_usage(1)
-    
     G.E_MANAGER:add_event(Event({
       func = function()
         if G.STATE ~= G.STATES.SHOP then

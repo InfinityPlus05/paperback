@@ -18,8 +18,6 @@ PB_UTIL.MinorArcana {
   end,
 
   use = function(self, card)
-    PB_UTIL.minor_arcana_profile_usage(1)
-
     local target = PB_UTIL.get_sorted_by_position(G.hand)[1]
 
     -- Collect which modifiers the target doesn't have

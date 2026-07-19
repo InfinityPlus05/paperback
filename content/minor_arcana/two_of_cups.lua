@@ -19,8 +19,6 @@ PB_UTIL.MinorArcana {
   end,
 
   use = function(self, card, area)
-    PB_UTIL.minor_arcana_profile_usage(1)
-    
     local tag = PB_UTIL.poll_tag("two_of_cups", {
       'tag_uncommon',
       'tag_rare',

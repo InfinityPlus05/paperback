@@ -75,8 +75,9 @@ SMODS.current_mod.calculate = function(self, context)
     end
   end
 
-  -- track Tarot + Minor Arcana usage for 8 of Pentacles
+  
   if context.using_consumeable then
+    -- track Tarot + Minor Arcana usage for 8 of Pentacles
     local center = context.consumeable.config.center
     local add_new = true
     if center.set == "Tarot" or center.set == "paperback_minor_arcana" then
@@ -89,6 +90,9 @@ SMODS.current_mod.calculate = function(self, context)
       if add_new then
         G.GAME.paperback.arcana_used[#G.GAME.paperback.arcana_used + 1] = center.key
       end
+    end
+    if center.set == "paperback_minor_arcana" then
+      PB_UTIL.minor_arcana_profile_usage(1)
     end
   end
 

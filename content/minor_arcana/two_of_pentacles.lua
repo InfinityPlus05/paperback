@@ -31,8 +31,6 @@ PB_UTIL.MinorArcana {
   end,
 
   use = function(self, card)
-    PB_UTIL.minor_arcana_profile_usage(1)
-    
     local joker = G.jokers.highlighted[1]
 
     if joker.config.center.paperback and joker.config.center.paperback.permanently_eternal then

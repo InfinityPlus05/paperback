@@ -18,8 +18,6 @@ PB_UTIL.MinorArcana {
   end,
 
   use = function(self, card, area)
-    PB_UTIL.minor_arcana_profile_usage(1)
-    
     local pool = {}
     local allow_apostles = false
 

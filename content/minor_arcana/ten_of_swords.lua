@@ -10,8 +10,6 @@ PB_UTIL.MinorArcana {
   },
 
   use = function(self, card, area)
-    PB_UTIL.minor_arcana_profile_usage(1)
-    
     PB_UTIL.use_consumable_animation(card, G.hand.highlighted, function()
       for _, k in ipairs(G.hand.highlighted) do
         local cards = {}
