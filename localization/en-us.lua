@@ -2535,6 +2535,11 @@ return {
           "{C:attention}#3#{} Ante",
           "{C:inactive}(Currently {C:attention}#2#{C:inactive}/#1#)",
         },
+        unlock = {
+          "Obtain {C:attention,E:1}#1#",
+          "{C:attention,E:1}#2#{} times",
+          "{C:inactive}(#3#)",
+        },
       },
       j_paperback_eyelander = {
         name = "Eyelander",
