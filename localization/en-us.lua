@@ -1741,6 +1741,10 @@ return {
           "for every {C:attention}#2#{} held in hand",
           "at {C:attention}end of round{}",
           "{C:inactive}(Currently {C:chips}+#3#{C:inactive} chips)"
+        },
+        unlock = {
+          "Convert a {C:attention,E:1}face card{}",
+          "into a {C:attention,E:1}#1#{}"
         }
       },
       j_paperback_blue_bonnets = {
