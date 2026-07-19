@@ -33,6 +33,8 @@ PB_UTIL.MinorArcana {
   end,
 
   use = function(self, card, area)
+    PB_UTIL.minor_arcana_profile_usage(1)
+    
     local faces = 0
     if G.playing_cards then
       for k, v in ipairs(G.playing_cards) do

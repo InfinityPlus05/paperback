@@ -26,6 +26,8 @@ PB_UTIL.MinorArcana {
   end,
 
   use = function(self, card, area)
+    PB_UTIL.minor_arcana_profile_usage(1)
+
     local amount = #G.GAME.paperback.arcana_used
 
     G.E_MANAGER:add_event(Event {

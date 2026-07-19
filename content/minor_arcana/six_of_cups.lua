@@ -20,6 +20,8 @@ PB_UTIL.MinorArcana {
   end,
 
   use = function(self, card, area)
+    PB_UTIL.minor_arcana_profile_usage(1)
+    
     local money = math.ceil(G.hand.highlighted[1]:get_chip_bonus() / 2)
 
     if money > 0 then

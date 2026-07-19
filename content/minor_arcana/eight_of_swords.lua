@@ -21,6 +21,8 @@ PB_UTIL.MinorArcana {
   end,
 
   use = function(self, card, area)
+    PB_UTIL.minor_arcana_profile_usage(1)
+
     PB_UTIL.use_consumable_animation(card, G.hand.highlighted, function()
       for _, v in ipairs(G.hand.highlighted) do
         local clip = PB_UTIL.poll_paperclip('eight_of_swords')

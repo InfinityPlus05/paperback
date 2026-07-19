@@ -24,6 +24,8 @@ PB_UTIL.MinorArcana {
   end,
 
   use = function(self, card)
+    PB_UTIL.minor_arcana_profile_usage(1)
+    
     ease_dollars(pseudorandom("ten_of_pentacles", card.ability.extra.min, card.ability.extra.max))
   end
 }

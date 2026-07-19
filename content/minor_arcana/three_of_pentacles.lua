@@ -20,6 +20,8 @@ PB_UTIL.MinorArcana {
   end,
 
   use = function(self, card)
+    PB_UTIL.minor_arcana_profile_usage(1)
+    
     local cards = PB_UTIL.get_sorted_by_position(G.hand)
     local target = cards[#cards]
     local enhancement = target.config.center.key

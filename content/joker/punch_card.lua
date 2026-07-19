@@ -30,6 +30,11 @@ SMODS.Joker {
     }
   end,
 
+  check_for_unlock = function(self, args) 
+    local owned = G.GAME.paperback.jokers_owned_this_run
+    return (owned["j_ice_cream"] or 0) >= 3
+  end,
+
   calculate = function(self, card, context)
     if context.selling_self and (card.ability.extra.current_rounds >= card.ability.extra.total_rounds) and not context.blueprint then
       ease_ante(card.ability.extra.antes)

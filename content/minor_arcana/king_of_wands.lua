@@ -11,6 +11,8 @@ PB_UTIL.MinorArcana {
   end,
 
   use = function(self, card)
+    PB_UTIL.minor_arcana_profile_usage(1)
+    
     local rarity = 1
 
     while rarity == 1 or rarity == 4 do

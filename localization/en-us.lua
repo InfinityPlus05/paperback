@@ -2521,6 +2521,11 @@ return {
           "{C:paperback_minor_arcana}#3#{} card used",
           "{C:inactive}(Currently {X:chips,C:white}X#2#{C:inactive} Chips)",
         },
+        unlock = {
+          "Use a total of {C:attention,E:1}#1#",
+          "{C:paperback_minor_arcana,E:1}Minor Arcana{} cards",
+          "{C:inactive}(#2#)",
+        },
       },
       j_paperback_punch_card = {
         name = "Punch Card",

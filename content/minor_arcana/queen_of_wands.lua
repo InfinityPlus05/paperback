@@ -37,6 +37,8 @@ PB_UTIL.MinorArcana {
   end,
 
   use = function(self, card)
+    PB_UTIL.minor_arcana_profile_usage(1)
+    
     local jokers = {}
 
     for k, v in ipairs(G.jokers.cards) do

@@ -28,6 +28,8 @@ PB_UTIL.MinorArcana {
   end,
 
   use = function(self, card, area)
+    PB_UTIL.minor_arcana_profile_usage(1)
+    
     if PB_UTIL.chance(card, 'ten_of_cups') then
       PB_UTIL.use_consumable_animation(card, nil, function()
         G.hand.highlighted[1]:set_edition('e_polychrome', true)

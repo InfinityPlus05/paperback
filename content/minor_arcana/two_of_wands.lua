@@ -11,6 +11,8 @@ PB_UTIL.MinorArcana {
   end,
 
   use = function(self, card, area)
+    PB_UTIL.minor_arcana_profile_usage(1)
+    
     local hands = PB_UTIL.get_most_played_hands()
     local most = hands[1].planet_key
     local least = hands[#hands].planet_key

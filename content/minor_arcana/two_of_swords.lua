@@ -20,6 +20,8 @@ PB_UTIL.MinorArcana {
   end,
 
   use = function(self, card, area)
+    PB_UTIL.minor_arcana_profile_usage(1)
+    
     PB_UTIL.use_consumable_animation(card, G.hand.highlighted, function()
       for _, v in ipairs(G.hand.highlighted) do
         assert(SMODS.change_base(v, G.GAME.paperback.last_scored_suit, nil))

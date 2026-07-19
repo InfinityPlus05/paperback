@@ -1434,3 +1434,13 @@ function PB_UTIL.refresh_shop_cost()
     end
   }))
 end
+
+--- Tracks Minor Arcana usage for profile
+--- @param val number
+function PB_UTIL.minor_arcana_profile_usage(val)
+  val = val or 1
+  G.PROFILES[G.SETTINGS.profile].career_stats.paperback_minor_arcana_used = (G.PROFILES[G.SETTINGS.profile].career_stats.paperback_minor_arcana_used or 0) + val
+  if G.PROFILES[G.SETTINGS.profile].career_stats.paperback_minor_arcana_used then
+    check_for_unlock({type = 'paperback_use_minor_arcana', minor_arcana_total = G.PROFILES[G.SETTINGS.profile].career_stats.paperback_minor_arcana_used})
+  end
+end

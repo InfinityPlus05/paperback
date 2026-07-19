@@ -30,6 +30,8 @@ PB_UTIL.MinorArcana {
   end,
 
   use = function(self, card, area)
+    PB_UTIL.minor_arcana_profile_usage(1)
+
     PB_UTIL.use_consumable_animation(card, nil, function()
       PB_UTIL.add_tag('tag_negative')
       ease_dollars(-(card.ability.base_cost + (card.ability.cost_per_joker * math.max(#(G.jokers and G.jokers.cards or {}) - G.GAME.starting_params.joker_slots, 0))))
