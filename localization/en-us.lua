@@ -1984,6 +1984,11 @@ return {
           "base {C:attention}poker hands{} have been played",
           "{C:inactive}(Currently {X:mult,C:white}X#2#{} {C:inactive}Mult)",
         },
+        unlock = {
+          "Play every base",
+          "{C:attention,E:1}poker hand{}",
+          "in one run",
+        },
       },
       j_paperback_dreamsicle = {
         name = "Dreamsicle",
@@ -2139,7 +2144,8 @@ return {
           "{C:inactive}(Currently the next {C:attention}#4#{C:inactive} hands)"
         },
         unlock = {
-          "Play a hand scoring {C:attention,E:1}#1#{} suits"
+          "Play a hand",
+          "scoring {C:attention,E:1}#1#{} suits"
         }
       },
       j_paperback_giga_size = {
