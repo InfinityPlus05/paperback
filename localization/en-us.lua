@@ -2868,6 +2868,10 @@ return {
           "{C:attention}+#1#{} Joker slots",
           "Reduces by {C:attention}#2#{}",
           "After clearing {C:attention}Boss Blind{}"
+        },
+        unlock = {
+          "Have {C:attention,E:1}#1# Food{}",
+          "{C:attention,E:1}Jokers{} at once"
         }
       },
       j_paperback_takoyaki = {
