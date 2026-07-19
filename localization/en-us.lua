@@ -1778,6 +1778,10 @@ return {
           "loses {X:chips,C:white}X#2#{} Chips",
           "per {C:attention}card{} discarded",
         },
+        unlock = {
+          "Defeat a Boss Blind",
+          "without using any {E:1,C:attention,E:1}discards",
+        },
       },
       j_paperback_trans_flag = {
         name = "Trans Flag",
