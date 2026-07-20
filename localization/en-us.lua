@@ -1566,6 +1566,11 @@ return {
           "when a playing card is {C:attention}destroyed{}",
           "{C:inactive}(Currently {X:mult,C:white}X#2#{} {C:inactive}Mult)",
         },
+        unlock = {
+          "Win a run",
+          "without {E:1,C:attention}destroying",
+          "a playing card",
+        },
       },
       j_paperback_charred_marshmallow = {
         name = "Charred Marshmallow",
