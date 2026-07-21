@@ -3438,6 +3438,13 @@ return {
           "{C:attention}hand{} of round",
         }
       },
+      c_paperback_red_tassle = {
+        name = "Red Tassle",
+        text = {
+          "Lowest rank in {C:attention}scoring hand",
+          "permanently gains {C:mult}+#1#{} Mult"
+        }
+      },
       c_paperback_coffee_and_cranes = {
         name = "Coffee and Cranes",
         text = {
@@ -3457,6 +3464,15 @@ return {
         text = {
           "If {C:attention}first hand{} of round",
           "is a {C:attention}single{} card, destroy it",
+        }
+      },
+      c_paperback_tango_marinade = {
+        name = "Tango Marinade",
+        text = {
+          "If played hand contains",
+          "a {C:attention}#1#",
+          "retrigger the first {C:attention}#2#",
+          "cards used in scoring"
         }
       },
       c_paperback_downpour = {
@@ -3481,6 +3497,15 @@ return {
           "every time a {C:attention}played hand",
           "does not defeat the {C:attention}Blind",
           "{C:inactive}(Currently {C:chips}+#2#{C:inactive} Chips)",
+        }
+      },
+      c_paperback_canned_ice_cream = {
+        name = "Canned Ice Cream",
+        text = {
+          "When a card is {C:attention}destroyed",
+          "this EGO Gift gains",
+          "half its {C:chips}chips",
+          "{C:inactive}(Currently {C:chips}+#1#{C:inactive} Chips)"
         }
       },
       c_paperback_thrill = {
@@ -3513,6 +3538,14 @@ return {
         text = {
           "{C:attention}Enhanced{} cards give {C:mult}+Mult{}",
           "equal to their {C:attention}rank{} when scored",
+        }
+      },
+      c_paperback_hardwood_liquor_cup = {
+        name = "Hardwood Liquor Cup",
+        text = {
+          "The {C:attention}first{} scored card on the",
+          "{C:attention}last{} hand of round permanently gains",
+          "{C:chips}+#1#{} Chips, {C:mult}+#2#{} Mult, {C:money}+$#3#{} or {X:mult,C:white}X#4#{} Mult"
         }
       },
       c_paperback_pendant_of_nostalgia_minor_arcana = {
@@ -3548,6 +3581,13 @@ return {
           "{C:green}#1# in #2#{} chance to {C:red}self-destruct{} after"
         }
       },
+      c_paperback_snuffed_candlestick = {
+        name = "Snuffed Candlestick",
+        text = {
+          "Earn {C:money}$#1#{} for each played hand",
+          "after the first each round"
+        }
+      },
       c_paperback_nebulizer = {
         name = "Nebulizer",
         text = {
@@ -3569,6 +3609,15 @@ return {
           "{C:red}+#1#{} discard for every",
           "{C:attention}#2#{} empty {C:attention}Joker{} slots",
           "{C:inactive}(Currently {C:red}+#3#{C:inactive} discards)"
+        }
+      },
+      c_paperback_vestiges_of_the_king = {
+        name = "Vestiges Of The King",
+        text = {
+          "If discard contains",
+          "exactly {C:attention}one{} card",
+          "Enhance it with a random",
+          "{C:paperback_minor_arcana}Minor Arcana{} enhancement"
         }
       },
       c_paperback_lightning_rod = {
@@ -3594,6 +3643,15 @@ return {
           "creates a {C:attention}Energized copy{}"
         }
       },
+      c_paperback_prestige_card = {
+        name = "Prestige Card",
+        text = {
+          "Purchases in the shop",
+          "have a {C:green}#1# in #2#{} chance to",
+          "make a random tag",
+          "{C:inactive}(Once per shop)"
+        }
+      }
     },
     Voucher = {
       v_paperback_celtic_cross = {
