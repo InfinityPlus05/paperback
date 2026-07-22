@@ -104,8 +104,11 @@ end
 
 local copy_card_ref = copy_card
 function copy_card(other, new_card, card_scale, playing_card, strip_edition)
-  if new_card:is_face() and other:get_id() == 10 then
-    check_for_unlock({type = 'paperback_convert_face_to_ten'})
+  -- sanity checks because copying with debugplus results in new_card being nil
+  if new_card and other then
+    if new_card:is_face() and other:get_id() == 10 then
+      check_for_unlock({type = 'paperback_convert_face_to_ten'})
+    end
   end
-  copy_card_ref(other, new_card, card_scale, playing_card, strip_edition)
+  return copy_card_ref(other, new_card, card_scale, playing_card, strip_edition)
 end

@@ -1080,6 +1080,11 @@ return {
           "give {X:mult,C:white}X#2#{} Mult",
           "Drank after {C:attention}#3#{} playing",
           "card#4# #5# {C:attention}destroyed{}"
+        },
+        unlock = {
+          "Destroy {C:attention,E:1}#1#{}",
+          "{C:attention,E:1}#2#s{}",
+          "in a run"
         }
       },
       j_paperback_vacation_juice = {
