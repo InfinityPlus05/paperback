@@ -1406,7 +1406,8 @@ return {
           "the rightmost {C:paperback_ego_gift}E.G.O Gift{}",
         },
         unlock = {
-          "Sell an {C:paperback_ego_gift,E:1}E.G.O Gift{}"
+          "Sell an",
+          "{C:paperback_ego_gift,E:1}E.G.O Gift{}"
         }
       },
       j_paperback_the_strongest = {
@@ -1420,7 +1421,8 @@ return {
           "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)"
         },
         unlock = {
-          "Sell an {C:paperback_ego_gift,E:1}E.G.O Gift{}"
+          "Sell an",
+          "{C:paperback_ego_gift,E:1}E.G.O Gift{}"
         }
       },
       j_paperback_freezer = {
@@ -1657,6 +1659,10 @@ return {
           "and a random {C:spectral}#2#{} card",
           "{C:inactive}(Must have room)"
         },
+        unlock = {
+          "Sell a",
+          "{C:attention,E:1}#1#{}"
+        }
       },
       j_paperback_river = {
         name = "River",
