@@ -1108,6 +1108,12 @@ return {
           "{C:red,E:1}Self-destructs{} if any",
           "card or Joker is {C:attention}destroyed{}",
           "{C:inactive}(Currently {C:mult}+#1#{C:inactive} Mult)"
+        },
+        unlock = {
+          "Have the only",
+          "{C:attention,E:1}Face Cards{}",
+          "in your deck",
+          "be {C:attention,E:1}#1#s{}"
         }
       },
       j_paperback_ice_cube = {

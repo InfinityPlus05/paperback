@@ -106,7 +106,7 @@ local copy_card_ref = copy_card
 function copy_card(other, new_card, card_scale, playing_card, strip_edition)
   -- sanity checks because copying with debugplus results in new_card being nil
   if new_card and other then
-    if new_card:is_face() and other:get_id() == 10 then
+    if new_card:is_face() and PB_UTIL.is_rank(other, 10) then
       check_for_unlock({type = 'paperback_convert_face_to_ten'})
     end
   end
