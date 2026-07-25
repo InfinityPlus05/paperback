@@ -2911,6 +2911,81 @@ return {
           "{s:0.8}suit changes at end of round"
         }
       },
+      j_paperback_sacred_heart = {
+        name = "Sacred Heart",
+        text = {
+          "If played hand is a {C:attention}#1#",
+          "Give the {C:attention}first{} scored card",
+          "a {C:red,E:1}permament retrigger{}",
+          "destroy all other scored cards"
+        }
+      },
+      j_paperback_royalty_free = {
+        name = "Royalty Free",
+        text = {
+          "The first scored",
+          "{C:attention}non-face{} card each round",
+          "permanent gains {C:chips}+#1#{} Chips"
+        }
+      },
+      j_paperback_whitebeard = {
+        name = "Whitebeard",
+        text = {
+          "During a {C:attention}Boss Blind{}",
+          "scored cards give {X:red,C:white}X#1#{} Mult",
+          "The last played hand",
+          "is {C:attention}destroyed{} after scoring"
+        }
+      },
+      j_paperback_mezzetino = {
+        name = "Mezzetino",
+        text = {
+          "{C:mult}Discards{} give {C:money}$#1#{}",
+          "and destroy a {C:attention}random{} card",
+          "at end of round"
+        }
+      },
+      j_paperback_twenty_first_century = {
+        name = "21{s:0.8}st{} Century Joker",
+        text = {
+          "When {C:attention}Big Blind{} or {C:attention}Boss Blind{}",
+          "is cleared, {C:attention}destroy{} Joker to the left",
+          "and create a {C:attention}new{} Joker",
+          "of equal or higher rarity",
+          "{C:inactive}(Cannot upgrade to Legendary Jokers)"
+        }
+      },
+      j_paperback_buckshot = {
+        name = "Buckshot",
+        text = {
+          "If played hand",
+          "contains a {C:attention}Two Pair",
+          "{C:attention}destroy{} all cards of a",
+          "{C:attention}random rank{} in",
+          "scoring hand and earn",
+          "{C:money}$#1#{} for each card"
+        }
+      },
+      j_paperback_arayashiki = {
+        name = "Arayashiki",
+        text = {
+          "Upon clearing a blind",
+          "{C:paperback_ego_gift}E.G.O Gifts{} have a",
+          "{C:green}#1# in #2#{} chance to create",
+          "a {C:dark_edition}negative{} {C:paperback_minor_arcana}#3#{}",
+          "If none exist"
+        }
+      },
+      j_paperback_man = {
+        name = "Man",
+        text = {
+          "Every played",
+          "{C:paperback_dark_suit}Dark Suit{C:attention} card",
+          "permanently",
+          "gains {C:mult}+#1#{} Mult",
+          "when scored"
+        }
+      },
       -- Cross-Mod jokers start here
       j_paperback_moon_waltz = {
         name = "Moon Waltz",
@@ -4462,6 +4537,7 @@ return {
       paperback_superhot_false = "HOT",
       paperback_goner_ex = "Goner!",
       paperback_hatred_death_ex = "DREAD",
+      paperback_whitebeard_death_ex = "Quake!",
 
       paperback_ui_requires_restart = "Requires Restart",
       paperback_ui_no_requires_restart = "Doesn't Require Restart",
