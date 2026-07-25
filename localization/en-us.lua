@@ -1134,6 +1134,11 @@ return {
           "cards earn {C:money}$#1#{}, {C:attention}doubled{} if",
           "the card has a {C:attention}seal",
           "{C:attention}Consumed{} in {C:attention}#2#{} rounds"
+        },
+        unlock = {
+          "Score a {C:attention,E:1}King",
+          "or {C:attention,E:1}Queen{} with",
+          "a {C:attention,E:1}Seal"
         }
       },
       j_paperback_pocket_pair = {
