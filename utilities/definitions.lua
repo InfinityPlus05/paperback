@@ -44,6 +44,12 @@ SMODS.current_mod.calculate = function(self, context)
     end
   end
 
+  if context.end_of_round and context.game_over == false and context.main_eval and context.beat_boss then
+    if not G.GAME.paperback.discarded_this_ante then
+      check_for_unlock({ type = 'paperback_no_ante_discard' })
+    end
+    G.GAME.paperback.discarded_this_ante = false
+  end
   
   if context.before then
     -- green clip: gain mult for every other played and scored clip
@@ -70,6 +76,7 @@ SMODS.current_mod.calculate = function(self, context)
 
   -- green clip: lose mult for each discarded clip
   if context.discard then
+    G.GAME.paperback.discarded_this_ante = true
     if PB_UTIL.has_paperclip(context.other_card) and not context.other_card.debuff then
       for _, v in ipairs(G.playing_cards) do
         local clip = PB_UTIL.has_paperclip(v)

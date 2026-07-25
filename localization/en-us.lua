@@ -899,7 +899,11 @@ return {
           "{C:green}#2# in #3#{} chance to",
           "consume on {C:red}discard",
           "{C:inactive}(Currently {C:chips}+#4#{C:inactive} Chips)"
-        }
+        },
+        unlock = {
+          "Clear an Ante",
+          "without {C:attention,E:1}discarding"
+        },
       },
       j_paperback_you_are_a_fool = {
         name = "You Are a Fool!",
