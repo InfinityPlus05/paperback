@@ -1391,6 +1391,10 @@ return {
           "increases by {C:attention}#2#{} when {C:attention}Blind{} is skipped.",
           "{C:green}#3# in #4#{} chance this card is consumed when",
           "{C:attention}Small Blind{} or {C:attention}Big Blind{} is selected",
+        },
+        unlock = {
+          "Skip {E:1,C:attention}#1#{} blinds",
+          "in one run"
         }
       },
       j_paperback_basic_energy = {

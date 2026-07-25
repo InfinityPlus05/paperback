@@ -17,7 +17,7 @@ SMODS.Joker {
   pos = { x = 3, y = 6 },
   atlas = 'jokers_atlas',
   cost = 6,
-  unlocked = true,
+  unlocked = false,
   discovered = false,
   blueprint_compat = false,
   eternal_compat = false,
@@ -41,6 +41,18 @@ SMODS.Joker {
         denominator
       }
     }
+  end,
+
+  locked_loc_vars = function(self, info_queue, card)
+    return {
+      vars = {
+        5
+      }
+    }
+  end,
+
+  check_for_unlock = function(self, args)
+    return G.GAME.skips >= 5
   end,
 
   add_to_deck = function(self, card, from_debuff)
