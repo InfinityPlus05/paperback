@@ -53,7 +53,7 @@ SMODS.current_mod.calculate = function(self, context)
         local clip = PB_UTIL.has_paperclip(v)
         if clip == "paperback_green_clip" and not v.debuff then
           local clip_table = v.ability.paperback_green_clip
-          clips_played_plus_odd = clip_table.odd + clips_played
+          local clips_played_plus_odd = clip_table.odd + clips_played
           -- Every 2 clips go into mult,
           -- remaining odd clip goes to `odd`
           clip_table.mult = clip_table.mult + clip_table.mult_plus * math.floor(clips_played_plus_odd / 2)
@@ -166,6 +166,10 @@ SMODS.current_mod.calculate = function(self, context)
   if context.ending_shop then
     G.GAME.paperback.free_purchases = math.max(0,
       G.GAME.paperback.free_purchases - #SMODS.find_card("j_paperback_normalJKR", false))
+  end
+
+  if context.tag_triggered then
+    G.GAME.paperback.tags_redeemed_this_run = G.GAME.paperback.tags_redeemed_this_run + 1
   end
 end
 

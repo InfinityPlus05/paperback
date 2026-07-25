@@ -1373,6 +1373,10 @@ return {
           "{C:attention}Tags{} earn {C:money}$#1#{} when activated",
           "Consumed in {C:attention}#2#{} round#3#",
           "{C:inactive}(Resets when a {C:attention}Tag{C:inactive} is acquired)"
+        },
+        unlock = {
+          "Activate {E:1,C:attention}#1#{} tags",
+          "in one run",
         }
       },
       j_paperback_coffee = {
