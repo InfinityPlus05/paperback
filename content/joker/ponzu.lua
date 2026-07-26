@@ -18,7 +18,7 @@ SMODS.Joker {
   atlas = "jokers_atlas",
   cost = 6,
   blueprint_compat = true,
-  eternal_compat = true,
+  eternal_compat = false,
   perishable_compat = true,
   paperback = {
 
