@@ -1319,7 +1319,11 @@ return {
           "Destroy a random {C:attention}Joker{}",
           "if played hand is not",
           "the {C:attention}first hand{} of round"
-        }
+        },
+        unlock = {
+          "Defeat a Finisher",
+          "Blind in {E:1,C:attention,E:1}#1# hand",
+        },
       },
       j_paperback_find_jimbo = {
         name = "Find Jimbo",
