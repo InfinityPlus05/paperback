@@ -31,6 +31,8 @@ function Game.init_game_object(self)
     destroyed_glass = 0,
     destroyed_card_this_run = false,
     tags_redeemed_this_run = 0,
+    num_times_moon_used = 0,
+    num_times_sun_used = 0,
     last_tarot_energized = false,
     ranks_scored_this_ante = {},
     last_scored_suit = 'Spades',

@@ -1568,6 +1568,11 @@ return {
           "Scored {C:attention}5s{} and {C:attention}8s{} give",
           "{C:mult}+#1#{} Mult and {C:chips}+#2#{} Chips",
         },
+        unlock = {
+          "Use {C:attention,E:1}The Moon{}",
+          "tarot {C:attention,E:1}#1#{} times",
+          "in one run"
+        }
       },
       j_paperback_moribund = {
         name = "Moribund",
@@ -1992,6 +1997,11 @@ return {
           "Scored {C:paperback_light_suit}light suits{} give {C:chips}+#2#{} Chips",
           "and increase Chips given by {C:chips}+#3#{}",
         },
+        unlock = {
+          "Use {C:attention,E:1}The Sun{}",
+          "tarot {C:attention,E:1}#1#{} times",
+          "in one run"
+        }
       },
       j_paperback_jestrica = {
         name = "Jestrica",

@@ -115,10 +115,19 @@ SMODS.current_mod.calculate = function(self, context)
 
   
   if context.using_consumeable then
-    -- track Tarot + Minor Arcana usage for 8 of Pentacles
     local center = context.consumeable.config.center
     local add_new = true
     if center.set == "Tarot" or center.set == "paperback_minor_arcana" then
+      -- track moon usage for Emergancy Broadcast
+      if center.key == 'c_moon' then
+        G.GAME.paperback.num_times_moon_used = G.GAME.paperback.num_times_moon_used + 1
+      end
+      -- track moon usage for The Sun Rises
+      if center.key == 'c_sun' then
+        G.GAME.paperback.num_times_sun_used = G.GAME.paperback.num_times_sun_used + 1
+      end
+      
+      -- track Tarot + Minor Arcana usage for 8 of Pentacles
       for _, v in ipairs(G.GAME.paperback.arcana_used) do
         if center.key == v then
           add_new = false
@@ -129,6 +138,7 @@ SMODS.current_mod.calculate = function(self, context)
         G.GAME.paperback.arcana_used[#G.GAME.paperback.arcana_used + 1] = center.key
       end
     end
+    -- track minor arcana usage across runs
     if center.set == "paperback_minor_arcana" then
       PB_UTIL.minor_arcana_profile_usage(1)
     end

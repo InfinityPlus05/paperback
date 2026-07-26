@@ -18,7 +18,7 @@ SMODS.Joker {
   pos = { x = 22, y = 1 },
   atlas = 'jokers_atlas',
   cost = 8,
-  unlocked = true,
+  unlocked = false,
   discovered = false,
   blueprint_compat = true,
   eternal_compat = true,
@@ -28,6 +28,14 @@ SMODS.Joker {
     artist = { 'dylan_hall' },
     coder = { 'ejwu' }
   },
+
+  check_for_unlock = function (self, args)
+    return G.GAME.paperback.num_times_sun_used >= 3
+  end,
+
+  locked_loc_vars = function (self, info_queue, card)
+    return { vars = { 3 }}
+  end,
 
   loc_vars = function(self, info_queue, card)
     info_queue[#info_queue + 1] = PB_UTIL.suit_tooltip('light')
