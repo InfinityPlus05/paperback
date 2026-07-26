@@ -42,6 +42,7 @@ SMODS.current_mod.calculate = function(self, context)
         G.GAME.paperback.destroyed_stars = G.GAME.paperback.destroyed_stars + 1
       end
     end
+    check_for_unlock({ type = 'paperback_removed_playing_cards' })
   end
 
   if context.end_of_round and context.game_over == false and context.main_eval and context.beat_boss then

@@ -2919,6 +2919,10 @@ return {
           "Scored {C:attention}#1#{}s give {C:money}#2#G{}",
           "{C:green}#3# in #4#{} chance to eat",
           "This Joker when scored"
+        },
+        unlock = {
+          "Have no {C:attention,E:1}8s{}",
+          "in your deck"
         }
       },
       j_paperback_bamboo_stick = {

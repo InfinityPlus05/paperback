@@ -43,13 +43,18 @@ SMODS.Joker {
 
   check_for_unlock = function(self, args)
     -- we need to also check for G.GAME.round because the game decides to run this on every single card being added to the deck on run start
-    if args.type == 'modify_deck' and G.GAME.round >= 1 then
+    if args.type == 'paperback_removed_playing_cards' or (args.type == 'modify_deck' and G.GAME.round >= 1) then
       for _, v in ipairs(G.playing_cards or {}) do
         if v:is_face() and not PB_UTIL.is_rank(v, 'Queen') then 
           return false
         end
       end
-      return true
+      --assume all non-queen face cards are gone, check to see if there are any queens in deck
+      for _, v in ipairs(G.playing_cards or {}) do
+        if PB_UTIL.is_rank(v, 'Queen') then 
+          return true
+        end
+      end
     end
   end,
 
