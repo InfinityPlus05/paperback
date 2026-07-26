@@ -2925,7 +2925,7 @@ return {
         text = {
           "The first scored",
           "{C:attention}non-face{} card each round",
-          "permanent gains {C:chips}+#1#{} Chips"
+          "permanently gains {C:chips}+#1#{} Chips"
         }
       },
       j_paperback_whitebeard = {
@@ -2984,6 +2984,11 @@ return {
           "permanently",
           "gains {C:mult}+#1#{} Mult",
           "when scored"
+        },
+        unlock = {
+          "Acquire {C:Attention}#1#{}",
+          "{C:Attention}#2#{} times",
+          "{C:inactive}(#3#)"
         }
       },
       -- Cross-Mod jokers start here
