@@ -241,6 +241,10 @@ return {
           "{C:purple}Balance{} {C:attention}#1#%{} of {C:chips}Chips{} and {C:mult}Mult",
           "Reduces by {C:attention}#2#%{} if a hand's {C:attention{}final{}",
           "{C:mult}Mult{} ends up {C:attention}greater{} than its {C:chips}Chips"
+        },
+        unlock = {
+          "Win a run with",
+          "{C:attention,E:1}#1#{}"
         }
       },
       j_paperback_nichola = {
