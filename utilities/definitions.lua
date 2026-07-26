@@ -73,6 +73,23 @@ SMODS.current_mod.calculate = function(self, context)
     if next(context.poker_hands['Pair']) then
       G.GAME.paperback.played_pair_this_run = true
     end
+
+    -- checks if played hand contains a flush for the suit drink's unlock
+    if next(context.poker_hands['Flush']) then
+      G.GAME.paperback.played_flushes = G.GAME.paperback.played_flushes or {}
+      for _, card in ipairs(context.scoring_hand) do
+        if not SMODS.has_any_suit(card) then
+          for suit, count in pairs(SMODS.Suits) do
+            if card:is_suit(suit) then
+              G.GAME.paperback.played_flushes[suit] = (G.GAME.paperback.played_flushes[suit] and G.GAME.paperback.played_flushes[suit] or 0) + 1
+              check_for_unlock({type = 'paperback_suit_flushes'})
+              break
+            end
+          end
+          break
+        end
+      end
+    end
   end
 
   -- green clip: lose mult for each discarded clip

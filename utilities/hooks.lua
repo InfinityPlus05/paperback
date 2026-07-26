@@ -50,6 +50,7 @@ function Game.init_game_object(self)
     jokers_owned_this_run = {},
     played_pair_this_run = false,
     discarded_this_ante = false,
+    played_flushes = {},
 
     permabonus_odds = 0,
 

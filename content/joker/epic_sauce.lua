@@ -40,7 +40,7 @@ SMODS.Joker {
   end,
 
   check_for_unlock = function(self, args)
-    return args.type == 'round_win' and G.GAME.current_round.hands_played == 1 and G.GAME.blind.config.blind.boss.showdown
+    return args.type == 'round_win' and G.GAME.current_round.hands_played == 1 and G.GAME.blind.boss and G.GAME.blind.config.blind.boss.showdown
   end,
 
   calculate = function(self, card, context)

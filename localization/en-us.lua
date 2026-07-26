@@ -2094,6 +2094,10 @@ return {
           "The next {C:attention}#1#{} scored {V:1}#2#{} permanently gain",
           "{X:mult,C:white}X#3#{} Mult when scored",
         },
+        unlock = {
+          "Play {C:attention,E:1}#1# #2#",
+          "Flushes in one run"
+        }
       },
       j_paperback_stout = {
         name = "Stout",
@@ -2101,6 +2105,10 @@ return {
           "The next {C:attention}#1#{} scored {V:1}#2#{} permanently gain",
           "{C:chips}+#3#{} Chips when scored",
         },
+        unlock = {
+          "Play {C:attention,E:1}#1# #2#",
+          "Flushes in one run"
+        }
       },
       j_paperback_aperol = {
         name = "Aperol",
@@ -2108,6 +2116,10 @@ return {
           "The next {C:attention}#1#{} scored {V:1}#2#{} permanently gain",
           "{C:money}$#3#{} when scored",
         },
+        unlock = {
+          "Play {C:attention,E:1}#1# #2#",
+          "Flushes in one run"
+        }
       },
       j_paperback_blue_curacao = {
         name = "Blue Curaçao",
@@ -2115,6 +2127,10 @@ return {
           "The next {C:attention}#1#{} scored {V:1}#2#{} permanently gain",
           "{C:mult}+#3#{} Mult when scored",
         },
+        unlock = {
+          "Play {C:attention,E:1}#1# #2#",
+          "Flushes in one run"
+        }
       },
       j_paperback_nigori = {
         name = "Nigori",
@@ -2122,6 +2138,10 @@ return {
           "The next {C:attention}#1#{} scored {V:1}#2#{} permanently gain",
           "{X:chips,C:white}X#3#{} chips when scored",
         },
+        unlock = {
+          "Play {C:attention,E:1}#1# #2#",
+          "Flushes in one run"
+        }
       },
       j_paperback_lager = {
         name = "Lager",
@@ -2129,6 +2149,10 @@ return {
           "The next {C:attention}#1#{} scored {V:1}#2#{} permanently gain",
           "{C:green}+#3#{} odds when scored",
         },
+        unlock = {
+          "Play {C:attention,E:1}#1# #2#",
+          "Flushes in one run"
+        }
       },
       j_paperback_paranoia = {
         name = "Paranoia",
