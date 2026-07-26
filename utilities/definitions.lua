@@ -69,9 +69,12 @@ SMODS.current_mod.calculate = function(self, context)
       end
     end
 
-    -- checks if played hand contains a pair for Mismatched Sock's unlock
+    -- checks if played hand contains a pair for Mismatched Sock's and Pear's unlock
     if next(context.poker_hands['Pair']) then
       G.GAME.paperback.played_pair_this_run = true
+    end
+    if not next(context.poker_hands['Pair']) then
+      G.GAME.paperback.only_pairs_this_run = false
     end
 
     -- checks if played hand contains a flush for the suit drink's unlock

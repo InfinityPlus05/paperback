@@ -49,6 +49,7 @@ function Game.init_game_object(self)
     find_jimbo_unlock = false,
     jokers_owned_this_run = {},
     played_pair_this_run = false,
+    only_pairs_this_run = true,
     discarded_this_ante = false,
     played_flushes = {},
 

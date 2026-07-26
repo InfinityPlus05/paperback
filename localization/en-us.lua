@@ -310,7 +310,13 @@ return {
           "this Joker loses {C:chips}-#3#{} Chips.",
           "Eaten if Chips fall below 0",
           "{C:inactive}(Currently {C:chips}+#4#{C:inactive} Chips)"
-        }
+        },
+        unlock = {
+          "Win a run",
+          "playing only",
+          "hands that",
+          "contain a {E:1,C:attention}#1#",
+        },
       },
       j_paperback_teapot = {
         name = "Teapot",
