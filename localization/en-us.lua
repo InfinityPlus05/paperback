@@ -2472,7 +2472,11 @@ return {
           "Scored {C:spades}#3#{} and {C:clubs}#4#",
           "have a {C:green}#1# in #2#{} chance",
           "to become {C:dark_edition}Polychrome"
-        }
+        },
+        unlock = {
+          "Acquire a {C:attention,E:1}Polychrome",
+          "King or Jack",
+        },
       },
       j_paperback_meeple = {
         name = "Meeple",
