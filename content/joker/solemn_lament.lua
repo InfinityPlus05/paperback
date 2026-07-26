@@ -42,10 +42,9 @@ SMODS.Joker {
   end,
 
   check_for_unlock = function(self, args)
-    if args.type == 'hand_contents' then
+    if G.playing_cards then
       for k, v in pairs(G.playing_cards) do
-        -- Check being -1 is intentional - function runs before the variable is incremented
-        if v.paperback_num_times_played and v.paperback_num_times_played >= 7 then
+        if v.paperback_num_times_played and v.paperback_num_times_played >= 8 then
           return true
         end
       end

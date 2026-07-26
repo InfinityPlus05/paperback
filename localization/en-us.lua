@@ -1021,6 +1021,11 @@ return {
           "{C:planet}Planet{} cards have",
           "a {C:green}#1# in #2#{} chance",
           "to level up {C:attention}again",
+        },
+        unlock = {
+          "Play a {C:attention,E:1}poker hand{}",
+          "{C:attention,E:1}#1#{} times in",
+          "one run"
         }
       },
       j_paperback_sake_cup = {

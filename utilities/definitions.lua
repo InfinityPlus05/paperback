@@ -69,6 +69,10 @@ SMODS.current_mod.calculate = function(self, context)
       end
     end
 
+    -- checks num times hand has been played
+    if G.GAME.hands[context.scoring_name].played >= 9 then
+      check_for_unlock({ type = 'paperback_hand_played_full_moon' })
+    end
     -- checks if played hand contains a pair for Mismatched Sock's and Pear's unlock
     if next(context.poker_hands['Pair']) then
       G.GAME.paperback.played_pair_this_run = true
@@ -213,6 +217,7 @@ SMODS.current_mod.reset_game_globals = function(run_start)
   G.GAME.paperback.round.scored_clips = 0
   G.GAME.paperback.round.played_face_cards = 0
   G.GAME.paperback.round.destroyed_cards_this_round = 0
+  G.GAME.paperback.round.scored_face_cards = 0
   G.GAME.paperback.highest_rank_this_round = nil
   G.GAME.paperback.weather_radio_hand = PB_UTIL.get_random_visible_hand('weather_radio')
   G.GAME.paperback.joke_master_hand = PB_UTIL.get_random_visible_hand('joke_master')
