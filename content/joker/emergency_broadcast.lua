@@ -27,7 +27,11 @@ SMODS.Joker {
   },
 
   check_for_unlock = function (self, args)
-    return G.GAME.paperback.num_times_moon_used >= 3
+    if G.GAME.consumeable_usage then
+      if G.GAME.consumeable_usage.c_moon and G.GAME.consumeable_usage.c_moon.count >= 3 then
+        return true
+      end
+    end
   end,
 
   locked_loc_vars = function (self, info_queue, card)

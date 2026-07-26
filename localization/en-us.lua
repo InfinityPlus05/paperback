@@ -843,6 +843,10 @@ return {
           "When a {C:attention}Planet{} card is used,",
           "this Joker gains {C:mult}+#1#{} Mult",
           "{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)"
+        },
+        unlock = {
+          "Play {C:attention,E:1}#1# #2#",
+          "Flushes in one run"
         }
       },
       j_paperback_boundary_of_death = {
