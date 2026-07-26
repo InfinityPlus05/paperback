@@ -353,6 +353,10 @@ return {
           "The next {C:attention}#1#{} times a",
           "{C:attention}#2#{} triggers, it",
           "gives {C:mult}+#3#{} more permanent Mult"
+        },
+        unlock = {
+          "Have a card with",
+          "{C:attention, E:1}+#1# Extra Mult"
         }
       },
       j_paperback_jestosterone = {
