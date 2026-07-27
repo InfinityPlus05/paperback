@@ -1976,6 +1976,10 @@ return {
           "{C:green}#3# in #4#{} chance to create a random {C:purple}Tarot{} card",
           "{C:inactive}(Must have room)"
         },
+        unlock = {
+          "Upgrade {C:attention,E:1}Three of a Kind",
+          "by {C:attention,E:1}#1#{} levels"
+        }
       },
       j_paperback_triple_moon_goddess_minor_arcana = {
         name = "Triple Moon Goddess",
@@ -1985,6 +1989,10 @@ return {
           "{C:green}#3# in #4#{} chance to create a random {C:paperback_minor_arcana}Minor Arcana{} card",
           "{C:inactive}(Must have room)"
         },
+        unlock = {
+          "Upgrade {C:attention,E:1}Three of a Kind",
+          "by {C:attention,E:1}#1#{} levels"
+        }
       },
       j_paperback_derecho = {
         name = "Derecho",
