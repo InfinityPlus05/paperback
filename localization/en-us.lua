@@ -3518,10 +3518,11 @@ return {
           "{C:attention}hand{} of round",
         }
       },
-      c_paperback_red_tassle = {
-        name = "Red Tassle",
+      c_paperback_red_tassel = {
+        name = "Red Tassel",
         text = {
-          "Lowest rank in {C:attention}scoring hand",
+          "The card with the lowest",
+          "rank in {C:attention}scoring hand",
           "permanently gains {C:mult}+#1#{} Mult"
         }
       },

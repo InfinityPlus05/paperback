@@ -2,7 +2,7 @@ PB_UTIL.ENABLED_EGO_GIFTS = {
   'imposed_weight',
   'phlebotomy_pack',
   'smokes_and_wires',
-  "red_tassle",
+  "red_tassel",
   'coffee_and_cranes',
   'fiery_down',
   'decamillennial_stewpot',
