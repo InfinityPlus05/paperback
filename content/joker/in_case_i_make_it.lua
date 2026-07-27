@@ -29,14 +29,11 @@ SMODS.Joker {
   },
 
   in_pool = function(self, args)
-    if G.deck then
-      for _, v in ipairs(G.deck.cards) do
-        if SMODS.has_no_rank(v) then
-          return true
-        end
+    for _, v in ipairs(G.playing_cards or {}) do
+      if SMODS.has_no_rank(v) then
+        return true
       end
     end
-    return false
   end,
 
   loc_vars = function(self, info_queue, card)

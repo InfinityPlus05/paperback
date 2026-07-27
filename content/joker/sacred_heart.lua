@@ -36,13 +36,7 @@ SMODS.Joker {
 
   in_pool = function(self, args)
     -- Only in pool if you have played a Five of a Kind or a Flush Five
-    for k, v in pairs(G.GAME.hands) do
-      if string.find(k, "Flush Five", nil, true) then
-        if G.GAME.hands[k].played > 0 then
-          return true
-        end
-      end
-    end
+    return PB_UTIL.any_hand_played("Flush Five")
   end,
 
   calculate = function(self, card, context)

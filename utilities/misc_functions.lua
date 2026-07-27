@@ -1449,3 +1449,31 @@ function PB_UTIL.choose_new_item(current_item, list, seed)
   end
   return pseudorandom_element(new_list, seed)
 end
+
+--- Whether any of the listed hands has been played at least once
+--- @param hands string|string[]
+--- @return boolean
+function PB_UTIL.any_hand_played(hands)
+  if type(hands) == "string" then hands = { hands } end
+
+  for k, v in pairs(G.GAME.hands) do
+    for _, hand in ipairs(hands) do
+      if string.find(k, hand, nil, true) and v.played > 0 then
+        return true
+      end
+    end
+  end
+
+  return false
+end
+
+--- Whether there is at least one ego gift in the consumable area
+--- @return boolean
+function PB_UTIL.has_ego_gift()
+  for _, v in ipairs((G.consumeables or {}).cards or {}) do
+    if PB_UTIL.is_ego_gift(v) then
+      return true
+    end
+  end
+  return false
+end
