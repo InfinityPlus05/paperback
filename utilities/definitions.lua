@@ -45,11 +45,15 @@ SMODS.current_mod.calculate = function(self, context)
     check_for_unlock({ type = 'paperback_removed_playing_cards' })
   end
 
-  if context.end_of_round and context.game_over == false and context.main_eval and context.beat_boss then
-    if not G.GAME.paperback.discarded_this_ante then
+  if context.end_of_round and context.game_over == false and context.main_eval then
+    if context.beat_boss and not G.GAME.paperback.discarded_this_ante then
       check_for_unlock({ type = 'paperback_no_ante_discard' })
     end
     G.GAME.paperback.discarded_this_ante = false
+
+    if not G.GAME.modifiers.no_interest and not next(SMODS.find_card('j_paperback_better_call_jimbo', false)) then
+      if G.GAME.interest_amount*math.min(math.floor(G.GAME.dollars/5), G.GAME.interest_cap/5) >= 20 then check_for_unlock({ type = 'paperback_angel_investor_interest' }) end
+    end
   end
   
   if context.before then

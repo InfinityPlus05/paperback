@@ -1089,6 +1089,11 @@ return {
           "Skipping a {C:attention}Blind{} or defeating",
           "a {C:attention}Boss Blind{} gives",
           "an {C:money}Angel Investment Tag"
+        },
+        unlock = {
+          "Earn {C:attention,E:1}$#1#{} dollars",
+          "of interest",
+          "in one round"
         }
       },
       j_paperback_der_freischutz = {

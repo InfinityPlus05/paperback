@@ -16,7 +16,7 @@ SMODS.Joker {
   pos = { x = 7, y = 7 },
   atlas = 'jokers_atlas',
   cost = 4,
-  unlocked = true,
+  unlocked = false,
   discovered = false,
   blueprint_compat = true,
   eternal_compat = true,
@@ -33,6 +33,20 @@ SMODS.Joker {
     return {
       vars = {
         card.ability.extra.tags
+      }
+    }
+  end,
+
+  check_for_unlock = function(self, args)
+    if args.type == 'paperback_angel_investor_interest' then
+      return true
+    end
+  end,
+
+  locked_loc_vars = function(self, info_queue, card)
+    return {
+      vars = {
+        20
       }
     }
   end,
