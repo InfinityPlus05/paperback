@@ -227,6 +227,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "union_card",
   "book_of_vengeance",
   "moribund",
+  "thornring",
   "subterfuge",
   "the_world",
   "twenty_first_century",

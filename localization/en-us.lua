@@ -1509,6 +1509,23 @@ return {
           "{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)",
         },
       },
+      j_paperback_thornring = {
+        name = "ThornRing",
+        text = {
+          { "When a {C:attention}#1#{} is played,",
+            "destroy the played hand and",
+            "create a random {C:spectral}Spectral{} card",
+          },
+          { "{C:red}* #2# left.{}" }
+        }
+      },
+      j_paperback_thornring_weird = {
+        name = "ThornRing",
+        text = {
+          { "Played {V:1}#1#{} are {C:attention}destroyed{}" },
+          { "{E:1}T H A N K  Y O U{}" }
+        }
+      },
       j_paperback_crispy_taco = {
         name = "Crispy Taco",
         text = {
@@ -4544,6 +4561,7 @@ return {
       paperback_goner_ex = "Goner!",
       paperback_hatred_death_ex = "DREAD",
       paperback_whitebeard_death_ex = "Quake!",
+      paperback_proceed_ex = "Proceed",
 
       paperback_ui_requires_restart = "Requires Restart",
       paperback_ui_no_requires_restart = "Doesn't Require Restart",
