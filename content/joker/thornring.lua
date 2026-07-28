@@ -18,15 +18,27 @@ SMODS.Joker {
   pos = { x = 0, y = 13 },
   atlas = "jokers_atlas",
   cost = 7,
+  unlocked = false,
+
   blueprint_compat = false,
   eternal_compat = true,
   perishable_compat = true,
+
   paperback = {
 
   },
   paperback_credit = {
     coder = { 'dowfrin' }
   },
+
+  check_for_unlock = function(self, args)
+    if args.type == 'modify_deck' and next(G.playing_cards) then
+      for k, v in pairs(G.playing_cards) do
+        if not v:is_suit('Hearts') then return false end
+      end
+      return true
+    end
+  end,
 
   loc_vars = function(self, info_queue, card)
     if card.ability.extra.current then
