@@ -2513,6 +2513,14 @@ return {
           "{C:inactive}(Only counts skips in new antes,{}",
           "{C:inactive}currently {V:1}#4#{C:inactive})",
         }
+      },      
+      j_paperback_hotel_guest = {
+        name = "Hotel Guest",
+        text = {
+          "Gives {X:mult,C:white}X#1#{} for each",
+          "{C:attention}Queen{} held in hand",
+          "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult){}",
+        }
       },
       j_paperback_freight = {
         name = "Freight",

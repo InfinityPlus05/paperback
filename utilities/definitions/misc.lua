@@ -150,6 +150,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "cast_iron",
   "torii",
   "shugi_bukuro",
+  "hotel_guest",
   "freight",
   "high_speed_rail",
   "small_scale_onshore_wind",

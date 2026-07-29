@@ -472,3 +472,46 @@ function SMODS.calculate_context(context, return_table, no_resolve)
 
   return calculate_context_ref(context, return_table, no_resolve)
 end
+
+-- When setting sprites, add undersoul if
+-- Field is present
+local set_sprites_ref = Card.set_sprites
+function Card.set_sprites(self, center, front)
+  if self.config.center.paperback and self.config.center.paperback.undersoul_pos and G.P_CENTERS[self.config.center.key].discovered then
+    self.children.under_sprite = SMODS.create_sprite(self.T.x, self.T.y, self.T.w, self.T.h,
+      G.ASSET_ATLAS["paperback_jokers_atlas"], self.config.center.paperback.undersoul_pos)
+    self.children.under_sprite.states.hover = self.states.hover
+    self.children.under_sprite.states.click = self.states.click
+    self.children.under_sprite.states.drag = self.states.drag
+    self.children.under_sprite.states.collide.can = false
+    self.children.under_sprite:set_role({ major = self, role_type = 'Glued', draw_major = self })
+  end
+  set_sprites_ref(self, center, front)
+end
+
+SMODS.DrawStep {
+  key = 'undersoul',
+  order = -11,
+  func = function(self)
+    if self.children.under_sprite then
+      local scale_mod = 0.07 + 0.02 * math.sin(1.8 * G.TIMERS.REAL) +
+          0.00 * math.sin((G.TIMERS.REAL - math.floor(G.TIMERS.REAL)) * math.pi * 14) *
+          (1 - (G.TIMERS.REAL - math.floor(G.TIMERS.REAL))) ^ 3
+      local rotate_mod = 0.05 * math.sin(1.219 * G.TIMERS.REAL) +
+          0.00 * math.sin((G.TIMERS.REAL) * math.pi * 5) * (1 - (G.TIMERS.REAL - math.floor(G.TIMERS.REAL))) ^ 2
+
+      self.children.under_sprite:draw_shader('dissolve', 0, nil, nil, self.children.center, scale_mod, rotate_mod, nil,
+        0.1 + 0.03 * math.sin(1.8 * G.TIMERS.REAL), nil, 0.6)
+      self.children.under_sprite:draw_shader('dissolve', nil, nil, nil, self.children.center, scale_mod, rotate_mod)
+      if self.edition then
+        local edition = G.P_CENTERS[self.edition.key]
+        if edition.apply_to_float and self.children.under_sprite then
+          self.children.under_sprite:draw_shader(edition.shader, nil, nil, nil, self.children.center, scale_mod,
+            rotate_mod)
+        end
+      end
+    end
+  end,
+  conditions = { vortex = false, facing = 'front' },
+}
+SMODS.draw_ignore_keys.under_sprite = true -- needed so smods doesn't auto-draw it
