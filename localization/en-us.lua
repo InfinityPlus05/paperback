@@ -3192,6 +3192,11 @@ return {
           "{C:green}#1# in #2#{} chance to give {C:money}$#3#",
           "{C:red,E:1}Consumed{} if not triggered",
           "{s:0.8}suit changes at end of round"
+        },
+        unlock = {
+          "Enhance {E:1,C:attention}#1#{}",
+          "{E:1,C:attention}Diamond{} cards",
+          "in your deck",
         }
       },
       j_paperback_sacred_heart = {
@@ -3269,8 +3274,8 @@ return {
           "when scored"
         },
         unlock = {
-          "Acquire {C:Attention}#1#{}",
-          "{C:Attention}#2#{} times",
+          "Acquire {C:attention,E:1}#1#{}",
+          "{C:attention,E:1}#2#{} times",
           "{C:inactive}(#3#)"
         }
       },
