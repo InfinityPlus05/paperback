@@ -16,14 +16,22 @@ function Game.init_game_object(self)
     reference_card_ct = 0,
 
     round = {
-      scored_clips = 0
+      scored_clips = 0,
+      scored_face_cards = 0,
+      destroyed_cards_this_round = 0,
     },
     ceramic_inc = 0,
     bandaged_inc = 0,
     stained_inc = 0,
     destroyed_dark_suits = 0,
+    destroyed_light_suits = 0,
+    destroyed_crowns = 0,
+    destroyed_stars = 0,
     destroyed_cards = 0,
-    destroyed_cards_this_round = 0,
+    destroyed_glass = 0,
+    destroyed_faces = 0,
+    destroyed_card_this_run = false,
+    tags_redeemed_this_run = 0,
     last_tarot_energized = false,
     ranks_scored_this_ante = {},
     last_scored_suit = 'Spades',
@@ -36,10 +44,15 @@ function Game.init_game_object(self)
     arcana_used = {},
     sold_ego_gifts = {},
     finished_antes = {},
-    find_jimbo_unlock = false,
     max_consumeables = 0,
     jester_destroying_cards = false,
     coin_collection_adding_money = false,
+    find_jimbo_unlock = false,
+    jokers_owned_this_run = {},
+    played_pair_this_run = false,
+    only_pairs_this_run = true,
+    discarded_this_ante = false,
+    played_flushes = {},
 
     permabonus_odds = 0,
 
@@ -473,6 +486,18 @@ function SMODS.calculate_context(context, return_table, no_resolve)
   return calculate_context_ref(context, return_table, no_resolve)
 end
 
+-- Keeps track of Jokers obtained this run
+local add_to_deck_ref = Card.add_to_deck
+function Card:add_to_deck(from_debuff)
+  add_to_deck_ref(self, from_debuff)
+  if self.ability.set == 'Joker' then
+    if not G.GAME.paperback.jokers_owned_this_run[self.config.center.key] then
+      G.GAME.paperback.jokers_owned_this_run[self.config.center.key] = 1
+    else
+      G.GAME.paperback.jokers_owned_this_run[self.config.center.key] = 1 + G.GAME.paperback.jokers_owned_this_run[self.config.center.key]
+    end
+  end
+end
 -- When setting sprites, add undersoul if
 -- Field is present
 local set_sprites_ref = Card.set_sprites

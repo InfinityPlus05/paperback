@@ -18,6 +18,7 @@ SMODS.Joker {
   blueprint_compat = true,
   eternal_compat = true,
   perishable_compat = true,
+  unlocked = false,
 
   paperback_credit = {
     coder = { 'dowfrin' }
@@ -29,6 +30,12 @@ SMODS.Joker {
         card.ability.extra.required_cards,
       }
     }
+  end,
+
+  check_for_unlock = function(self, args)
+    if G.GAME.paperback.destroyed_stars >= 1 then
+      return true
+    end
   end,
 
   calculate = function(self, card, context)

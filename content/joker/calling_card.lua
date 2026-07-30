@@ -15,7 +15,7 @@ SMODS.Joker {
   pos = { x = 0, y = 0 },
   atlas = 'jokers_atlas',
   cost = 6,
-  unlocked = true,
+  unlocked = false,
   discovered = false,
   blueprint_compat = true,
   eternal_compat = true,
@@ -32,6 +32,12 @@ SMODS.Joker {
         card.ability.extra.x_mult
       }
     }
+  end,
+
+  check_for_unlock = function(self, args)
+    if args.type == 'paperback_disable_crimson_heart' then
+      return true
+    end
   end,
 
   calculate = function(self, card, context)
@@ -95,3 +101,12 @@ SMODS.Joker {
     }
   end
 }
+
+-- for calling card
+local disable_ref = Blind.disable
+function Blind:disable()
+	disable_ref(self)
+	if G.GAME.blind.name == 'Crimson Heart' then 
+    check_for_unlock({ type = 'paperback_disable_crimson_heart' })
+  end
+end

@@ -16,7 +16,7 @@ SMODS.Joker {
   pos = { x = 9, y = 1 },
   atlas = 'jokers_atlas',
   cost = 6,
-  unlocked = true,
+  unlocked = false,
   discovered = false,
   blueprint_compat = true,
   eternal_compat = false,
@@ -24,6 +24,9 @@ SMODS.Joker {
   pools = {
     Food = true
   },
+  check_for_unlock = function(self, args)
+    return args.type == 'round_win' and G.GAME.current_round.discards_left == G.GAME.round_resets.discards and G.GAME.blind.boss
+  end,
 
   paperback_credit = {
     coder = { 'oppositewolf' },

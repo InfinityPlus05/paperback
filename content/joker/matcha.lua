@@ -18,7 +18,7 @@ SMODS.Joker {
   pos = { x = 10, y = 5 },
   atlas = "jokers_atlas",
   cost = 3,
-  unlocked = true,
+  unlocked = false,
   discovered = false,
   blueprint_compat = true,
   eternal_compat = false,
@@ -42,6 +42,12 @@ SMODS.Joker {
         card.ability.extra.chips
       }
     }
+  end,
+
+  check_for_unlock = function(self, args)
+    if args.type == 'paperback_no_ante_discard' then
+      return true
+    end
   end,
 
   calculate = function(self, card, context)

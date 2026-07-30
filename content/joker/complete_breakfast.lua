@@ -30,17 +30,12 @@ SMODS.Joker {
   },
 
   check_for_unlock = function(self, args)
-    if args.type == 'modify_jokers' and G.jokers then
-      local count = 0
-      for _, joker in ipairs(G.jokers.cards) do
-        if joker.ability.set == 'Joker' and PB_UTIL.is_food(joker) then
-          count = count + 1
-        end
-      end
-      return count >= 3
+    if args.type == 'modify_jokers' and #PB_UTIL.get_owned_food() >= 3 then
+      return true
     end
   end,
-  locked_loc_vars = function(self, info_queue, center)
+
+  locked_loc_vars = function(self, info_queue, card)
     return {
       vars = { 3 }
     }

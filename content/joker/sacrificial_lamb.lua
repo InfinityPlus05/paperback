@@ -36,8 +36,10 @@ SMODS.Joker {
   end,
 
   check_for_unlock = function(self, args)
-    if G.GAME.paperback.destroyed_cards >= 20 then
-      return true
+    if args.type == 'paperback_removed_playing_cards' then
+      if G.GAME.paperback.destroyed_cards >= 20 then
+        return true
+      end
     end
   end,
 
@@ -75,6 +77,11 @@ SMODS.Joker {
       return {
         mult = card.ability.extra.mult
       }
+    end
+
+    -- Unlocking Unholy Alliance
+    if context.end_of_round and context.game_over and context.main_eval and card.ability.extra.mult >= 15 then
+      check_for_unlock({ type = 'paperback_sacrificial_lamb_loss' })
     end
   end,
 

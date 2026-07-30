@@ -15,7 +15,7 @@ SMODS.Joker {
   pos = { x = 12, y = 10 },
   atlas = "jokers_atlas",
   cost = 6,
-  unlocked = true,
+  unlocked = false,
   discovered = false,
   blueprint_compat = true,
   eternal_compat = false,
@@ -36,6 +36,15 @@ SMODS.Joker {
         card.ability.extra.x_mult,
       }
     }
+  end,
+
+  
+  check_for_unlock = function(self, args)
+    if args.type == 'win_no_hand' then
+      if not G.GAME.paperback.destroyed_card_this_run then
+        return true
+      end
+    end
   end,
 
   calculate = function(self, card, context)

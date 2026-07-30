@@ -17,7 +17,7 @@ SMODS.Joker {
   pos = { x = 6, y = 1 },
   atlas = 'jokers_atlas',
   cost = 6,
-  unlocked = true,
+  unlocked = false,
   discovered = false,
   blueprint_compat = true,
   eternal_compat = true,
@@ -34,6 +34,17 @@ SMODS.Joker {
         card.ability.extra.x_mult
       }
     }
+  end,
+
+  locked_loc_vars = function(self, info_queue, card)
+    return { vars = { localize('Pair', 'poker_hands') } }
+  end,
+  check_for_unlock = function(self, args)
+    if args.type == 'win_no_hand' then
+      if not G.GAME.paperback.played_pair_this_run then
+        return true
+      end
+    end
   end,
 
   calculate = function(self, card, context)

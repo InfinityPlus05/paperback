@@ -27,6 +27,7 @@ SMODS.Joker {
     coder = { 'srockw' },
     artist = { 'scruby' }
   },
+  unlocked = false,
 
   loc_vars = function(self, info_queue, card)
     local numerator, denominator = PB_UTIL.chance_vars(card)
@@ -40,6 +41,17 @@ SMODS.Joker {
         card.ability.extra.hands_left,
       }
     }
+  end,
+
+  check_for_unlock = function(self, args)
+    for _, playing_card in ipairs(G.playing_cards or {}) do
+      if playing_card:get_seal() and 
+      playing_card.edition and
+      PB_UTIL.has_paperclip(playing_card) and
+      next(SMODS.get_enhancements(playing_card)) then
+        return true
+      end
+    end
   end,
 
   calculate = function(self, card, context)
