@@ -29,8 +29,8 @@ return {
           "and a {C:paperback_minor_arcana,T:c_paperback_nine_of_cups}#2#"
         },
         unlock = {
-          "Discover {C:attention,E:1}#1#{}",
-          "{C:paperback_minor_arcana,E:1}Minor Arcana{} cards"
+          "Discover {C:attention}#1#{}",
+          "{C:paperback_minor_arcana}Minor Arcana{} cards"
         },
       },
       b_paperback_dreamer = {
@@ -56,7 +56,7 @@ return {
         },
         unlock = {
           "Discover every",
-          "{C:paperback_minor_arcana,E:1}Minor Arcana{} card"
+          "{C:paperback_minor_arcana}Minor Arcana{} card"
         },
       },
       b_paperback_passionate = {
@@ -366,7 +366,7 @@ return {
         },
         unlock = {
           "Have a card with",
-          "{C:attention, E:1}+#1# Extra Mult"
+          "{C:mult, E:1}+#1# {C:attention, E:1}Extra Mult"
         }
       },
       j_paperback_jestosterone = {
@@ -417,7 +417,7 @@ return {
         unlock = {
           "Have a playing card",
           "with an {C:attention,E:1}enhancement{}, {C:attention,E:1}seal{},",
-          "{C:attention,E:1}edition{}, and {C:attention,E:1}paperclip"
+          "{C:dark_edition,E:1}edition{}, and {C:attention,E:1}paperclip"
         }
       },
       j_paperback_one_sin_and_hundreds_of_good_deeds = {
@@ -509,7 +509,7 @@ return {
           "random {C:attention}different suits"
         },
         unlock = {
-          "Play {C:attention,E:1}#1# Wild cards{}",
+          "Play {C:attention,E:1}#1# Wild Cards{}",
           "in a hand",
         }
       },
@@ -859,7 +859,7 @@ return {
           "{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)"
         },
         unlock = {
-          "Play {C:attention,E:1}#1# #2#",
+          "Play {C:attention,E:1}#1# {C:clubs,E:1}#2#",
           "Flushes in one run"
         }
       },
@@ -1109,7 +1109,7 @@ return {
           "an {C:money}Angel Investment Tag"
         },
         unlock = {
-          "Earn {C:attention,E:1}$#1#{} dollars",
+          "Earn {C:money,E:1}$#1#{} dollars",
           "of interest",
           "in one round"
         }
@@ -1364,7 +1364,7 @@ return {
         },
         unlock = {
           "Defeat a Finisher",
-          "Blind in {E:1,C:attention,E:1}#1# hand",
+          "Blind in {E:1,C:attention}#1# hand",
         },
       },
       j_paperback_find_jimbo = {
@@ -1601,7 +1601,7 @@ return {
         },
         unlock = {
           "Use {C:attention,E:1}The Moon{}",
-          "tarot {C:attention,E:1}#1#{} times",
+          "{C:tarot,E:1}tarot {C:attention,E:1}#1#{} times",
           "in one run"
         }
       },
@@ -1626,7 +1626,7 @@ return {
         },
         unlock = {
           "Have a deck",
-          "of only {C:hearts}Hearts{}"
+          "of only {C:hearts,E:1}Hearts{}"
         }
       },
       j_paperback_thornring_weird = {
@@ -2059,7 +2059,7 @@ return {
         },
         unlock = {
           "Use {C:attention,E:1}The Sun{}",
-          "tarot {C:attention,E:1}#1#{} times",
+          "{C:tarot,E:1}tarot {C:attention,E:1}#1#{} times",
           "in one run"
         }
       },
@@ -2176,7 +2176,7 @@ return {
           "{X:mult,C:white}X#3#{} Mult when scored",
         },
         unlock = {
-          "Play {C:attention,E:1}#1# #2#",
+          "Play {C:attention,E:1}#1# {C:hearts,E:1}#2#",
           "Flushes in one run"
         }
       },
@@ -2187,7 +2187,7 @@ return {
           "{C:chips}+#3#{} Chips when scored",
         },
         unlock = {
-          "Play {C:attention,E:1}#1# #2#",
+          "Play {C:attention,E:1}#1# {C:spades,E:1}#2#",
           "Flushes in one run"
         }
       },
@@ -2198,7 +2198,7 @@ return {
           "{C:money}$#3#{} when scored",
         },
         unlock = {
-          "Play {C:attention,E:1}#1# #2#",
+          "Play {C:attention,E:1}#1# {C:diamonds,E:1}#2#",
           "Flushes in one run"
         }
       },
@@ -2209,7 +2209,7 @@ return {
           "{C:mult}+#3#{} Mult when scored",
         },
         unlock = {
-          "Play {C:attention,E:1}#1# #2#",
+          "Play {C:attention,E:1}#1# {C:clubs,E:1}#2#",
           "Flushes in one run"
         }
       },
@@ -2220,7 +2220,7 @@ return {
           "{X:chips,C:white}X#3#{} chips when scored",
         },
         unlock = {
-          "Play {C:attention,E:1}#1# #2#",
+          "Play {C:attention,E:1}#1# {C:paperback_stars,E:1}#2#",
           "Flushes in one run"
         }
       },
@@ -2231,7 +2231,7 @@ return {
           "{C:green}+#3#{} odds when scored",
         },
         unlock = {
-          "Play {C:attention,E:1}#1# #2#",
+          "Play {C:attention,E:1}#1# {C:paperback_crowns,E:1}#2#",
           "Flushes in one run"
         }
       },
@@ -2244,8 +2244,8 @@ return {
           "{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)"
         },
         unlock = {
-          "Have a deck containing {C:attention}only{}",
-          "{C:paperback_light_suit}light suits{}"
+          "Have a deck containing {C:attention,E:1}only{}",
+          "{C:paperback_light_suit,E:1}light suits{}"
         }
       },
       j_paperback_hatred = {
@@ -3195,7 +3195,7 @@ return {
         },
         unlock = {
           "Enhance {E:1,C:attention}#1#{}",
-          "{E:1,C:attention}Diamond{} cards",
+          "{E:1,C:diamonds}Diamond{} cards",
           "in your deck",
         }
       },
@@ -3206,6 +3206,11 @@ return {
           "Give the {C:attention}first{} scored card",
           "a {C:red,E:1}permament retrigger{}",
           "destroy all other scored cards"
+        },
+        unlock = {
+          "Have only",
+          "{E:1,C:attention}Ace of {E:1,C:hearts}Hearts{}",
+          "in your deck",
         }
       },
       j_paperback_royalty_free = {
