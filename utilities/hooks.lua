@@ -29,6 +29,7 @@ function Game.init_game_object(self)
     destroyed_stars = 0,
     destroyed_cards = 0,
     destroyed_glass = 0,
+    destroyed_faces = 0,
     destroyed_card_this_run = false,
     tags_redeemed_this_run = 0,
     last_tarot_energized = false,

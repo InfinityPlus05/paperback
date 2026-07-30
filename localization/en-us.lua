@@ -1103,6 +1103,10 @@ return {
           "destroy the {C:attention}lowest{} chip-value",
           "{C:attention}non-7{} in your full deck",
           "{C:inactive}Avoid the Seventh Bullet... #1#/#2#{}",
+        },
+        unlock = {
+          "Destroy {C:attention,E:1}#1#{} face cards",
+          "in a run"
         }
       },
       j_paperback_marble_soda = {

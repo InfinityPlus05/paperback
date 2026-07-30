@@ -22,6 +22,11 @@ SMODS.current_mod.calculate = function(self, context)
         G.GAME.paperback.destroyed_glass = G.GAME.paperback.destroyed_glass + 1
       end
 
+      -- COunt the amount of destroyed face cards
+      if v:is_face() then
+        G.GAME.paperback.destroyed_faces = G.GAME.paperback.destroyed_faces + 1
+      end
+
       -- Count the amount of destroyed dark suits
       if PB_UTIL.is_suit(v, 'dark', false, true) then
         G.GAME.paperback.destroyed_dark_suits = G.GAME.paperback.destroyed_dark_suits + 1
