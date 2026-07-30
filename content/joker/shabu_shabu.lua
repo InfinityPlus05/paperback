@@ -19,6 +19,7 @@ SMODS.Joker {
   blueprint_compat = false,
   eternal_compat = false,
   perishable_compat = true,
+  unlocked = false,
 
   pools = {
     Food = true
@@ -72,5 +73,17 @@ SMODS.Joker {
 
   remove_from_deck = function(self, card, from_debuff)
     G.jokers:change_size(-card.ability.extra.slots)
+  end,
+
+  check_for_unlock = function(self, args)
+    if args.type == 'modify_jokers' and #PB_UTIL.get_owned_food() >= 5 then
+      return true
+    end
+  end,
+
+  locked_loc_vars = function(self, info_queue, card)
+    return {
+      vars = { 5 }
+    }
   end
 }

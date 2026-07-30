@@ -15,7 +15,7 @@ SMODS.Joker {
   pos = { x = 13, y = 10 },
   atlas = "jokers_atlas",
   cost = 3,
-  unlocked = true,
+  unlocked = false,
   discovered = false,
   blueprint_compat = true,
   eternal_compat = false,
@@ -35,6 +35,27 @@ SMODS.Joker {
         card.ability.extra.a_mult,
       }
     }
+  end,
+
+  locked_loc_vars = function(self, info_queue, card)
+    return { vars = {localize("Queen", 'ranks')} }
+  end,
+
+  check_for_unlock = function(self, args)
+    -- we need to also check for G.GAME.round because the game decides to run this on every single card being added to the deck on run start
+    if args.type == 'paperback_removed_playing_cards' or (args.type == 'modify_deck' and G.GAME.round >= 1) then
+      for _, v in ipairs(G.playing_cards or {}) do
+        if v:is_face() and not PB_UTIL.is_rank(v, 'Queen') then 
+          return false
+        end
+      end
+      --assume all non-queen face cards are gone, check to see if there are any queens in deck
+      for _, v in ipairs(G.playing_cards or {}) do
+        if PB_UTIL.is_rank(v, 'Queen') then 
+          return true
+        end
+      end
+    end
   end,
 
   calculate = function(self, card, context)

@@ -17,7 +17,7 @@ SMODS.Joker {
   pos = { x = 17, y = 4 },
   atlas = 'jokers_atlas',
   cost = 4,
-  unlocked = true,
+  unlocked = false,
   discovered = false,
   blueprint_compat = true,
   eternal_compat = false,
@@ -26,10 +26,20 @@ SMODS.Joker {
     Food = true
   },
 
-
   paperback_credit = {
     coder = { 'metanite' }
   },
+
+  locked_loc_vars = function(self, info_queue, card)
+    return { vars = { localize('Pair', 'poker_hands') } }
+  end,
+  check_for_unlock = function(self, args)
+    if args.type == 'win_no_hand' then
+      if G.GAME.paperback.only_pairs_this_run then
+        return true
+      end
+    end
+  end,
 
   loc_vars = function(self, info_queue, card)
     return {

@@ -12,31 +12,64 @@ SMODS.current_mod.optional_features = {
 SMODS.current_mod.calculate = function(self, context)
   -- Count the amount of removed playing cards
   if context.remove_playing_cards then
+    G.GAME.paperback.destroyed_card_this_run = true
     for _, v in ipairs(context.removed or {}) do
       G.GAME.paperback.destroyed_cards = G.GAME.paperback.destroyed_cards + 1
-      G.GAME.paperback.destroyed_cards_this_round = G.GAME.paperback.destroyed_cards_this_round + 1
+      G.GAME.paperback.round.destroyed_cards_this_round = G.GAME.paperback.round.destroyed_cards_this_round + 1
+
+      -- Count the amount of destroyed glass cards
+      if SMODS.has_enhancement(v, 'm_glass') then
+        G.GAME.paperback.destroyed_glass = G.GAME.paperback.destroyed_glass + 1
+      end
+
+      -- COunt the amount of destroyed face cards
+      if v:is_face() then
+        G.GAME.paperback.destroyed_faces = G.GAME.paperback.destroyed_faces + 1
+      end
 
       -- Count the amount of destroyed dark suits
       if PB_UTIL.is_suit(v, 'dark', false, true) then
         G.GAME.paperback.destroyed_dark_suits = G.GAME.paperback.destroyed_dark_suits + 1
       end
+
+      -- Count the amount of destroyed light suits
+      if PB_UTIL.is_suit(v, 'light', false, true) then
+        G.GAME.paperback.destroyed_light_suits = G.GAME.paperback.destroyed_light_suits + 1
+      end
+
+      -- Count the amount of destroyed crowns
+      if v:is_suit('paperback_Crowns') then
+        G.GAME.paperback.destroyed_crowns = G.GAME.paperback.destroyed_crowns + 1
+      end
+
+      -- Count the amount of destroyed stars
+      if v:is_suit('paperback_Stars') then
+        G.GAME.paperback.destroyed_stars = G.GAME.paperback.destroyed_stars + 1
+      end
+    end
+    check_for_unlock({ type = 'paperback_removed_playing_cards' })
+  end
+
+  if context.end_of_round and context.game_over == false and context.main_eval then
+    if context.beat_boss and not G.GAME.paperback.discarded_this_ante then
+      check_for_unlock({ type = 'paperback_no_ante_discard' })
+    end
+    G.GAME.paperback.discarded_this_ante = false
+
+    if not G.GAME.modifiers.no_interest and not next(SMODS.find_card('j_paperback_better_call_jimbo', false)) then
+      if G.GAME.interest_amount*math.min(math.floor(G.GAME.dollars/5), G.GAME.interest_cap/5) >= 20 then check_for_unlock({ type = 'paperback_angel_investor_interest' }) end
     end
   end
-
-  -- Reset the amount of removed playing cards this round
-  if context.end_of_round then
-    G.GAME.paperback.destroyed_cards_this_round = 0
-  end
-
-  -- green clip: gain mult for every other played and scored clip
+  
   if context.before then
+    -- green clip: gain mult for every other played and scored clip
     local clips_played = PB_UTIL.count_paperclips { area = context.scoring_hand }
     if clips_played > 0 then
       for _, v in ipairs(G.playing_cards) do
         local clip = PB_UTIL.has_paperclip(v)
         if clip == "paperback_green_clip" and not v.debuff then
           local clip_table = v.ability.paperback_green_clip
-          clips_played_plus_odd = clip_table.odd + clips_played
+          local clips_played_plus_odd = clip_table.odd + clips_played
           -- Every 2 clips go into mult,
           -- remaining odd clip goes to `odd`
           clip_table.mult = clip_table.mult + clip_table.mult_plus * math.floor(clips_played_plus_odd / 2)
@@ -44,10 +77,40 @@ SMODS.current_mod.calculate = function(self, context)
         end
       end
     end
+
+    -- checks num times hand has been played
+    if G.GAME.hands[context.scoring_name].played >= 9 then
+      check_for_unlock({ type = 'paperback_hand_played_full_moon' })
+    end
+    -- checks if played hand contains a pair for Mismatched Sock's and Pear's unlock
+    if next(context.poker_hands['Pair']) then
+      G.GAME.paperback.played_pair_this_run = true
+    end
+    if not next(context.poker_hands['Pair']) then
+      G.GAME.paperback.only_pairs_this_run = false
+    end
+
+    -- checks if played hand contains a flush for the suit drink's unlock
+    if next(context.poker_hands['Flush']) then
+      G.GAME.paperback.played_flushes = G.GAME.paperback.played_flushes or {}
+      for _, card in ipairs(context.scoring_hand) do
+        if not SMODS.has_any_suit(card) then
+          for suit, count in pairs(SMODS.Suits) do
+            if card:is_suit(suit) then
+              G.GAME.paperback.played_flushes[suit] = (G.GAME.paperback.played_flushes[suit] and G.GAME.paperback.played_flushes[suit] or 0) + 1
+              check_for_unlock({type = 'paperback_suit_flushes'})
+              break
+            end
+          end
+          break
+        end
+      end
+    end
   end
 
   -- green clip: lose mult for each discarded clip
   if context.discard then
+    G.GAME.paperback.discarded_this_ante = true
     if PB_UTIL.has_paperclip(context.other_card) and not context.other_card.debuff then
       for _, v in ipairs(G.playing_cards) do
         local clip = PB_UTIL.has_paperclip(v)
@@ -59,11 +122,12 @@ SMODS.current_mod.calculate = function(self, context)
     end
   end
 
-  -- track Tarot + Minor Arcana usage for 8 of Pentacles
+  
   if context.using_consumeable then
     local center = context.consumeable.config.center
     local add_new = true
     if center.set == "Tarot" or center.set == "paperback_minor_arcana" then
+      -- track Tarot + Minor Arcana usage for 8 of Pentacles
       for _, v in ipairs(G.GAME.paperback.arcana_used) do
         if center.key == v then
           add_new = false
@@ -73,6 +137,10 @@ SMODS.current_mod.calculate = function(self, context)
       if add_new then
         G.GAME.paperback.arcana_used[#G.GAME.paperback.arcana_used + 1] = center.key
       end
+    end
+    -- track minor arcana usage across runs
+    if center.set == "paperback_minor_arcana" then
+      PB_UTIL.minor_arcana_profile_usage(1)
     end
   end
 
@@ -85,10 +153,21 @@ SMODS.current_mod.calculate = function(self, context)
     PB_UTIL.calculate_highest_shared_played(card)
   end
 
-  -- handle permabonus odds
   if context.before then
     for i, v in ipairs(context.scoring_hand) do
+      -- handle permabonus odds
       G.GAME.paperback.permabonus_odds = G.GAME.paperback.permabonus_odds + v.ability.perma_paperback_plus_odds
+      -- counting face cards
+      if v:is_face() then
+        G.GAME.paperback.round.scored_face_cards = G.GAME.paperback.round.scored_face_cards + 1
+      end
+    end
+    for i, v in ipairs(context.full_hand) do
+      if not v.paperback_num_times_played then
+        v.paperback_num_times_played = 1
+      else
+        v.paperback_num_times_played = v.paperback_num_times_played + 1
+      end
     end
   end
   if context.mod_probability then
@@ -130,6 +209,10 @@ SMODS.current_mod.calculate = function(self, context)
     G.GAME.paperback.free_purchases = math.max(0,
       G.GAME.paperback.free_purchases - #SMODS.find_card("j_paperback_normalJKR", false))
   end
+
+  if context.tag_triggered then
+    G.GAME.paperback.tags_redeemed_this_run = G.GAME.paperback.tags_redeemed_this_run + 1
+  end
 end
 
 -- Sleeved cards can't be debuffed
@@ -142,6 +225,9 @@ end
 -- Update values that get reset at the start of each round
 SMODS.current_mod.reset_game_globals = function(run_start)
   G.GAME.paperback.round.scored_clips = 0
+  G.GAME.paperback.round.played_face_cards = 0
+  G.GAME.paperback.round.destroyed_cards_this_round = 0
+  G.GAME.paperback.round.scored_face_cards = 0
   G.GAME.paperback.highest_rank_this_round = nil
   G.GAME.paperback.weather_radio_hand = PB_UTIL.get_random_visible_hand('weather_radio')
   G.GAME.paperback.joke_master_hand = PB_UTIL.get_random_visible_hand('joke_master')

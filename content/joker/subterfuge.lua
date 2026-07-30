@@ -23,14 +23,16 @@ SMODS.Joker {
   },
 
   check_for_unlock = function(self, args)
-    if G.GAME.paperback.destroyed_cards_this_round >= 6 then
-      return true
+    if args.type == 'paperback_removed_playing_cards' then
+      if G.GAME.paperback.round.destroyed_cards_this_round >= 5 then
+        return true
+      end
     end
   end,
 
   locked_loc_vars = function(self, info_queue, card)
     return {
-      vars = { 6 }
+      vars = { 5 }
     }
   end,
 

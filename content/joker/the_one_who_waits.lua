@@ -25,6 +25,7 @@ SMODS.Joker {
   blueprint_compat = true,
   eternal_compat = true,
   perishable_compat = false,
+  unlocked = false,
   paperback = {
     requires_custom_suits = true
   },
@@ -34,6 +35,12 @@ SMODS.Joker {
 
   in_pool = function(self, args)
     return PB_UTIL.spectrum_played() or PB_UTIL.has_suit_in_deck('paperback_Crowns', true)
+  end,
+
+  check_for_unlock = function(self, args)
+    if G.GAME.paperback.destroyed_crowns >= 1 then
+      return true
+    end
   end,
 
   loc_vars = function(self, info_queue, card)

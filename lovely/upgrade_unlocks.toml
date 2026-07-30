@@ -12,8 +12,10 @@ pattern = "if _c.rarity and _c.rarity == 4 and specific_vars and not specific_va
 position = "before"
 match_indent = true
 payload = '''
-if _c.paperback_secret_unlock and _c.paperback_secret_unlock == true and _c.unlocked then
+if _c.paperback_secret_unlock and _c.unlocked then
   localize{type = 'unlocks', key = 'paperback_upgrade_unlock', set = 'Other', nodes = desc_nodes, vars = loc_vars}
+elseif _c.paperback_secret_unlock and not _c.unlocked then
+  localize{type = 'unlocks', key = 'paperback_upgrade_locked', set = 'Other', nodes = desc_nodes, vars = loc_vars}
 else
 '''
 
