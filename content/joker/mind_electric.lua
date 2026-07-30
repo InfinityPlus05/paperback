@@ -23,7 +23,7 @@ SMODS.Joker {
   blueprint_compat = true,
   eternal_compat = true,
   perishable_compat = false,
-  ehancement_gate = "m_mult",
+  enhancement_gate = "m_mult",
 
   loc_vars = function(self, info_queue, card)
     info_queue[#info_queue + 1] = G.P_CENTERS.m_mult
@@ -57,14 +57,5 @@ SMODS.Joker {
         return { remove = true }
       end
     end
-  end,
-  -- Thanks vremade :3
-  in_pool = function(self, args)
-    for _, playing_card in ipairs(G.playing_cards or {}) do
-      if SMODS.has_enhancement(playing_card, 'm_mult') then
-        return true
-      end
-    end
-    return false
   end
 }

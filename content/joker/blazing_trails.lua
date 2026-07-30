@@ -39,23 +39,26 @@ SMODS.Joker {
   end,
 
   calculate = function(self, card, context)
+    -- Mark the rightmost card not already destroyed by this
     if context.pre_discard and #context.full_hand == card.ability.extra.required_cards then
       local to_destroy = nil
 
-      -- Collect the rightmost card already not destroyed by blazing trails
       for _, v in ipairs(context.full_hand) do
-        if not v.paperback_blazing_destroyed then
+        if not v.paperback_blazing_marked then
           to_destroy = v
         end
       end
 
       if to_destroy then
-        to_destroy.paperback_blazing_destroyed = true
-        to_destroy:juice_up()
-        SMODS.destroy_cards(to_destroy, { delay = 0.1 })
-
-        return nil, true
+        to_destroy.paperback_blazing_marked = true
       end
+    end
+
+    -- Actually destroy the marked cards
+    if context.discard and context.other_card.paperback_blazing_marked then
+      return {
+        remove = true
+      }
     end
   end
 }

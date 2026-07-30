@@ -30,7 +30,10 @@ SMODS.Joker {
 
   unlock_condition = { type = 'c_losses', extra = 1 },
 
-  in_pool = function(self, args) return SMODS.showman("hamsa") or not next(SMODS.find_card("j_paperback_hamsa_r", true)) end,
+  in_pool = function(self, args)
+    return SMODS.showman("hamsa")
+        or not next(SMODS.find_card("j_paperback_hamsa_r", true))
+  end,
 
   calculate = function(self, card, context)
     if G.GAME.current_round.hands_played == 0 and context.repetition and context.cardarea == G.play then

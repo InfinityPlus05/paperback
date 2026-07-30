@@ -66,5 +66,7 @@ SMODS.Joker {
         message = localize('k_reset')
       }
     end
-  end
+  end,
+
+  enhancement_gate = 'm_mult'
 }
