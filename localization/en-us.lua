@@ -1534,7 +1534,11 @@ return {
         text = {
           "Sell this card to make {C:attention}Joker",
           "to the right {C:attention}Eternal{}",
-        }
+        },
+        unlock = {
+          "Have an",
+          "{C:attention,E:1}Eternal{} Joker"
+        },
       },
       j_paperback_plastic_wrap = {
         name = "Plastic Wrap",
