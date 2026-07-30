@@ -680,6 +680,20 @@ return {
           "{C:inactive}(Currently {V:1}#2#{C:inactive})",
         },
       },
+      j_paperback_pink_joker = {
+        name = "Pink Joker",
+        text = {
+          "While a {C:attention}Stained Card{} is held,",
+          "cards have a {C:green}#1#{} in {C:green}#2#{} chance",
+          "to permanently gain {C:money}+$#3#{} when scored",
+          "if they do not already have it",
+        },
+        unlock = {
+          "Have at least",
+          "{C:attention}#1# Stained Cards{}",
+          "in your deck",
+        }
+      },
       j_paperback_ultra_rare = {
         name = "Ultra Rare",
         text = {
@@ -2513,7 +2527,7 @@ return {
           "{C:inactive}(Only counts skips in new antes,{}",
           "{C:inactive}currently {V:1}#4#{C:inactive})",
         }
-      },      
+      },
       j_paperback_hotel_guest = {
         name = "Hotel Guest",
         text = {

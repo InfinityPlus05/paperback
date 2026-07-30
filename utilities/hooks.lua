@@ -515,3 +515,14 @@ SMODS.DrawStep {
   conditions = { vortex = false, facing = 'front' },
 }
 SMODS.draw_ignore_keys.under_sprite = true -- needed so smods doesn't auto-draw it
+
+-- Meow
+local click_ref = Card.click
+function Card:click()
+  if self.config.center_key == 'j_paperback_pink_joker' then
+    play_sound("paperback_mario-paint-meow", (80 + math.random(40)) / 100)
+  end
+  if click_ref then
+    click_ref(self)
+  end
+end
