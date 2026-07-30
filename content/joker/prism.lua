@@ -35,11 +35,11 @@ SMODS.Joker {
       if args.scoring_hand then
         local _w = 0
         for k, v in ipairs(args.scoring_hand) do
-          if v.ability.name == 'Wild Card' then
+          if SMODS.has_enhancement(v, 'm_wild') then
             _w = _w + 1
           end
         end
-        if _w == #args.scoring_hand then
+        if _w >= 5 then
           return true
         end
       end
