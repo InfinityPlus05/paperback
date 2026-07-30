@@ -40,6 +40,7 @@ SMODS.Joker {
   paperback_credit = {
     coder = { 'thermo' }
   },
+  unlocked = false,
 
   loc_vars = function(self, info_queue, card)
     return {
@@ -49,6 +50,12 @@ SMODS.Joker {
         card.ability.extra.m_dollars
       }
     }
+  end,
+
+  check_for_unlock = function(self, args)
+    if args.type == 'paperback_played_three_jacks' then
+      return true
+    end
   end,
 
   calculate = function(self, card, context)

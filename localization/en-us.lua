@@ -3178,6 +3178,11 @@ return {
           "Create a {C:attention}prize{}",
           "after being consumed",
           "{C:inactive}(Must have room)"
+        },
+        unlock = {
+          "Score a",
+          "{C:attention,E:1}Three of a Kind{}",
+          "of {C:attention,E:1}Jacks"
         }
       },
       j_paperback_ponzu = {

@@ -90,6 +90,25 @@ SMODS.current_mod.calculate = function(self, context)
       G.GAME.paperback.only_pairs_this_run = false
     end
 
+    -- check for Spectrum Five
+    if PB_UTIL.contains_spectrum(context.poker_hands) and next(context.poker_hands['Five of a Kind']) then
+      check_for_unlock({ type = 'paperback_played_spectrum_five' })
+    end
+
+    -- Joker Jacks unlock
+    if next(context.poker_hands['Three of a Kind']) then
+      local jack_count = 0
+      for _, v in ipairs(context.scoring_hand) do
+        if PB_UTIL.is_rank(v, "Jack") then
+          jack_count = jack_count + 1
+        end
+        if jack_count >= 3 then
+          check_for_unlock({ type = 'paperback_played_three_jacks' })
+          break
+        end
+      end
+    end
+
     -- checks if played hand contains a flush for the suit drink's unlock
     if next(context.poker_hands['Flush']) then
       G.GAME.paperback.played_flushes = G.GAME.paperback.played_flushes or {}
