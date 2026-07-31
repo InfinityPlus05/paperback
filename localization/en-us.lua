@@ -1525,8 +1525,8 @@ return {
           "{C:attention}Voucher{} slot"
         },
         unlock = {
-          "Discover {C:attention,E:1}#1#{}",
-          "{C:attention,E:1}Vouchers{}"
+          "Acquire {C:attention,E:1}#1#{} Tier II",
+          "Vouchers in one run"
         },
       },
       j_paperback_card_sleeve = {
@@ -1756,6 +1756,12 @@ return {
           "{C:money}Shops{} have an additional",
           "{C:attention}card slot",
         },
+        unlock = {
+          "Have {C:attention,E:1}#1#{} or more",
+          "shop card slots",
+          "{s:0.8}...or start a run",
+          "{s:0.8}on {C:attention,E:1,s:0.8}#2#{}"
+        }
       },
       j_paperback_tutor = {
         name = "Tutor",
