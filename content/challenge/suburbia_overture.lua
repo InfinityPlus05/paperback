@@ -8,6 +8,9 @@ SMODS.Challenge {
       { id = "paperback_banned_non_common_jokers" }
     }
   },
+  unlocked = function (self)
+    return G.P_CENTERS["j_paperback_the_normal_joker"].unlocked
+  end,
 
   restrictions = {
     banned_cards = PB_UTIL.banned_challenge_centers {
