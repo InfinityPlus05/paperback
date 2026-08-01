@@ -711,8 +711,8 @@ return {
           "per {C:money}${} spent",
         },
         unlock = {
-          "Defeat a Boss Blind",
-          "without using any {E:1,C:attention,E:1}discards",
+          "Win a run without",
+          "any rare Jokers"
         },
       },
       j_paperback_pink_joker = {
