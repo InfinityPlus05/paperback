@@ -19,11 +19,20 @@ SMODS.Joker {
   blueprint_compat = true,
   eternal_compat = true,
   perishable_compat = true,
+  unlocked = false,
 
   paperback_credit = {
     coder = { 'dowfrin' }
   },
 
+  check_for_unlock = function(self, args)
+    if args.type == 'win' then
+      for i, v in ipairs(G.jokers.cards) do
+        if v.config.center.rarity == 3 then return false end
+      end
+      return true
+    end
+  end,
   loc_vars = function(self, info_queue, card)
     return {
       vars = {
