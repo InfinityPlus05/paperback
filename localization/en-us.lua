@@ -336,7 +336,7 @@ return {
           "{C:inactive}(Must have room)",
         },
         unlock = {
-          "Destroy a", 
+          "Destroy a",
           "{C:paperback_crowns,E:1}Crown{} Card"
         }
       },
@@ -1621,6 +1621,7 @@ return {
           { "When a {C:attention}#1#{} is played,",
             "destroy the played hand and",
             "create a random {C:spectral}Spectral{} card",
+            "{C:inactive}(Must have room)",
           },
           { "{C:red}* #2# left.{}" }
         },
@@ -2277,7 +2278,7 @@ return {
           "destroy the {C:attention}rightmost{} card"
         },
         unlock = {
-          "Destroy a", 
+          "Destroy a",
           "{C:paperback_stars,E:1}Star{} Card"
         }
       },
@@ -2341,7 +2342,7 @@ return {
           "{s:0.9,C:inactive}(Doesn't require room..?){}",
         }
       },
-      j_paperback_off_switch = { 
+      j_paperback_off_switch = {
         name = "OFF Switch",
         text = {
           "When a {C:attention}playing card{} is destroyed,",
