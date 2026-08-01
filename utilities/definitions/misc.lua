@@ -198,6 +198,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "oujia_board",
   "planchette",
   "prescript",
+  "frutiger_aero",
   "pink_joker",
   "trans_flag",
   "pride_flag",

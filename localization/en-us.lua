@@ -703,6 +703,18 @@ return {
           "{C:inactive}(Currently {V:1}#2#{C:inactive})",
         },
       },
+      j_paperback_frutiger_aero = {
+        name = "Frutiger Aero",
+        text = {
+          "{C:chips}#1#{} Chips,",
+          "loses {C:chips}#2#{} Chips",
+          "per {C:money}${} spent",
+        },
+        unlock = {
+          "Defeat a Boss Blind",
+          "without using any {E:1,C:attention,E:1}discards",
+        },
+      },
       j_paperback_pink_joker = {
         name = "Pink Joker",
         text = {
