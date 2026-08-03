@@ -1556,7 +1556,12 @@ return {
           "unique {C:attention}Enhancement{}",
           "in your full deck",
           "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult){}",
-        }
+        },
+        unlock = {
+          "Have a {C:attention,E:1}#1#{},",
+          "{C:attention,E:1}#2#{}, and {C:attention,E:1}#3#{}",
+          "in your deck"
+        },
       },
       j_paperback_its_tv_time = {
         name = "It's TV Time!",
