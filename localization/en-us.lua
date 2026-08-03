@@ -1769,6 +1769,10 @@ return {
           "{C:attention}Numbered cards{} have",
           "{C:attention}double{} {C:chips}Chip value{}",
         },
+        unlock = {
+          "Upgrade a number card",
+          "with {C:chips,E:1}+#1#{} {C:attention,E:1}additional Chips{}",
+        },
       },
       j_paperback_ghost_cola = {
         name = "Ghost Cola",
