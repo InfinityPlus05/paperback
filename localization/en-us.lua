@@ -1569,6 +1569,10 @@ return {
           "Played {C:paperback_stars}#1#{} give",
           "{C:chips}+#2#{} chips when scored",
         },
+        unlock = {
+          "Have a {C:paperback_stars,E:1}#1#{}",
+          "{C:attention,E:1}#2#{}",
+        },
       },
       j_paperback_trust_us = {
         name = "Trust Us!",
@@ -1576,6 +1580,11 @@ return {
           "{X:mult,C:white}X#1#{} Mult if played hand",
           "contains a {C:attention}#3#{},",
           "{X:mult,C:white}X#2#{} Mult otherwise",
+        },
+        unlock = {
+          "Win a run with",
+          "{E:1,C:attention}#1#",
+          "as your most played hand",
         },
       },
       j_paperback_da_capo = {
