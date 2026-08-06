@@ -175,6 +175,10 @@ SMODS.current_mod.calculate = function(self, context)
       PB_UTIL.minor_arcana_profile_usage(1)
     end
   end
+    -- track blind skips across runs
+  if context.skip_blind then
+    PB_UTIL.blind_skip_profile_usage(1)
+  end
 
   -- Keep Solar System global variable updated
   if context.paperback and context.paperback.level_up then

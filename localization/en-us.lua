@@ -2774,7 +2774,12 @@ return {
           "{C:attention}#2#{} {C:inactive}(#3#){} skipped Blinds",
           "{C:inactive}(Only counts skips in new antes,{}",
           "{C:inactive}currently {V:1}#4#{C:inactive})",
-        }
+        },
+        unlock = {
+          "Skip {C:attention,E:1}#1#{}",
+          "total blinds",
+          "{C:inactive}(#2#)",
+        },
       },
       j_paperback_hotel_guest = {
         name = "Hotel Guest",

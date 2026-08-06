@@ -1444,6 +1444,16 @@ function PB_UTIL.minor_arcana_profile_usage(val)
     check_for_unlock({type = 'paperback_use_minor_arcana', minor_arcana_total = G.PROFILES[G.SETTINGS.profile].career_stats.paperback_minor_arcana_used})
   end
 end
+--- Tracks Blind skips for profile
+--- @param val number
+function PB_UTIL.blind_skip_profile_usage(val)
+  val = val or 1
+  G.PROFILES[G.SETTINGS.profile].career_stats.paperback_blind_skips = (G.PROFILES[G.SETTINGS.profile].career_stats.paperback_blind_skips or 0) + val
+  if G.PROFILES[G.SETTINGS.profile].career_stats.paperback_blind_skips then
+    check_for_unlock({type = 'paperback_skip_blind', blind_skips_total = G.PROFILES[G.SETTINGS.profile].career_stats.paperback_blind_skips})
+  end
+end
+
 --- Choose a new item from a list
 --- @param current_item (string|nil)
 --- @param list (table)
