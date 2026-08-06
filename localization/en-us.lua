@@ -3119,6 +3119,10 @@ return {
           "Earn {C:money}$#1#{} when a Blind is skipped",
           "Increases by {C:money}$#2#{} each time",
         },
+        unlock = {
+          "Activate {E:1,C:attention}#1#{} tags",
+          "in one run",
+        }
       },
       j_paperback_freedom_of_choice = {
         name = "Freedom of Choice",

@@ -16,6 +16,7 @@ SMODS.Joker {
   paperback_credit = {
     coder = { 'thermo' }
   },
+  unlocked = false,
 
   loc_vars = function(self, info_queue, card)
     return {
@@ -24,6 +25,20 @@ SMODS.Joker {
         card.ability.extra.a_dollars
       }
     }
+  end,
+
+  locked_loc_vars = function(self, info_queue, card)
+    return {
+      vars = {
+        10
+      }
+    }
+  end,
+
+  check_for_unlock = function(self, args)
+    if G.GAME.paperback.tags_redeemed_this_run >= 10 then
+      return true
+    end
   end,
 
   calculate = function(self, card, context)
