@@ -2787,7 +2787,11 @@ return {
           "Gives {X:mult,C:white}X#1#{} for each",
           "{C:attention}Queen{} held in hand",
           "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult){}",
-        }
+        },
+        unlock = {
+          "Have a",
+          "{C:attention,E:1}Steel Queen{}",
+        },
       },
       j_paperback_freight = {
         name = "Freight",
