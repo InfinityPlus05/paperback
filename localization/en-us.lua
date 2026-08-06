@@ -2760,7 +2760,12 @@ return {
           "{C:attention}selling{} this Joker adds {C:dark_edition}Negative{}",
           "to a {C:attention}random{} Joker",
           "{C:inactive}(Currently {C:attention}#2#{C:inactive} Heads)"
-        }
+        },
+        unlock = {
+          "Destroy {C:attention,E:1}#1#{}",
+          "{C:attention,E:1}Jacks{} or {C:attention,E:1}Kings",
+          "during a run"
+        },
       },
       j_paperback_torii = {
         name = "Torii",
@@ -2910,6 +2915,11 @@ return {
           "for every {C:attention}#2# #3#s",
           "in your {C:attention}full deck",
           "{C:inactive}(Currently {C:attention}+#4#{C:inactive} hand size, Max #5#){}"
+        },
+        unlock = {
+          "Have {C:attention,E:1}#1#{}",
+          "{C:attention,E:1}#2#s{}",
+          "in your deck"
         }
       },
       j_paperback_first_contact = {

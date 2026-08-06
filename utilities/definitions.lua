@@ -17,12 +17,25 @@ SMODS.current_mod.calculate = function(self, context)
       G.GAME.paperback.destroyed_cards = G.GAME.paperback.destroyed_cards + 1
       G.GAME.paperback.round.destroyed_cards_this_round = G.GAME.paperback.round.destroyed_cards_this_round + 1
 
+      -- Counting destroyed ranks
+      if PB_UTIL.is_rank(v, "King") then
+        G.GAME.paperback.destroyed_kings = G.GAME.paperback.destroyed_kings + 1
+      end
+      if PB_UTIL.is_rank(v, "Jack") then
+        G.GAME.paperback.destroyed_jacks = G.GAME.paperback.destroyed_jacks + 1
+      end
+      
       -- Count the amount of destroyed glass cards
       if SMODS.has_enhancement(v, 'm_glass') then
         G.GAME.paperback.destroyed_glass = G.GAME.paperback.destroyed_glass + 1
       end
 
-      -- COunt the amount of destroyed face cards
+      -- Count the amount of destroyed face cards
+      if v:is_face() then
+        G.GAME.paperback.destroyed_faces = G.GAME.paperback.destroyed_faces + 1
+      end
+
+      -- Count the amount of destroyed face cards
       if v:is_face() then
         G.GAME.paperback.destroyed_faces = G.GAME.paperback.destroyed_faces + 1
       end
