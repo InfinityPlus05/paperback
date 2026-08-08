@@ -41,9 +41,9 @@ return {
           "{C:attention}#2#{} Joker slot"
         },
         unlock = {
-          "Win a run with any",
-          "deck on at least",
-          "{V:1}#1#{} difficulty",
+          "Have at least",
+          "{C:attention}#2#{} Jokers with",
+          "{V:1}#1#{} stickers",
         }
       },
       b_paperback_antique = {
