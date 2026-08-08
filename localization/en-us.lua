@@ -2847,7 +2847,7 @@ return {
         },
         unlock = {
           "Obtain the",
-          "{C:attention,E:1}Observatory{} voucher",
+          "{C:planet,E:1}#1#{} voucher",
         }
       },
       j_paperback_rosary_beads = {
@@ -2951,6 +2951,11 @@ return {
           "for every {C:attention}#1#{C:inactive} [#2#]{} scored {C:paperback_dark_suit}Dark Suits",
           "{C:inactive}(Must have room)",
         },
+        unlock = {
+          "Use {C:attention,E:1}#1#{}",
+          "{C:spectral,E:1}#2#{} cards",
+          "in one run"
+        }
       },
       j_paperback_paralyzed = {
         name = "Paralyzed",

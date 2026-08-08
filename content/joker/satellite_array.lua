@@ -18,6 +18,18 @@ SMODS.Joker {
   },
   unlocked = false,
 
+  locked_loc_vars = function(self, info_queue, card)
+    local other_name = localize('k_unknown')
+    if G.P_CENTERS['v_observatory'].unlocked then
+      other_name = localize { type = 'name_text', set = 'Voucher', key = 'v_observatory' }
+    end
+    return {
+      vars = {
+        other_name
+      }
+    }
+  end,
+
   check_for_unlock = function(self, args)
     local count = 0
     if G.vouchers then
