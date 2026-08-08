@@ -4936,6 +4936,7 @@ return {
       paperback_code_credit = 'Code by ',
       paperback_music_credit = 'Composed by ',
       paperback_and_spacer = ' and ',
+      paperback_comma_spacer = ', ',
 
       -- Developers
       paperback_dev_dowfrin = 'Dowfrin',
