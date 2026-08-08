@@ -2844,6 +2844,10 @@ return {
           "and loses {C:chips}-#2#{} Chips",
           "for every hand played",
           "{C:inactive}(Currently {C:chips}+#3#{C:inactive} Chips)",
+        },
+        unlock = {
+          "Obtain the",
+          "{C:attention,E:1}Observatory{} voucher",
         }
       },
       j_paperback_rosary_beads = {
