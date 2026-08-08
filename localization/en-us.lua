@@ -933,8 +933,8 @@ return {
           "{C:inactive}(Currently {C:chips}+#4#{C:inactive} Chips)"
         },
         unlock = {
-          "Clear an Ante",
-          "without {C:attention,E:1}discarding"
+          "Clear an Ante without",
+          "using any {E:1,C:attention,E:1}discards"
         },
       },
       j_paperback_you_are_a_fool = {
@@ -2801,6 +2801,11 @@ return {
           "{C:attention}earn{} the sell value of this Joker.",
           "When sold, gain {C:red}+#2#{} discard per {C:money}$#3#{}",
           "of sell value {C:attention}instead{} of money",
+        },
+        unlock = {
+          "Have a card with",
+          "{C:money,E:1}$#1#{} or more",
+          "of sell value"
         }
       },
       j_paperback_banana_man = {
