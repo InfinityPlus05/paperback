@@ -571,6 +571,10 @@ return {
           "This Joker {C:red}loses{} Mult equal to",
           "the {C:money}sell value{} of {C:red}sold{} {C:attention}Jokers{}",
           "{C:inactive}(Currently {C:mult}+#1#{C:inactive} Mult)"
+        },
+        unlock = {
+          "Scale {C:attention,E:1}#1#{}",
+          "to {C:mult,E:1}+#2#{} Mult or more",
         }
       },
       j_paperback_small_scale_onshore_wind = {
