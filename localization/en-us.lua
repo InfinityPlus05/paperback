@@ -3176,6 +3176,10 @@ return {
           "Create a random {C:planet}#1#{} card",
           "for each empty {C:attention}consumable{} slot",
           "upon clearing a blind"
+        },
+        unlock = {
+          "Have {C:attention,E:1}#1#{} {C:planet,E:1}#2#{} cards",
+          "in your {C:attention,E:1}consumables",
         }
       },
       j_paperback_cardboard_box = {
