@@ -2024,6 +2024,11 @@ return {
           "to {C:attention}retrigger{} and a {C:green}#3# in #4#{} chance",
           "to earn between {C:money}#5#{} and {C:money}$#6#{} when scored",
         },
+        unlock = {
+          "Play a hand that",
+          "contains a scoring",
+          "{C:attention,E:1}Ace{}, {C:attention,E:1}9{}, {C:attention,E:1}9{}, and {C:attention,E:1}7{}",
+        }
       },
       j_paperback_wish_you_were_here = {
         name = "Wish You Were Here",
