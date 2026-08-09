@@ -241,6 +241,11 @@ SMODS.current_mod.calculate = function(self, context)
   end
   if context.after then
     G.GAME.paperback.permabonus_odds = 0
+
+    -- Determination unlock
+    if SMODS.last_hand_oneshot and G.GAME.current_round.hands_left == 0 then
+      check_for_unlock({ type = 'paperback_determination_oneshot' })
+    end
   end
 
   -- add paperclips to shop cards if Illusion is owned

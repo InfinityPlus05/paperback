@@ -863,6 +863,11 @@ return {
           "Prevents death, on death",
           "{C:attention}#1#{} Ante, {C:attention}#1#{} hand size",
           "and {C:red}self-destructs"
+        },
+        unlock = {
+          "Set the {C:attention,E:1}score",
+          "{C:attention,E:1}on fire{} with",
+          "your final hand"
         }
       },
       j_paperback_blue_marble = {
