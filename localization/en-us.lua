@@ -2511,6 +2511,11 @@ return {
           "permanently gains",
           "{C:chips}+#1#{} Chips when scored",
         },
+        unlock = {
+          "Have a {C:attention,E:1}#1#{}",
+          "and {C:attention,E:1}#2#{}",
+          "in your deck"
+        },
       },
       j_paperback_evergreens = {
         name = "Evergreens",
