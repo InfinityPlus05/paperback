@@ -25,12 +25,6 @@ SMODS.Joker {
     coder = { 'dowfrin' },
   },
 
-  in_pool = function(self, args)
-    for _, v in ipairs(G.playing_cards or {}) do
-      if PB_UTIL.has_paperclip(v) then return true end
-    end
-  end,
-
   check_for_unlock = function (self, args)
     if G.hand then
       local queens = 0
