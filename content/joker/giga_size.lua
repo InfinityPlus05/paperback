@@ -29,18 +29,11 @@ SMODS.Joker {
   end,
 
   locked_loc_vars = function(self, info_queue, card)
-    return { vars = { 50 } }
+    return { vars = { 10 } }
   end,
 
   check_for_unlock = function(self, args)
-    if args.type == 'hand_contents' then
-      for j = 1, #args.cards do
-        if args.cards[j]:get_chip_bonus() >= 50 then
-          return true
-        end
-      end
-    end
-    return false
+    return G.GAME.current_round.hands_left and G.GAME.current_round.hands_left  >= 10
   end,
 
   calculate = function(self, card, context)

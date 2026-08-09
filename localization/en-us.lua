@@ -2394,8 +2394,8 @@ return {
           "{C:inactive}(Will give {X:mult,C:white}X#1#{C:inactive} Mult)"
         },
         unlock = {
-          "Play a card with",
-          "{C:attention,E:1}50{} additional {C:attention,E:1}Chips{}",
+          "Have {C:blue,E:1}10{C:attention,E:1} hands",
+          "at once",
         },
       },
       j_paperback_the_batter = {
@@ -2464,9 +2464,8 @@ return {
           "of rightmost {C:attention}Joker{}"
         },
         unlock = {
-          "Have a deck containing only",
-          "cards of the same",
-          "{E:1,C:attention}Rank{} and {E:1,C:attention}Suit{}"
+          "Have {C:attention,E:1}2{} of the",
+          "same {C:attention,E:1}Joker"
         }
       },
       j_paperback_master_plan = {
