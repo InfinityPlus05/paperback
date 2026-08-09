@@ -2991,6 +2991,11 @@ return {
         text = {
           "Create a random {C:tarot}#1#{} card",
           "upon clearing a blind"
+        },
+        unlock = {
+          "Use the {C:attention,E:1}Death{}",
+          "{C:tarot,E:1}tarot {C:attention,E:1}#1#{} times",
+          "{C:inactive}(#2#)"
         }
       },
       j_paperback_coin_collection = {
