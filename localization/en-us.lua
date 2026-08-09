@@ -1288,7 +1288,8 @@ return {
           "or {C:money}$#3#{} if they match exactly",
         },
         unlock = {
-          "Play a {C:attention,E:1}Spectrum Five{}"
+          "Play a",
+          "{C:attention,E:1}Spectrum Five{}"
         }
       },
       j_paperback_mexican_train = {
@@ -2889,6 +2890,10 @@ return {
         text = {
           "If scored hand contains",
           "{C:attention}#1#{} or more {C:hearts}#3#{}, earn {C:money}$#2#{}"
+        },
+        unlock = {
+          "Play a {C:hearts,E:1}Hearts{}",
+          "{C:attention,E:1}Flush Five{}"
         }
       },
       j_paperback_tian_tian = {

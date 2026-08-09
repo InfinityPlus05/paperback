@@ -108,6 +108,21 @@ SMODS.current_mod.calculate = function(self, context)
       check_for_unlock({ type = 'paperback_played_spectrum_five' })
     end
 
+    -- Rosary Beads unlock
+    if next(context.poker_hands['Flush Five']) then
+      local all_hearts = true
+      for _, v in ipairs(context.scoring_hand) do
+        if not (v:is_suit('Hearts') or SMODS.has_any_suit(v)) then
+          all_hearts = false
+          break
+        end
+      end
+      if all_hearts then
+        check_for_unlock({ type = 'paperback_played_flush_five_hearts' })
+      end
+
+    end
+
     -- Joker Jacks unlock
     if next(context.poker_hands['Three of a Kind']) then
       local jack_count = 0
