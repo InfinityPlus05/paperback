@@ -55,6 +55,7 @@ function Game.init_game_object(self)
     only_pairs_this_run = true,
     discarded_this_ante = false,
     played_flushes = {},
+    played_straight_flushes = {},
 
     permabonus_odds = 0,
 

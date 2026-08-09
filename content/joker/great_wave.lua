@@ -7,7 +7,7 @@ SMODS.Joker {
   pos = { x = 4, y = 2 },
   atlas = "jokers_atlas",
   cost = 8,
-  unlocked = true,
+  unlocked = false,
   discovered = false,
   blueprint_compat = true,
   eternal_compat = true,
@@ -16,6 +16,16 @@ SMODS.Joker {
   paperback_credit = {
     coder = { 'oppositewolf' },
   },
+
+  locked_loc_vars = function (self, info_queue, card)
+    return {vars = {2, localize("Clubs", 'suits_singular'),}}
+  end,
+
+  check_for_unlock = function (self, args)
+    if args.type == 'paperback_suit_straight_flushes' then
+      return G.GAME.paperback.played_straight_flushes['Clubs'] and G.GAME.paperback.played_straight_flushes['Clubs'] >= 2
+    end
+  end,
 
   calculate = function(self, card, context)
     if not card.debuff then

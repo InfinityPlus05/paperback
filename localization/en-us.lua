@@ -755,8 +755,8 @@ return {
           "{C:inactive}(Must have room)",
         },
         unlock = {
-          "Have {C:attention,E:1}#1#{} or more",
-          "{C:attention,E:1}suits{} in",
+          "Have {C:attention,E:1}#1#{} or",
+          "more {C:attention,E:1}suits{} in",
           "your deck"
         }
       },
@@ -1918,6 +1918,10 @@ return {
           "Retrigger {C:attention}rightmost{} scoring card",
           "{C:attention}once{} for each other {C:attention}scoring card{}",
         },
+        unlock = {
+          "Play {C:attention,E:1}#1# {C:clubs,E:1}Club{} Straight",
+          "Flushes in one run"
+        }
       },
       j_paperback_caramel_apple = {
         name = "Caramel Apple",
@@ -2569,6 +2573,10 @@ return {
           "The first card in shop",
           "you buy is {C:attention}free{}"
         },
+        unlock = {
+          "Have no {C:attention,E:1}8s{}",
+          "in your deck"
+        }
       },
       j_paperback_normalJKR_alt = {
         name = "jimbo_follower_c",
@@ -2576,6 +2584,10 @@ return {
           "The first card in shop",
           "you buy is {C:attention}2G{}"
         },
+        unlock = {
+          "Have no {C:attention,E:1}8s{}",
+          "in your deck"
+        }
       },
       j_paperback_cakepop = {
         name = "Cakepop",

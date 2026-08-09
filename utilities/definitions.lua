@@ -131,6 +131,10 @@ SMODS.current_mod.calculate = function(self, context)
             if card:is_suit(suit) then
               G.GAME.paperback.played_flushes[suit] = (G.GAME.paperback.played_flushes[suit] and G.GAME.paperback.played_flushes[suit] or 0) + 1
               check_for_unlock({type = 'paperback_suit_flushes'})
+              if next(context.poker_hands['Straight']) then
+                G.GAME.paperback.played_straight_flushes[suit] = (G.GAME.paperback.played_straight_flushes[suit] and G.GAME.paperback.played_straight_flushes[suit] or 0) + 1
+                check_for_unlock({type = 'paperback_suit_straight_flushes'})
+              end
               break
             end
           end
