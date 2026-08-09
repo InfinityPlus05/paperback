@@ -4,7 +4,7 @@ SMODS.Joker {
   pos = { x = 18, y = 11 },
   atlas = 'jokers_atlas',
   cost = 8,
-  unlocked = true,
+  unlocked = false,
   discovered = false,
   blueprint_compat = false,
   eternal_compat = true,
@@ -17,6 +17,29 @@ SMODS.Joker {
   paperback_credit = {
     coder = { 'Dowfrin' }
   },
+
+  locked_loc_vars = function(self, info_queue, card)
+    local other_name = localize('k_unknown')
+    if G.P_CENTERS['v_liquidation'].unlocked then
+      other_name = localize { type = 'name_text', set = 'Voucher', key = 'v_liquidation' }
+    end
+    return {
+      vars = {
+        other_name
+      }
+    }
+  end,
+
+  check_for_unlock = function(self, args)
+    local count = 0
+    if G.vouchers then
+      for _, v in ipairs(G.vouchers.cards or {}) do
+        if v.config.center.key == 'v_liquidation' then
+          return true
+        end
+      end
+    end
+  end,
 
   loc_vars = function(self, info_queue, card)
     return { vars = { card.ability.extra.discount * 100 } }

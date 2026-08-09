@@ -2591,6 +2591,10 @@ return {
         text = {
           "All cards and packs in shop are {C:attention}#1#%{} off",
         },
+        unlock = {
+          "Obtain the",
+          "{C:money,E:1}#1#{} voucher",
+        }
       },
       j_paperback_normalJKR = {
         name = "normalJKR",
