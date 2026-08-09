@@ -1036,6 +1036,10 @@ return {
         text = {
           "Retrigger scored {C:attention}#1#s{} and {C:attention}#2#s",
           "once, and scored {C:attention}#3#s{} twice"
+        },
+        unlock = {
+          "Play a hand containing",
+          "{C:attention,E:1}#1#{} or more {C:attention,E:1}Wild Jacks"
         }
       },
       j_paperback_penumbra_phantasm = {
