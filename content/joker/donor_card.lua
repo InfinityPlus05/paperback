@@ -21,7 +21,7 @@ SMODS.Joker {
   pos = { x = 16, y = 11 },
   atlas = 'jokers_atlas',
   cost = 6,
-  unlocked = true,
+  unlocked = false,
   discovered = false,
   blueprint_compat = true,
   perishable_compat = false,
@@ -30,6 +30,18 @@ SMODS.Joker {
   paperback_credit = {
     coder = { 'dowfrin' }
   },
+
+  check_for_unlock = function(self, args)
+    -- we need to also check for G.GAME.round because the game decides to run this on every single card being added to the deck on run start
+    if args.type == 'paperback_removed_playing_cards' or (args.type == 'modify_deck' and G.GAME.round >= 1) then
+      for _, v in ipairs(G.playing_cards or {}) do
+        if v:is_suit('Hearts') then 
+          return false
+        end
+      end
+      return true
+    end
+  end,
 
   loc_vars = function(self, info_queue, card)
     return {

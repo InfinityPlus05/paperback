@@ -777,6 +777,10 @@ return {
           { "Scored {C:hearts}Hearts{} lose {C:chips}#2#{} Chips",
             "and are {C:attention}destroyed{} upon reaching {C:attention}0{}" },
         },
+        unlock = {
+          "Have no {C:hearts,E:1}Hearts{}",
+          "in your deck"
+        }
       },
       j_paperback_the_normal_joker = {
         name = "The Normal Joker",
@@ -1254,8 +1258,8 @@ return {
           "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult){}",
         },
         unlock = {
-          "Have a deck containing {C:attention,E:1}only{}",
-          "{C:paperback_light_suit,E:1}light suits{}"
+          "Have a deck containing",
+          "{C:attention,E:1}only{} {C:paperback_light_suit,E:1}light suits{}"
         }
       },
       j_paperback_telamon = {
@@ -2293,8 +2297,8 @@ return {
           "{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)"
         },
         unlock = {
-          "Have a deck containing {C:attention,E:1}only{}",
-          "{C:paperback_light_suit,E:1}light suits{}"
+          "Have a deck containing",
+          "{C:attention,E:1}only{} {C:paperback_light_suit,E:1}light suits{}"
         }
       },
       j_paperback_hatred = {
@@ -3124,8 +3128,8 @@ return {
           "{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)"
         },
         unlock = {
-          "Have a deck containing {C:attention}only{}",
-          "{C:paperback_light_suit}light suits{}"
+          "Have a deck containing",
+          "{C:attention,E:1}only{} {C:paperback_light_suit,E:1}light suits{}"
         }
       },
       j_paperback_shabu_shabu = {
