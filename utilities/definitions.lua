@@ -103,6 +103,11 @@ SMODS.current_mod.calculate = function(self, context)
       G.GAME.paperback.only_pairs_this_run = false
     end
 
+    -- checks if played hand contains 5 or more cards for Joker CD-I's unlock
+    if #context.full_hand >= 5 then
+      G.GAME.paperback.played_5_card_hand = true
+    end
+
     -- check for Spectrum Five
     if PB_UTIL.contains_spectrum(context.poker_hands) and next(context.poker_hands['Five of a Kind']) then
       check_for_unlock({ type = 'paperback_played_spectrum_five' })

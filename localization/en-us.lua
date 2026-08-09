@@ -849,7 +849,13 @@ return {
           "a random {C:planet}Planet{} card if",
           "played hand has exactly {C:attention}#3#{} cards",
           "{C:inactive}(Must have room)"
-        }
+        },
+        unlock = {
+          "Win a run",
+          "without playing",
+          "a hand that",
+          "contains {E:1,C:attention}#1#{} cards",
+        },
       },
       j_paperback_determination = {
         name = 'Determination',

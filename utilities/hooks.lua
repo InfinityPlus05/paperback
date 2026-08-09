@@ -54,6 +54,7 @@ function Game.init_game_object(self)
     played_pair_this_run = false,
     only_pairs_this_run = true,
     discarded_this_ante = false,
+    played_5_card_hand = false,
     played_flushes = {},
     played_straight_flushes = {},
 
