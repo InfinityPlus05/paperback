@@ -9,7 +9,7 @@ SMODS.Joker {
   pos = { x = 20, y = 8 },
   atlas = 'jokers_atlas',
   cost = 4,
-  unlocked = true,
+  unlocked = false,
   discovered = false,
   blueprint_compat = false,
   eternal_compat = true,
@@ -17,6 +17,20 @@ SMODS.Joker {
     artist = { 'dylan_hall' },
     coder = { ' ejwu' }
   },
+
+  check_for_unlock = function(self, args)
+    if args.type == 'hand' then
+      for _, v in ipairs(args.scoring_hand) do
+        if PB_UTIL.is_rank(v, 'King') and v:is_suit('Spades') then
+          for _, w in ipairs(args.scoring_hand) do
+            if PB_UTIL.is_rank(w, 'Jack') and w:is_suit('Spades') then
+              return true
+            end
+          end
+        end
+      end
+    end
+  end,
 
   calculate = function(self, card, context)
     if context.before and not context.blueprint then

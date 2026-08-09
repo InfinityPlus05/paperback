@@ -1324,6 +1324,11 @@ return {
         text = {
           "Randomly {C:attention}enhance{} the {C:attention}first",
           "scored {C:attention}face{} card each hand"
+        },
+        unlock = {
+          "Play a hand that",
+          "contains a scoring {C:attention,E:1}King{}",
+          "and {C:attention,E:1}Jack{} of {C:spades,E:1}Spades{}",
         }
       },
       j_paperback_gauze = {
