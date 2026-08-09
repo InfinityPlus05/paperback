@@ -2149,6 +2149,10 @@ return {
           "at the end of round",
           "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
         },
+        unlock = {
+          "Hold {C:attention,E:1}#1#{} or more",
+          "{C:attention,E:1}Queens{} in hand"
+        }
       },
       j_paperback_solar_system = {
         name = "Solar System",
