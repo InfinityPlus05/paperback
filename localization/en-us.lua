@@ -2136,6 +2136,10 @@ return {
           "whenever an adjacent Joker {C:attention}triggers",
           "{C:inactive}(Currently {X:chips,C:white}X#1#{C:inactive} Chips)",
         },
+        unlock = {
+          "Score {C:chips,E:1}#1#{} or more",
+          "chips during a hand"
+        }
       },
       j_paperback_the_girl_from_024 = {
         name = "The Girl From 024",

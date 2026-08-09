@@ -249,6 +249,12 @@ SMODS.current_mod.calculate = function(self, context)
   if context.tag_triggered then
     G.GAME.paperback.tags_redeemed_this_run = G.GAME.paperback.tags_redeemed_this_run + 1
   end
+
+  if context.final_scoring_step then
+    if hand_chips >= 1000 then
+      check_for_unlock({ type = 'paperback_hand_scored_1000_chips' })
+    end
+  end
 end
 
 -- Sleeved cards can't be debuffed
