@@ -3282,6 +3282,16 @@ return {
           "{C:inactive}(#3#)"
         }
       },
+      j_paperback_i_wish_that_i_could_fall = {
+        name = "I Wish That I Could Fall",
+        text = {
+          "When a card is scored, this",
+          "Joker decreases the card's",
+          "{C:attention}rank{} and gains {C:chips}+#1#{} Chips",
+          "{C:inactive}(2 -> Ace -> King){}",
+          "{C:inactive}(Currently {C:chips}+#2#{C:inactive} Chips){}"
+        }
+      },
       -- Cross-Mod jokers start here
       j_paperback_moon_waltz = {
         name = "Moon Waltz",
@@ -4846,6 +4856,7 @@ return {
       paperback_hatred_death_ex = "DREAD",
       paperback_whitebeard_death_ex = "Quake!",
       paperback_proceed_ex = "Proceed",
+      paperback_fall_ex = "Fall!",
 
       paperback_ui_requires_restart = "Requires Restart",
       paperback_ui_no_requires_restart = "Doesn't Require Restart",
