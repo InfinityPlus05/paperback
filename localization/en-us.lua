@@ -596,7 +596,7 @@ return {
         },
         unlock = {
           "Have at least {E:1,C:attention}#1#",
-          "{C:dark_edition}Polychrome{} Jokers",
+          "{C:dark_edition,E:1}Polychrome{} Jokers",
         },
       },
       j_paperback_joke_master = {
@@ -2114,6 +2114,11 @@ return {
           "are in your full deck",
           "{C:inactive}(Currently {C:attention}#3#{C:inactive})",
         },
+        unlock = {
+          "Have {C:attention,E:1}#1#{} unique",
+          "{C:attention,E:1}enhancements{} in",
+          "your full deck"
+        }
       },
       j_paperback_moving_out = {
         name = "Moving Out",
