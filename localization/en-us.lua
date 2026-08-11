@@ -366,7 +366,7 @@ return {
         },
         unlock = {
           "Have a card with",
-          "{C:mult, E:1}+#1# {C:attention, E:1}Extra Mult"
+          "{C:mult,E:1}+#1# {C:attention,E:1}Extra Mult"
         }
       },
       j_paperback_jestosterone = {
@@ -1049,6 +1049,11 @@ return {
           "This Joker gains {C:red}+#1#{} Mult whenever",
           "a {C:attention}rankless{} card is {C:attention}scored",
           "{C:inactive}(Currently {C:red}+#2#{C:inactive} Mult)"
+        },
+        unlock = {
+          "Score {C:attention,E:1}#1# Jacks",
+          "of {C:hearts,E:1}Hearts{}",
+          "in one run"
         }
       },
       j_paperback_ncj = {
@@ -1555,7 +1560,7 @@ return {
         },
         unlock = {
           "Acquire {C:attention,E:1}#1#{} Tier II",
-          "Vouchers in one run"
+          "{C:attention,E:1}Vouchers {}in one run"
         },
       },
       j_paperback_card_sleeve = {
@@ -2644,7 +2649,7 @@ return {
         },
         unlock = {
           "Acquire a {C:attention,E:1}Polychrome",
-          "King or Jack",
+          "{C:attention,E:1}King{} or {C:attention,E:1}Jack{}",
         },
       },
       j_paperback_meeple = {
@@ -3354,7 +3359,7 @@ return {
         },
         unlock = {
           "Have only",
-          "{E:1,C:attention}Ace of {E:1,C:hearts}Hearts{}",
+          "{E:1,C:attention}Ace{} of {E:1,C:hearts}Hearts{}",
           "in your deck",
         }
       },

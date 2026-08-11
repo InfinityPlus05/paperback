@@ -36,6 +36,8 @@ function Game.init_game_object(self)
     tags_redeemed_this_run = 0,
     last_tarot_energized = false,
     ranks_scored_this_ante = {},
+    ranks_scored_this_run = {},
+    heart_jacks_scored = 0,
     last_scored_suit = 'Spades',
     hand_contained_crown = false,
     domino_ranks = {},

@@ -142,6 +142,17 @@ SMODS.current_mod.calculate = function(self, context)
       end
     end
 
+    -- Penumbra Phantasm unlock
+    for _, v in ipairs(context.scoring_hand) do
+      if PB_UTIL.is_rank(v, "Jack") and v:is_suit('Hearts') then
+        G.GAME.paperback.heart_jacks_scored = G.GAME.paperback.heart_jacks_scored + 1
+      end
+      if G.GAME.paperback.heart_jacks_scored >= 7 then
+        check_for_unlock({ type = 'paperback_played_seven_heart_jacks' })
+        break
+      end
+    end
+
     -- checks if played hand contains a flush for the suit drink's unlock
     if next(context.poker_hands['Flush']) then
       G.GAME.paperback.played_flushes = G.GAME.paperback.played_flushes or {}
