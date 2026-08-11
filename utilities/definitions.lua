@@ -153,6 +153,14 @@ SMODS.current_mod.calculate = function(self, context)
       end
     end
 
+    -- Whitebeard unlock
+    for _, v in ipairs(context.full_hand) do
+      if not PB_UTIL.is_rank(v, "Ace") and not PB_UTIL.is_rank(v, "King") then
+        G.GAME.paperback.round.played_only_ace_or_king = false
+        break
+      end
+    end
+
     -- checks if played hand contains a flush for the suit drink's unlock
     if next(context.poker_hands['Flush']) then
       G.GAME.paperback.played_flushes = G.GAME.paperback.played_flushes or {}
@@ -308,7 +316,9 @@ end
 SMODS.current_mod.reset_game_globals = function(run_start)
   G.GAME.paperback.round.scored_clips = 0
   G.GAME.paperback.round.played_face_cards = 0
+  G.GAME.paperback.round.ranks_scored = {}
   G.GAME.paperback.round.destroyed_cards_this_round = 0
+  G.GAME.paperback.round.played_only_ace_or_king = true
   G.GAME.paperback.round.scored_face_cards = 0
   G.GAME.paperback.highest_rank_this_round = nil
   G.GAME.paperback.weather_radio_hand = PB_UTIL.get_random_visible_hand('weather_radio')

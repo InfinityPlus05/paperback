@@ -3389,6 +3389,11 @@ return {
           "scored cards give {X:red,C:white}X#1#{} Mult",
           "The last played hand",
           "is {C:attention}destroyed{} after scoring"
+        },
+        unlock = {
+          "Beat a Boss Blind",
+          "playing only {E:1,C:attention}Aces{}",
+          "and {E:1,C:attention}Kings{}",
         }
       },
       j_paperback_mezzetino = {
