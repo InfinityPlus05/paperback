@@ -2951,6 +2951,12 @@ return {
           "If {C:attention}played hand{} is the {C:attention}same{}",
           "as the {C:attention}previous hand{}, earn {C:money}$#2#{}",
           "{C:inactive}(Last played: {C:attention}#1#{C:inactive})"
+        },
+        unlock = {
+          "Win a run with one hand",
+          "played {C:attention,E:1}#1#{} or more times",
+          "than the {C:attention,E:1}next{} lowest",
+          "most played hand"
         }
       },
       j_paperback_unionized_labor = {
