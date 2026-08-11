@@ -49,6 +49,7 @@ function Game.init_game_object(self)
     secret_hands = secrets,
     arcana_used = {},
     sold_ego_gifts = {},
+    sold_jokers = {},
     finished_antes = {},
     max_consumeables = 0,
     jester_destroying_cards = false,

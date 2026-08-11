@@ -626,6 +626,10 @@ return {
           "After skipping or clearing",
           "a {C:attention}Blind{}, {C:green}#1# in #2#{} chance to",
           "create a {C:attention}copy{} of its {C:attention}Tag{}",
+        },
+        unlock = {
+          "Sell {C:attention,E:1}#1#{} Jokers",
+          "in one run",
         }
       },
       j_paperback_hamsa = {
