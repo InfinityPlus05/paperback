@@ -1768,6 +1768,9 @@ return {
           "another {C:attention}\"Stick\"{} Joker",
           "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
         },
+        unlock = {
+          "Eat {C:attention,E:1}#1#{}",
+        }
       },
       j_paperback_pool_table = {
         name = "Pool Table",
@@ -1810,6 +1813,9 @@ return {
           "another {C:attention}\"Stick\"{} Joker",
           "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
         },
+        unlock = {
+          "Eat {C:attention,E:1}#1#{}",
+        }
       },
       j_paperback_shopping_center = {
         name = "Shopping Center",
@@ -2404,6 +2410,9 @@ return {
           "another {C:attention}\"Stick\"{} Joker",
           "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
         },
+        unlock = {
+          "Eat {C:attention,E:1}#1#{}",
+        }
       },
       j_paperback_prince_of_darkness = {
         name = "Prince of Darkness",
@@ -2533,6 +2542,9 @@ return {
           "another {C:attention}\"Stick\"{} Joker",
           "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
         },
+        unlock = {
+          "Eat {C:attention,E:1}#1#{}",
+        }
       },
       j_paperback_let_it_happen = {
         name = "Let it Happen",
@@ -2719,6 +2731,9 @@ return {
           "{C:attention}\"Stick\"{} Joker you have",
           "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
         },
+        unlock = {
+          "Eat {C:attention,E:1}#1#{}",
+        }
       },
       j_paperback_tanghulu = {
         name = "Tanghulu",
@@ -2735,6 +2750,9 @@ return {
           "{C:attention}\"Stick\"{} Joker you have",
           "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
         },
+        unlock = {
+          "Eat {C:attention,E:1}#1#{}",
+        }
       },
       j_paperback_quartz = {
         name = "Quartz",
@@ -3230,6 +3248,9 @@ return {
           "another {C:attention}\"Stick\"{} Joker",
           "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
         },
+        unlock = {
+          "Eat {C:attention,E:1}#1#{}",
+        }
       },
       j_paperback_shugi_bukuro = {
         name = "Shūgi Bukuro",
