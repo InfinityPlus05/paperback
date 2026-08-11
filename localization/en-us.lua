@@ -698,8 +698,9 @@ return {
           "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
         },
         unlock = {
-          "Use {C:attention,E:1}#1# {C:spectral,E:1}Spectral",
-          "cards in one run",
+          "Use {C:attention,E:1}#1#{}",
+          "{C:spectral,E:1}#2#{} cards",
+          "in one run"
         }
       },
       j_paperback_prescript = {

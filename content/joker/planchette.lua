@@ -15,7 +15,7 @@ SMODS.Joker {
   pos = { x = 25, y = 10 },
   atlas = "jokers_atlas",
   cost = 6,
-  unlocked = true,
+  unlocked = false,
   discovered = false,
   blueprint_compat = true,
   eternal_compat = true,
@@ -25,6 +25,19 @@ SMODS.Joker {
   paperback_credit = {
     coder = { 'vitellary' }
   },
+
+  check_for_unlock = function(self, args)
+    return PB_UTIL.count_used_consumables('Spectral', true) >= 5
+  end,
+
+  locked_loc_vars = function(self, info_queue, card)
+    return {
+      vars = {
+        5,
+        localize('k_spectral')
+      }
+    }
+  end,
 
   loc_vars = function(self, info_queue, card)
     return { vars = { card.ability.extra.xmult_gain, card.ability.extra.xmult } }
