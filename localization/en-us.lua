@@ -1781,6 +1781,10 @@ return {
           "{C:attention}#1#s{} give {C:mult}Mult",
           "equal to their {C:chips}Chip value{}",
         },
+        unlock = {
+          "Play a",
+          "{C:attention,E:1}Wild Queen",
+        },
       },
       j_paperback_stamp = {
         name = "Stamp",
