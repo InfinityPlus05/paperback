@@ -1063,6 +1063,11 @@ return {
           "{C:money}$1{} of {C:attention}sell value{}",
           "your other Jokers have",
           "{C:inactive}(Currently {C:chips}+#2#{C:inactive} Chips)"
+        },
+        unlock = {
+          "Win a run without",
+          "using {C:attention,E:1}#1#{}",
+          "or {C:attention,E:1}#2#{}"
         }
       },
       j_paperback_full_moon = {
