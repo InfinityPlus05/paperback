@@ -2149,6 +2149,11 @@ return {
           "scored suits are all {C:paperback_dark_suit}dark{}",
           "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
         },
+        unlock = {
+          "Play {C:attention,E:1}#1# {C:spades,E:1}#2#",
+          "or {C:clubs,E:1}#3#{} Flushes",
+          "in one run"
+        }
       },
       j_paperback_the_sun_rises = {
         name = "The Sun Rises",

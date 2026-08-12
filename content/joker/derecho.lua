@@ -16,7 +16,7 @@ SMODS.Joker {
   pos = { x = 0, y = 1 },
   atlas = 'jokers_atlas',
   cost = 6,
-  unlocked = true,
+  unlocked = false,
   discovered = false,
   blueprint_compat = true,
   eternal_compat = true,
@@ -24,6 +24,20 @@ SMODS.Joker {
   paperback_credit = {
     coder = { 'oppositewolf' },
   },
+
+  locked_loc_vars = function (self, info_queue, card)
+    return {vars = {10, localize("Spades", 'suits_singular'), localize("Clubs", 'suits_singular')},}
+  end,
+
+  check_for_unlock = function (self, args)
+    if args.type == 'paperback_suit_flushes' then
+      if G.GAME.paperback.played_flushes['Spades'] and 
+      G.GAME.paperback.played_flushes['Clubs'] and
+      (G.GAME.paperback.played_flushes['Spades'] + G.GAME.paperback.played_flushes['Clubs']) >= 10 then
+        return true
+      end
+    end
+  end,
 
   loc_vars = function(self, info_queue, card)
     info_queue[#info_queue + 1] = PB_UTIL.suit_tooltip('dark')
