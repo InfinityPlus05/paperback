@@ -69,6 +69,13 @@ SMODS.current_mod.calculate = function(self, context)
     end
     G.GAME.paperback.discarded_this_ante = false
 
+    if G.GAME.current_round.discards_left == G.GAME.round_resets.discards then
+      G.GAME.paperback.consecutive_rounds_played_without_discards = G.GAME.paperback.consecutive_rounds_played_without_discards + 1
+      if G.GAME.paperback.consecutive_rounds_played_without_discards >= 5 then
+        check_for_unlock({ type = 'paperback_five_rounds_no_discards' })
+      end
+    end
+
     if not G.GAME.modifiers.no_interest and not next(SMODS.find_card('j_paperback_better_call_jimbo', false)) then
       if G.GAME.interest_amount*math.min(math.floor(G.GAME.dollars/5), G.GAME.interest_cap/5) >= 20 then check_for_unlock({ type = 'paperback_angel_investor_interest' }) end
     end
@@ -186,6 +193,7 @@ SMODS.current_mod.calculate = function(self, context)
   -- green clip: lose mult for each discarded clip
   if context.discard then
     G.GAME.paperback.discarded_this_ante = true
+    G.GAME.paperback.consecutive_rounds_played_without_discards = 0
     if PB_UTIL.has_paperclip(context.other_card) and not context.other_card.debuff then
       for _, v in ipairs(G.playing_cards) do
         local clip = PB_UTIL.has_paperclip(v)

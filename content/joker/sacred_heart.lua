@@ -36,8 +36,7 @@ SMODS.Joker {
   unlocked = false,
 
   check_for_unlock = function(self, args)
-    -- we need to also check for G.GAME.round because the game decides to run this on every single card being added to the deck on run start
-    if args.type == 'paperback_removed_playing_cards' or (args.type == 'modify_deck' and G.GAME.round >= 1) then
+    if G.GAME.round >= 1 then
       for _, v in ipairs(G.playing_cards or {}) do
         if not v:is_suit("Hearts") or not PB_UTIL.is_rank(v, 'Ace') then 
           return false

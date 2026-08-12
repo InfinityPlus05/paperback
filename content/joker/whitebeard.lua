@@ -26,6 +26,8 @@ SMODS.Joker {
   check_for_unlock = function(self, args)
     if args.type == 'round_win' then
       return G.GAME.paperback.round.played_only_ace_or_king and G.GAME.blind.boss
+      -- additional check in case you beat the boss blind without playing a hand... somehow
+      and G.GAME.current_round.hands_played >= 1
     end
   end,
 

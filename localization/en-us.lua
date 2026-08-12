@@ -1867,6 +1867,10 @@ return {
           "card's {C:chips}Chip value{} as {C:money}money",
           "{C:inactive}(Max of {C:money}$#1#{C:inactive})",
         },
+        unlock = {
+          "Win {C:attention,E:1}#1#{} consecutive rounds",
+          "without using any {C:attention,E:1}discards"
+        }
       },
       j_paperback_solemn_lament = {
         name = "Solemn Lament",
