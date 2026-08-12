@@ -2005,6 +2005,10 @@ return {
           "remaining {C:attention}discard{}",
           "{C:inactive}(Currently {C:red}+#2#{} {C:inactive}Mult)"
         },
+        unlock = {
+          "Obtain {C:attention,E:1}#1#{}",
+          "or {C:attention,E:1}#2#{}"
+        },
       },
       j_paperback_pride_flag_spectrums = {
         name = "Pride Flag",
