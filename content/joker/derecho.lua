@@ -31,9 +31,7 @@ SMODS.Joker {
 
   check_for_unlock = function (self, args)
     if args.type == 'paperback_suit_flushes' then
-      if G.GAME.paperback.played_flushes['Spades'] and 
-      G.GAME.paperback.played_flushes['Clubs'] and
-      (G.GAME.paperback.played_flushes['Spades'] + G.GAME.paperback.played_flushes['Clubs']) >= 10 then
+      if ((G.GAME.paperback.played_flushes['Spades'] or 0) + (G.GAME.paperback.played_flushes['Clubs'] or 0)) >= 10 then
         return true
       end
     end

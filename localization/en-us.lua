@@ -2545,6 +2545,10 @@ return {
           "If the winning hand of a {C:attention}Boss{}",
           "{C:attention}Blind{} scores only {C:clubs}Clubs{},",
           "create a {C:dark_edition}Negative {C:attention}Tag{}",
+        },
+        unlock = {
+          "Score {C:attention,E:1}#1# {C:clubs,E:1}#2#",
+          "in one run"
         }
       },
       j_paperback_57_leaf_clover = {
@@ -2552,6 +2556,10 @@ return {
         text = {
           "{C:green}+#1#{} to all {C:green}listed probabilites{},",
           "gains {C:green}+#2#{} per Blind defeated this {C:attention}Ante{}",
+        },
+        unlock = {
+          "Score {C:attention,E:1}#1# {C:clubs,E:1}#2#",
+          "in one run"
         }
       },
       j_paperback_popsicle_stick = {

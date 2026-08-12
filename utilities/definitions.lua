@@ -325,6 +325,7 @@ SMODS.current_mod.reset_game_globals = function(run_start)
   G.GAME.paperback.round.scored_clips = 0
   G.GAME.paperback.round.played_face_cards = 0
   G.GAME.paperback.round.ranks_scored = {}
+  G.GAME.paperback.round.suits_scored = {}
   G.GAME.paperback.round.destroyed_cards_this_round = 0
   G.GAME.paperback.round.played_only_ace_or_king = true
   G.GAME.paperback.round.scored_face_cards = 0

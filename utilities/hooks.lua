@@ -17,6 +17,7 @@ function Game.init_game_object(self)
 
     round = {
       ranks_scored = {},
+      suits_scored = {},
       scored_clips = 0,
       scored_face_cards = 0,
       destroyed_cards_this_round = 0,
@@ -39,6 +40,8 @@ function Game.init_game_object(self)
     last_tarot_energized = false,
     ranks_scored_this_ante = {},
     ranks_scored_this_run = {},
+    suits_scored_this_ante = {},
+    suits_scored_this_run = {},
     heart_jacks_scored = 0,
     last_scored_suit = 'Spades',
     hand_contained_crown = false,
