@@ -711,6 +711,11 @@ return {
           "{s:0.8}Poker hand changes every round",
           "{C:inactive}(Currently {V:1}#2#{C:inactive})",
         },
+        unlock = {
+          "Play {C:attention,E:1}#1#{} or more",
+          "{C:attention,E:1}secret hands{}",
+          "in one run"
+        }
       },
       j_paperback_pink_joker = {
         name = "Pink Joker",
