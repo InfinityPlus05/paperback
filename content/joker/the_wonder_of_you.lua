@@ -17,10 +17,15 @@ SMODS.Joker {
   blueprint_compat = true,
   eternal_compat = true,
   perishable_compat = true,
-
+  unlocked = false,
   paperback_credit = {
     coder = { 'aa7' }
   },
+
+  check_for_unlock = function(self, args)
+    return args.type == 'round_win' and G.GAME.blind.boss 
+    and G.GAME.blind.name == 'Amber Acorn' and not G.GAME.blind.disabled
+  end,
 
   calculate = function(self, card, context)
     if context.setting_blind and G.GAME.blind:get_type() == 'Boss' then

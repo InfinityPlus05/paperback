@@ -2630,6 +2630,12 @@ return {
         text = {
           "When selecting a {C:attention}Boss Blind{},",
           "create two random {C:attention}tags"
+        },
+        unlock = {
+          "Defeat the",
+          "{C:attention,E:1}Amber Acorn",
+          "Boss Blind without",
+          "disabling it"
         }
       },
       j_paperback_inner_peace = {
