@@ -1311,6 +1311,11 @@ return {
         text = {
           "{C:money}Shops{} start with an additional",
           "free {C:attention}Buffoon Pack"
+        },
+        unlock = {
+          "Buy {C:attention,E:1}#1#",
+          "{C:attention,E:1}Buffoon Packs{}",
+          "in one run"
         }
       },
       j_paperback_roulette = {

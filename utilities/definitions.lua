@@ -200,6 +200,14 @@ SMODS.current_mod.calculate = function(self, context)
     end
   end
 
+  -- backpack unlock
+  if context.open_booster and context.card.config.center.kind == "Buffoon" then
+    G.GAME.paperback.buffoon_packs_bought = G.GAME.paperback.buffoon_packs_bought + 1
+    if G.GAME.paperback.buffoon_packs_bought >= 5 then
+      check_for_unlock({type = 'paperback_bought_buffoon_packs'})
+    end
+  end
+
   -- green clip: lose mult for each discarded clip
   if context.discard then
     G.GAME.paperback.discarded_this_ante = true

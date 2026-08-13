@@ -44,6 +44,7 @@ function Game.init_game_object(self)
     suits_scored_this_run = {},
     heart_jacks_scored = 0,
     bloodstone_triggers = 0,
+    buffoon_packs_bought = 0,
     last_scored_suit = 'Spades',
     hand_contained_crown = false,
     domino_ranks = {},
