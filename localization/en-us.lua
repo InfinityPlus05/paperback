@@ -3131,7 +3131,11 @@ return {
         text = {
           "Any time you earn {C:money}money{}",
           "Earn an additional {C:money}$#1#"
-        }
+        },
+        unlock = {
+          "Have {E:1,C:money}$#1#",
+          "or more",
+        },
       },
       j_paperback_attacking_vertical = {
         name = "Attacking Vertical",
