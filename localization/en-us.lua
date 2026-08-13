@@ -1338,7 +1338,12 @@ return {
           "Scored {C:attention}#1#s{} give {C:money}$#2#",
           "for every played {C:attention}#1#{}",
           "{C:inactive}(Currently {C:money}$#3#{C:inactive})"
-        }
+        },
+         unlock = {
+          "Have at least {C:attention}#1#",
+          "{E:1,C:attention}#2#s{} in",
+          "your deck",
+        },
       },
       j_paperback_chocolate_joker = {
         name = "Chocolate Joker",
