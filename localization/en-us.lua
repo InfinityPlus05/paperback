@@ -2999,6 +2999,11 @@ return {
           "This Joker gains {X:mult,C:white}X#1#{} Mult when",
           "a playing card is {C:attention}destroyed{}",
           "{C:inactive}(Currently {X:mult,C:white} X#2# {C:inactive} Mult)"
+        },
+        unlock = {
+          "Trigger {C:attention,E:1}#1#",
+          "{C:attention,E:1}#2#{} times",
+          "in one run"
         }
       },
       j_paperback_disco = {

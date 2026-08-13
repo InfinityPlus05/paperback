@@ -190,6 +190,16 @@ SMODS.current_mod.calculate = function(self, context)
     end
   end
 
+  -- tian tian unlock
+  if context.post_trigger then
+    if context.other_card.config.center_key == "j_bloodstone" then
+      G.GAME.paperback.bloodstone_triggers = G.GAME.paperback.bloodstone_triggers + 1
+      if G.GAME.paperback.bloodstone_triggers >= 13 then
+        check_for_unlock({type = 'paperback_bloodstone_triggers'})
+      end
+    end
+  end
+
   -- green clip: lose mult for each discarded clip
   if context.discard then
     G.GAME.paperback.discarded_this_ante = true
