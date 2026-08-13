@@ -105,25 +105,33 @@ SMODS.Joker {
     card.children.paperback_fall_text = SMODS.create_sprite(card.T.x, card.T.y, card.T.w, card.T.h, "paperback_wish_fall_text", { x = 0, y = 0 })
     card.children.paperback_fall_text:set_role { major = card, role_type = "Glued", draw_major = card }
     card.children.paperback_fall_text.draw = function(self)
-      self:draw_shader("dissolve")
+      if card.config.center.discovered or card.bypass_discovery_center then
+        self:draw_shader("dissolve")
+      end
     end
 
     local start_bg = math.random(0, self.config.extra.bg_count - 1)
     local pos = { x = start_bg % 8, y = math.floor(start_bg / 8) }
-    card.children.center:set_sprite_pos(pos)
+    if self.discovered or card.bypass_discovery_center then
+      card.children.center:set_sprite_pos(pos)
+    end
   end,
 
   update = function(self, card, dt)
-    card.ability.extra.offset_time = card.ability.extra.offset_time + G.real_dt
-    if card.ability.extra.offset_time >= card.ability.extra.spf then
-      local new_bg = math.random(0, card.ability.extra.bg_count - 1)
-      local pos = { x = new_bg % 8, y = math.floor(new_bg / 8) }
-      card.children.center:set_sprite_pos(pos)
-      card.ability.extra.offset_time = 0
+    if self.discovered or card.bypass_discovery_center then
+      card.ability.extra.offset_time = card.ability.extra.offset_time + G.real_dt
+      if card.ability.extra.offset_time >= card.ability.extra.spf then
+        local new_bg = math.random(0, card.ability.extra.bg_count - 1)
+        local pos = { x = new_bg % 8, y = math.floor(new_bg / 8) }
+        card.children.center:set_sprite_pos(pos)
+        card.ability.extra.offset_time = 0
+      end
     end
   end,
 
   draw = function(self, card, layer)
-    card.children.center:draw_shader("paperback_fall", nil, card.ARGS.send_to_shader)
+    if self.discovered or card.bypass_discovery_center then
+      card.children.center:draw_shader("paperback_fall", nil, card.ARGS.send_to_shader)
+    end
   end
 }
