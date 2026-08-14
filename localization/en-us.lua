@@ -1351,7 +1351,11 @@ return {
           "This Joker gains {X:chips,C:white}X#1#{} Chips",
           "for each {C:attention}Joker{} card",
           "{C:inactive}(Currently {X:chips,C:white}X#2#{C:inactive} Chips)"
-        }
+        },
+         unlock = {
+          "Have at least {C:attention,E:1}#1#",
+          "{E:1,C:attention}Jokers{} at once",
+        },
       },
       j_paperback_mandela_effect = {
         name = "Mandela Effect",
