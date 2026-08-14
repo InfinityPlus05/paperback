@@ -3369,6 +3369,11 @@ return {
           "to every {C:attention}Joker{}",
           "Increases by {C:money}$#2#{} when",
           "a {C:attention}Food Joker{} is destroyed"
+        },
+        unlock = {
+          "Win a run with any",
+          "deck on at least",
+          "{V:1,E:1}#1#{} difficulty",
         }
       },
       j_paperback_malibu = {
