@@ -3147,7 +3147,12 @@ return {
           "Scored {C:attention}#1#{}s and {C:attention}#2#{}s give {X:mult,C:white} X#3# {} Mult",
           "Increased by {X:mult,C:white} X#4# {} Mult",
           "Upon clearing a {C:attention}Boss Blind"
-        }
+        },
+        unlock = {
+          "Score {E:1,C:attention}#1#",
+          "{E:1,C:attention}9s{} or {E:1,C:attention}5s",
+          "in {C:attention,E:1}one round",
+        },
       },
       j_paperback_emf_reader = {
         name = "EMF Reader",
