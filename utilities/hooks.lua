@@ -47,6 +47,7 @@ function Game.init_game_object(self)
     buffoon_packs_bought = 0,
     last_scored_suit = 'Spades',
     hand_contained_crown = false,
+    hand_only_scored_aces = true,
     domino_ranks = {},
     jjjj_count = 0,
     first_contact_count = 0,

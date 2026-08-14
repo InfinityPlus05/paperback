@@ -149,14 +149,18 @@ SMODS.current_mod.calculate = function(self, context)
       end
     end
 
-    -- Penumbra Phantasm unlock
     for _, v in ipairs(context.scoring_hand) do
+      -- Penumbra Phantasm unlock
       if PB_UTIL.is_rank(v, "Jack") and v:is_suit('Hearts') then
         G.GAME.paperback.heart_jacks_scored = G.GAME.paperback.heart_jacks_scored + 1
       end
       if G.GAME.paperback.heart_jacks_scored >= 7 then
         check_for_unlock({ type = 'paperback_played_seven_heart_jacks' })
         break
+      end
+      -- Tropic Birds unlock
+      if not PB_UTIL.is_rank(v, "Ace") then
+        G.GAME.paperback.hand_only_scored_aces = false
       end
     end
 
@@ -253,8 +257,11 @@ SMODS.current_mod.calculate = function(self, context)
   if context.paperback and context.paperback.level_up then
     PB_UTIL.update_solar_system(card)
   end
-  -- Keep Reference Card global variable updated
+  
   if context.before then
+    -- Tropic Birds unlock
+    G.GAME.paperback.hand_only_scored_aces = true
+    -- Keep Reference Card global variable updated
     PB_UTIL.calculate_highest_shared_played(card)
   end
 

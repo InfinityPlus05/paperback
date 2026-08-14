@@ -3250,7 +3250,12 @@ return {
           "contains an {C:attention}#1#{},",
           "retrigger the {C:attention}first",
           "and {C:attention}last{} card"
-        }
+        },
+        unlock = {
+          "Beat a Blind",
+          "with a {E:1,C:attention}#1#",
+          "containing only {E:1,C:attention}Aces",
+        },
       },
       j_paperback_jacks = {
         name = "Jacks",
