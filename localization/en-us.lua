@@ -336,7 +336,7 @@ return {
           "{C:inactive}(Must have room)",
         },
         unlock = {
-          "Destroy a", 
+          "Destroy a",
           "{C:paperback_crowns,E:1}Crown{} Card"
         }
       },
@@ -701,6 +701,18 @@ return {
           "if {C:attention}first{} hand of round contains a {C:attention}#1#{}",
           "{s:0.8}Poker hand changes every round",
           "{C:inactive}(Currently {V:1}#2#{C:inactive})",
+        },
+      },
+      j_paperback_frutiger_aero = {
+        name = "Frutiger Aero",
+        text = {
+          "{C:chips}#1#{} Chips,",
+          "loses {C:chips}#2#{} Chips",
+          "per {C:money}${} spent",
+        },
+        unlock = {
+          "Win a run without",
+          "any rare Jokers"
         },
       },
       j_paperback_pink_joker = {
@@ -1621,6 +1633,7 @@ return {
           { "When a {C:attention}#1#{} is played,",
             "destroy the played hand and",
             "create a random {C:spectral}Spectral{} card",
+            "{C:inactive}(Must have room)",
           },
           { "{C:red}* #2# left.{}" }
         },
@@ -2277,7 +2290,7 @@ return {
           "destroy the {C:attention}rightmost{} card"
         },
         unlock = {
-          "Destroy a", 
+          "Destroy a",
           "{C:paperback_stars,E:1}Star{} Card"
         }
       },
@@ -2341,7 +2354,7 @@ return {
           "{s:0.9,C:inactive}(Doesn't require room..?){}",
         }
       },
-      j_paperback_off_switch = { 
+      j_paperback_off_switch = {
         name = "OFF Switch",
         text = {
           "When a {C:attention}playing card{} is destroyed,",
@@ -2857,7 +2870,7 @@ return {
         text = {
           "After defeating a {C:attention}Boss Blind",
           "this Joker {C:red,E:1}self-destructs{}",
-          "and gain {C:money}$#1#{}"
+          "and gives {C:money}$#1#{} after {C:attention}cashing out{}"
         }
       },
       j_paperback_mind_electric = {
@@ -3267,6 +3280,16 @@ return {
           "Acquire {C:Attention}#1#{}",
           "{C:Attention}#2#{} times",
           "{C:inactive}(#3#)"
+        }
+      },
+      j_paperback_i_wish_that_i_could_fall = {
+        name = "I Wish That I Could Fall",
+        text = {
+          "When a card is scored, this",
+          "Joker decreases the card's",
+          "{C:attention}rank{} and gains {C:chips}+#1#{} Chips",
+          "{C:inactive}(2 -> Ace -> King){}",
+          "{C:inactive}(Currently {C:chips}+#2#{C:inactive} Chips){}"
         }
       },
       -- Cross-Mod jokers start here
@@ -4833,6 +4856,7 @@ return {
       paperback_hatred_death_ex = "DREAD",
       paperback_whitebeard_death_ex = "Quake!",
       paperback_proceed_ex = "Proceed",
+      paperback_fall_ex = "Fall!",
 
       paperback_ui_requires_restart = "Requires Restart",
       paperback_ui_no_requires_restart = "Doesn't Require Restart",
@@ -4923,6 +4947,7 @@ return {
       paperback_code_credit = 'Code by ',
       paperback_music_credit = 'Composed by ',
       paperback_and_spacer = ' and ',
+      paperback_comma_spacer = ', ',
 
       -- Developers
       paperback_dev_dowfrin = 'Dowfrin',

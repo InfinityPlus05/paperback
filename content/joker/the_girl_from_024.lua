@@ -25,12 +25,6 @@ SMODS.Joker {
     coder = { 'dowfrin' },
   },
 
-  in_pool = function(self, args)
-    for _, v in ipairs(G.playing_cards or {}) do
-      if PB_UTIL.has_paperclip(v) then return true end
-    end
-  end,
-
   loc_vars = function(self, info_queue, card)
     return {
       vars = {
