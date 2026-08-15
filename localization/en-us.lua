@@ -1116,6 +1116,11 @@ return {
           "with {C:money}-$#3#{} sell value",
           "{s:0.8}Chance increases by {s:0.8,C:green}#4#{s:0.8} on fail",
           "{S:1.1,C:red,E:2}self-destructs",
+        },
+        unlock = {
+          "Have {C:attention,E:1}2{} of the",
+          "same {C:attention,E:1}Joker{},",
+          "one being {C:dark_edition,E:1}Negative"
         }
       },
       j_paperback_red_key = {
@@ -1124,6 +1129,11 @@ return {
           "When {C:attention}Blind{} is selected, create",
           "a {C:paperback_temporary}temporary{} {C:red}Ultra Secret{} Joker",
           "When sold, remove {C:paperback_temporary}temporary{} from {C:attention}all{} Jokers"
+        },
+        unlock = {
+          "Score {C:attention,E:1}#1# Kings",
+          "of {C:hearts,E:1}Hearts{}",
+          "in one run"
         }
       },
       j_paperback_book_of_vengeance = {

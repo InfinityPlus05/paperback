@@ -158,6 +158,14 @@ SMODS.current_mod.calculate = function(self, context)
         check_for_unlock({ type = 'paperback_played_seven_heart_jacks' })
         break
       end
+      -- Red Key unlock
+      if PB_UTIL.is_rank(v, "King") and v:is_suit('Hearts') then
+        G.GAME.paperback.heart_kings_scored = G.GAME.paperback.heart_kings_scored + 1
+      end
+      if G.GAME.paperback.heart_kings_scored >= 5 then
+        check_for_unlock({ type = 'paperback_played_five_heart_kings' })
+        break
+      end
       -- Tropic Birds unlock
       if not PB_UTIL.is_rank(v, "Ace") then
         G.GAME.paperback.hand_only_scored_aces = false
