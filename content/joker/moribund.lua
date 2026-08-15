@@ -16,7 +16,7 @@ SMODS.Joker {
   pos = { x = 0, y = 5 },
   atlas = 'jokers_atlas',
   cost = 6,
-  unlocked = true,
+  unlocked = false,
   discovered = false,
   blueprint_compat = true,
   eternal_compat = true,
@@ -26,6 +26,10 @@ SMODS.Joker {
   paperback_credit = {
     coder = { 'oppositewolf' },
   },
+
+  check_for_unlock = function(self, args)
+    return args.type == 'round_win' and G.GAME.current_round.hands_left <= 0 and G.GAME.blind.boss
+  end,
 
   loc_vars = function(self, info_queue, card)
     return {

@@ -1709,6 +1709,10 @@ return {
           "{C:attention}Blind{} is not cleared",
           "{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)",
         },
+        unlock = {
+          "Defeat a Boss Blind",
+          "with {E:1,C:blue}0 {E:1,C:attention}hands{} left",
+        },
       },
       j_paperback_thornring = {
         name = "ThornRing",
