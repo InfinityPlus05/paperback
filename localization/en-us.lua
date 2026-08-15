@@ -3294,7 +3294,12 @@ return {
           "This Joker gains {C:mult}+#1#{} Mult",
           "when a {C:attention}#3#{} is discarded",
           "{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)"
-        }
+        },
+        unlock = {
+          "Win a run",
+          "without playing",
+          "a {E:1,C:attention}Jack",
+        },
       },
       j_paperback_red_sun_in_the_sky = {
         name = "Red Sun in the Sky",
@@ -3370,6 +3375,11 @@ return {
           "Loses {X:mult,C:white}X#2#{} Mult for every hand played",
           "Resets after clearing a Blind",
           "{C:inactive}(Cannot exceed {X:mult,C:white}X#1#{C:inactive} Mult)"
+        },
+        unlock = {
+          "Win a run with any",
+          "deck on at least",
+          "{V:1,E:1}#1#{} difficulty",
         }
       },
       j_paperback_bergentrucking = {
