@@ -2870,7 +2870,7 @@ return {
         text = {
           "After defeating a {C:attention}Boss Blind",
           "this Joker {C:red,E:1}self-destructs{}",
-          "and gain {C:money}$#1#{}"
+          "and gives {C:money}$#1#{} after {C:attention}cashing out{}"
         }
       },
       j_paperback_mind_electric = {
