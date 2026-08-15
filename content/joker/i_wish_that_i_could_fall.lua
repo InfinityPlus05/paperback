@@ -64,7 +64,7 @@ SMODS.Joker {
   },
 
   calculate = function(self, card, context)
-    if context.individual and context.cardarea == G.play then
+    if context.individual and context.cardarea == G.play and not context.blueprint then
       local c = context.other_card
 
       return {
@@ -102,7 +102,8 @@ SMODS.Joker {
   end,
 
   set_sprites = function(self, card, front)
-    card.children.paperback_fall_text = SMODS.create_sprite(card.T.x, card.T.y, card.T.w, card.T.h, "paperback_wish_fall_text", { x = 0, y = 0 })
+    card.children.paperback_fall_text = SMODS.create_sprite(card.T.x, card.T.y, card.T.w, card.T.h,
+      "paperback_wish_fall_text", { x = 0, y = 0 })
     card.children.paperback_fall_text:set_role { major = card, role_type = "Glued", draw_major = card }
     card.children.paperback_fall_text.draw = function(self)
       if card.config.center.discovered or card.bypass_discovery_center then
