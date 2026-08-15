@@ -13,13 +13,26 @@ if PB_UTIL.config.spectrals_enabled then
     locked_loc_vars = function(self, info_queue, back)
       return {
         vars = {
-          localize { type = 'name_text', set = 'Stake', key = 'stake_gold' },
+          localize { type = 'name_text', set = 'Stake', key = 'stake_gold' }, 10,
           colours = { get_stake_col(8) }
         }
       }
     end,
     check_for_unlock = function(self, args)
-      return args.type == 'win_stake' and get_deck_win_stake() >= 8
+      if args.type == 'win_stake' then
+        local needed_level = G.P_STAKES["stake_gold"].stake_level
+        local count = 0
+        for _, v in ipairs(G.P_CENTER_POOLS.Joker) do
+          local sticker = get_joker_win_sticker(v)
+          if sticker then
+            local stake = G.P_STAKES["stake_" .. sticker]
+            if stake and (stake.stake_level or 0) >= needed_level then
+              count = count + 1
+            end
+          end
+        end
+        if count >= 10 then return true end
+      end
     end,
 
     loc_vars = function(self)

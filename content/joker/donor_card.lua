@@ -21,7 +21,7 @@ SMODS.Joker {
   pos = { x = 16, y = 11 },
   atlas = 'jokers_atlas',
   cost = 6,
-  unlocked = true,
+  unlocked = false,
   discovered = false,
   blueprint_compat = true,
   perishable_compat = false,
@@ -30,6 +30,17 @@ SMODS.Joker {
   paperback_credit = {
     coder = { 'dowfrin' }
   },
+
+  check_for_unlock = function(self, args)
+    if G.GAME.round >= 1 then
+      for _, v in ipairs(G.playing_cards or {}) do
+        if v:is_suit('Hearts', true) then 
+          return false
+        end
+      end
+      return true
+    end
+  end,
 
   loc_vars = function(self, info_queue, card)
     return {

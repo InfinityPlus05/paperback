@@ -30,6 +30,10 @@ PB_UTIL.MinorArcana {
     local joker = G.jokers.highlighted[1]
     local rarity = joker.config.center.rarity
 
+    if rarity == 3 then
+      check_for_unlock({ type = 'paperback_rare_nine_of_cups' })
+    end
+
     if joker.config.center.paperback_nine_of_cups_rarity_override then
       rarity = joker.config.center.paperback_nine_of_cups_rarity_override
     elseif type(rarity) == "number" then

@@ -19,7 +19,7 @@ SMODS.Joker {
   pos = { x = 18, y = 2 },
   atlas = "jokers_atlas",
   cost = 5,
-  unlocked = true,
+  unlocked = false,
   discovered = false,
   blueprint_compat = true,
   eternal_compat = true,
@@ -27,6 +27,25 @@ SMODS.Joker {
   paperback_credit = {
     coder = { 'dowfrin' },
   },
+
+  check_for_unlock = function(self, args)
+    local stone_in_deck = false
+    local wrapped_in_deck = false
+    for _, v in ipairs(G.playing_cards or {}) do
+      if SMODS.has_enhancement(v, 'm_stone') then
+        stone_in_deck = true
+      end
+      if SMODS.has_enhancement(v, 'm_paperback_wrapped') then
+        wrapped_in_deck = true
+      end
+    end
+    return stone_in_deck and wrapped_in_deck 
+  end,
+
+  locked_loc_vars = function(self, info_queue, card)
+    return { vars = { localize { type = 'name_text', key = 'm_stone', set = 'Enhanced' },
+                      localize { type = 'name_text', key = 'm_paperback_wrapped', set = 'Enhanced' } } }
+  end,
 
   in_pool = function(self, args)
     for _, v in ipairs(G.playing_cards or {}) do

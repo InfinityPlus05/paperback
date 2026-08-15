@@ -28,6 +28,16 @@ SMODS.Joker {
   paperback_credit = {
     coder = { 'thermo' }
   },
+  unlocked = false,
+
+  locked_loc_vars = function (self, info_queue, card)
+    return { vars = { 10 }}
+  end,
+
+  check_for_unlock = function (self, args)
+    return G.GAME.paperback.round.ranks_scored and 
+    ((G.GAME.paperback.round.ranks_scored[9] or 0) + (G.GAME.paperback.round.ranks_scored[5] or 0)) >= 10
+  end,
 
   loc_vars = function(self, info_queue, card)
     return {

@@ -18,7 +18,7 @@ SMODS.Joker {
     Music = true
   },
   cost = 7,
-  unlocked = true,
+  unlocked = false,
   discovered = false,
   blueprint_compat = true,
   eternal_compat = true,
@@ -36,6 +36,24 @@ SMODS.Joker {
         card.ability.extra.x_mult,
       }
     }
+  end,
+
+  locked_loc_vars = function (self, info_queue, card)
+    local other_name = localize('k_unknown')
+    if G.P_CENTERS['j_bloodstone'].unlocked then
+      other_name = localize { type = 'name_text', set = 'Joker', key = 'j_bloodstone' }
+    end
+    return {
+      vars = {
+        other_name, 13
+      }
+    }
+  end,
+
+  check_for_unlock = function (self, args)
+    if args.type == 'paperback_bloodstone_triggers' then
+      return true
+    end
   end,
 
   calculate = function(self, card, context)

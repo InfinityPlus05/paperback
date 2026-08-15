@@ -15,7 +15,7 @@ local j = SMODS.Joker {
   rarity = 3,
   atlas = "jokers_atlas",
   cost = 5,
-  unlocked = true,
+  unlocked = false,
   discovered = false,
   blueprint_compat = true,
   eternal_compat = true,
@@ -26,6 +26,15 @@ local j = SMODS.Joker {
   paperback = {
     undersoul_pos = { x = 25, y = 11 },
   },
+
+  check_for_unlock = function (self, args)
+    for _, v in ipairs(G.playing_cards or {}) do
+      if PB_UTIL.is_rank(v, 12) and SMODS.has_enhancement(v, 'm_steel') then
+        return true
+      end
+    end
+  end,
+
   loc_vars = function(card, info_queue, card)
     local queens = 0
     if G.hand then

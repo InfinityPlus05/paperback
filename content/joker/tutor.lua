@@ -24,6 +24,21 @@ SMODS.Joker {
   paperback_credit = {
     coder = { 'dowfrin' }
   },
+  unlocked = false,
+
+  locked_loc_vars = function(self, info_queue, card)
+    return { vars = { 10 } }
+  end,
+
+  check_for_unlock = function(self, args)
+    for _, v in ipairs(G.playing_cards or {}) do
+      local id = v:get_id()
+      if (2 <= id and id <= 10) and (v.ability.perma_bonus >= 10) then
+        return true
+      end
+    end
+    return false
+  end,
 }
 local get_chip_bonus_ref = Card.get_chip_bonus
 function Card.get_chip_bonus(self)

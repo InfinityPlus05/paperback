@@ -22,12 +22,11 @@ SMODS.Joker {
   check_for_unlock = function(self, args)
     if args.type == 'hand_contents' then
       for j = 1, #args.cards do
-        if SMODS.has_enhancement(args.cards[j], 'm_wild') and args.cards[j]:get_id() == 4 then
+        if SMODS.has_enhancement(args.cards[j], 'm_wild') and PB_UTIL.is_rank(args.cards[j], 4) then
           return true
         end
       end
     end
-    return false
   end,
 
   loc_vars = function(self, info_queue, card)

@@ -18,7 +18,7 @@ SMODS.Joker {
   pos = { x = 19, y = 6 },
   atlas = 'jokers_atlas',
   cost = 8,
-  unlocked = true,
+  unlocked = false,
   discovered = false,
   blueprint_compat = false,
   eternal_compat = false,
@@ -33,6 +33,20 @@ SMODS.Joker {
         card.ability.extra.gain,
         card.ability.extra.discards,
         card.ability.extra.per_dollar,
+      }
+    }
+  end,
+
+  check_for_unlock = function(self, args)
+    if args.type == 'paperback_freight_sell_value' then
+      return true
+    end
+  end,
+
+  locked_loc_vars = function(self, info_queue, back)
+    return {
+      vars = {
+        15
       }
     }
   end,
@@ -65,3 +79,11 @@ SMODS.Joker {
     end
   end,
 }
+
+local set_sell_value_ref = Card.set_sell_value
+function Card:set_sell_value()
+  set_sell_value_ref(self)
+  if self.sell_cost >= 15 then
+    check_for_unlock({ type = 'paperback_freight_sell_value' })
+  end
+end

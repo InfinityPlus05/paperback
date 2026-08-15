@@ -16,6 +16,30 @@ SMODS.Joker {
   paperback_credit = {
     coder = { 'thermo' }
   },
+  unlocked = false,
+
+  locked_loc_vars = function(self, info_queue, card)
+    local other_name = localize('k_unknown')
+    if G.P_CENTERS['v_observatory'].unlocked then
+      other_name = localize { type = 'name_text', set = 'Voucher', key = 'v_observatory' }
+    end
+    return {
+      vars = {
+        other_name
+      }
+    }
+  end,
+
+  check_for_unlock = function(self, args)
+    local count = 0
+    if G.vouchers then
+      for _, v in ipairs(G.vouchers.cards or {}) do
+        if v.config.center.key == 'v_observatory' then
+          return true
+        end
+      end
+    end
+  end,
 
   loc_vars = function(self, info_queue, card)
     return { vars = { card.ability.extra.chips_mod, card.ability.extra.chips_rem, card.ability.extra.chips, localize('k_planet') } }

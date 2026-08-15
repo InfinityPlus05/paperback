@@ -17,12 +17,25 @@ SMODS.current_mod.calculate = function(self, context)
       G.GAME.paperback.destroyed_cards = G.GAME.paperback.destroyed_cards + 1
       G.GAME.paperback.round.destroyed_cards_this_round = G.GAME.paperback.round.destroyed_cards_this_round + 1
 
+      -- Counting destroyed ranks
+      if PB_UTIL.is_rank(v, "King") then
+        G.GAME.paperback.destroyed_kings = G.GAME.paperback.destroyed_kings + 1
+      end
+      if PB_UTIL.is_rank(v, "Jack") then
+        G.GAME.paperback.destroyed_jacks = G.GAME.paperback.destroyed_jacks + 1
+      end
+      
       -- Count the amount of destroyed glass cards
       if SMODS.has_enhancement(v, 'm_glass') then
         G.GAME.paperback.destroyed_glass = G.GAME.paperback.destroyed_glass + 1
       end
 
-      -- COunt the amount of destroyed face cards
+      -- Count the amount of destroyed face cards
+      if v:is_face() then
+        G.GAME.paperback.destroyed_faces = G.GAME.paperback.destroyed_faces + 1
+      end
+
+      -- Count the amount of destroyed face cards
       if v:is_face() then
         G.GAME.paperback.destroyed_faces = G.GAME.paperback.destroyed_faces + 1
       end
@@ -55,6 +68,13 @@ SMODS.current_mod.calculate = function(self, context)
       check_for_unlock({ type = 'paperback_no_ante_discard' })
     end
     G.GAME.paperback.discarded_this_ante = false
+
+    if G.GAME.current_round.discards_left == G.GAME.round_resets.discards then
+      G.GAME.paperback.consecutive_rounds_played_without_discards = G.GAME.paperback.consecutive_rounds_played_without_discards + 1
+      if G.GAME.paperback.consecutive_rounds_played_without_discards >= 5 then
+        check_for_unlock({ type = 'paperback_five_rounds_no_discards' })
+      end
+    end
 
     if not G.GAME.modifiers.no_interest and not next(SMODS.find_card('j_paperback_better_call_jimbo', false)) then
       if G.GAME.interest_amount*math.min(math.floor(G.GAME.dollars/5), G.GAME.interest_cap/5) >= 20 then check_for_unlock({ type = 'paperback_angel_investor_interest' }) end
@@ -90,6 +110,76 @@ SMODS.current_mod.calculate = function(self, context)
       G.GAME.paperback.only_pairs_this_run = false
     end
 
+    -- checks if played hand contains 5 or more cards for Joker CD-I's unlock
+    if #context.full_hand >= 5 then
+      G.GAME.paperback.played_5_card_hand = true
+    end
+
+    -- check for Spectrum Five
+    if PB_UTIL.contains_spectrum(context.poker_hands) and next(context.poker_hands['Five of a Kind']) then
+      check_for_unlock({ type = 'paperback_played_spectrum_five' })
+    end
+
+    -- Rosary Beads unlock
+    if next(context.poker_hands['Flush Five']) then
+      local all_hearts = true
+      for _, v in ipairs(context.scoring_hand) do
+        if not (v:is_suit('Hearts') or SMODS.has_any_suit(v)) then
+          all_hearts = false
+          break
+        end
+      end
+      if all_hearts then
+        check_for_unlock({ type = 'paperback_played_flush_five_hearts' })
+      end
+
+    end
+
+    -- Joker Jacks unlock
+    if next(context.poker_hands['Three of a Kind']) then
+      local jack_count = 0
+      for _, v in ipairs(context.scoring_hand) do
+        if PB_UTIL.is_rank(v, "Jack") then
+          jack_count = jack_count + 1
+        end
+        if jack_count >= 3 then
+          check_for_unlock({ type = 'paperback_played_three_jacks' })
+          break
+        end
+      end
+    end
+
+    for _, v in ipairs(context.scoring_hand) do
+      -- Penumbra Phantasm unlock
+      if PB_UTIL.is_rank(v, "Jack") and v:is_suit('Hearts') then
+        G.GAME.paperback.heart_jacks_scored = G.GAME.paperback.heart_jacks_scored + 1
+      end
+      if G.GAME.paperback.heart_jacks_scored >= 7 then
+        check_for_unlock({ type = 'paperback_played_seven_heart_jacks' })
+        break
+      end
+      -- Red Key unlock
+      if PB_UTIL.is_rank(v, "King") and v:is_suit('Hearts') then
+        G.GAME.paperback.heart_kings_scored = G.GAME.paperback.heart_kings_scored + 1
+      end
+      if G.GAME.paperback.heart_kings_scored >= 5 then
+        check_for_unlock({ type = 'paperback_played_five_heart_kings' })
+        break
+      end
+      -- Tropic Birds unlock
+      if not PB_UTIL.is_rank(v, "Ace") then
+        G.GAME.paperback.hand_only_scored_aces = false
+      end
+    end
+
+    -- Whitebeard unlock
+    for _, v in ipairs(context.full_hand) do
+      if not PB_UTIL.is_rank(v, "Ace") and not PB_UTIL.is_rank(v, "King") then
+        G.GAME.paperback.round.played_only_ace_or_king = false
+        break
+      end
+    end
+
     -- checks if played hand contains a flush for the suit drink's unlock
     if next(context.poker_hands['Flush']) then
       G.GAME.paperback.played_flushes = G.GAME.paperback.played_flushes or {}
@@ -99,6 +189,10 @@ SMODS.current_mod.calculate = function(self, context)
             if card:is_suit(suit) then
               G.GAME.paperback.played_flushes[suit] = (G.GAME.paperback.played_flushes[suit] and G.GAME.paperback.played_flushes[suit] or 0) + 1
               check_for_unlock({type = 'paperback_suit_flushes'})
+              if next(context.poker_hands['Straight']) then
+                G.GAME.paperback.played_straight_flushes[suit] = (G.GAME.paperback.played_straight_flushes[suit] and G.GAME.paperback.played_straight_flushes[suit] or 0) + 1
+                check_for_unlock({type = 'paperback_suit_straight_flushes'})
+              end
               break
             end
           end
@@ -108,9 +202,28 @@ SMODS.current_mod.calculate = function(self, context)
     end
   end
 
+  -- tian tian unlock
+  if context.post_trigger then
+    if context.other_card.config.center_key == "j_bloodstone" then
+      G.GAME.paperback.bloodstone_triggers = G.GAME.paperback.bloodstone_triggers + 1
+      if G.GAME.paperback.bloodstone_triggers >= 13 then
+        check_for_unlock({type = 'paperback_bloodstone_triggers'})
+      end
+    end
+  end
+
+  -- backpack unlock
+  if context.open_booster and context.card.config.center.kind == "Buffoon" then
+    G.GAME.paperback.buffoon_packs_bought = G.GAME.paperback.buffoon_packs_bought + 1
+    if G.GAME.paperback.buffoon_packs_bought >= 5 then
+      check_for_unlock({type = 'paperback_bought_buffoon_packs'})
+    end
+  end
+
   -- green clip: lose mult for each discarded clip
   if context.discard then
     G.GAME.paperback.discarded_this_ante = true
+    G.GAME.paperback.consecutive_rounds_played_without_discards = 0
     if PB_UTIL.has_paperclip(context.other_card) and not context.other_card.debuff then
       for _, v in ipairs(G.playing_cards) do
         local clip = PB_UTIL.has_paperclip(v)
@@ -143,13 +256,20 @@ SMODS.current_mod.calculate = function(self, context)
       PB_UTIL.minor_arcana_profile_usage(1)
     end
   end
+    -- track blind skips across runs
+  if context.skip_blind then
+    PB_UTIL.blind_skip_profile_usage(1)
+  end
 
   -- Keep Solar System global variable updated
   if context.paperback and context.paperback.level_up then
     PB_UTIL.update_solar_system(card)
   end
-  -- Keep Reference Card global variable updated
+  
   if context.before then
+    -- Tropic Birds unlock
+    G.GAME.paperback.hand_only_scored_aces = true
+    -- Keep Reference Card global variable updated
     PB_UTIL.calculate_highest_shared_played(card)
   end
 
@@ -181,6 +301,11 @@ SMODS.current_mod.calculate = function(self, context)
   end
   if context.after then
     G.GAME.paperback.permabonus_odds = 0
+
+    -- Determination unlock
+    if SMODS.last_hand_oneshot and G.GAME.current_round.hands_left == 0 then
+      check_for_unlock({ type = 'paperback_determination_oneshot' })
+    end
   end
 
   -- add paperclips to shop cards if Illusion is owned
@@ -213,6 +338,16 @@ SMODS.current_mod.calculate = function(self, context)
   if context.tag_triggered then
     G.GAME.paperback.tags_redeemed_this_run = G.GAME.paperback.tags_redeemed_this_run + 1
   end
+
+  if context.final_scoring_step then
+    if hand_chips >= 1000 then
+      check_for_unlock({ type = 'paperback_hand_scored_1000_chips' })
+    end
+  end
+
+  if context.end_of_round and context.game_over and G.GAME.blind.boss and G.GAME.blind.config.blind.boss.showdown then
+      check_for_unlock({ type = 'paperback_lose_to_showdown' })
+  end
 end
 
 -- Sleeved cards can't be debuffed
@@ -226,7 +361,10 @@ end
 SMODS.current_mod.reset_game_globals = function(run_start)
   G.GAME.paperback.round.scored_clips = 0
   G.GAME.paperback.round.played_face_cards = 0
+  G.GAME.paperback.round.ranks_scored = {}
+  G.GAME.paperback.round.suits_scored = {}
   G.GAME.paperback.round.destroyed_cards_this_round = 0
+  G.GAME.paperback.round.played_only_ace_or_king = true
   G.GAME.paperback.round.scored_face_cards = 0
   G.GAME.paperback.highest_rank_this_round = nil
   G.GAME.paperback.weather_radio_hand = PB_UTIL.get_random_visible_hand('weather_radio')

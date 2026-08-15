@@ -11,7 +11,7 @@ SMODS.Joker {
   pos = { x = 8, y = 1 },
   atlas = "jokers_atlas",
   cost = 8,
-  unlocked = true,
+  unlocked = false,
   discovered = false,
   blueprint_compat = true,
   eternal_compat = true,
@@ -20,6 +20,23 @@ SMODS.Joker {
   paperback_credit = {
     coder = { 'srockw' }
   },
+
+  locked_loc_vars = function (self, info_queue, card)
+    return {
+      vars = {
+        localize { type = 'name_text', set = 'Tarot', key = 'c_temperance' }
+      }
+    }
+  end,
+
+  check_for_unlock = function(self, args)
+    if args.type == 'win' then
+      if G.GAME.consumeable_usage.c_temperance then
+        return false
+      end
+      return true
+    end
+  end,
 
   loc_vars = function(self, info_queue, card)
     info_queue[#info_queue + 1] = PB_UTIL.suit_tooltip('light')

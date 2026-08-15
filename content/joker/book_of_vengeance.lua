@@ -10,7 +10,7 @@ SMODS.Joker {
   pos = { x = 4, y = 9 },
   atlas = 'jokers_atlas',
   cost = 9,
-  unlocked = true,
+  unlocked = false,
   discovered = false,
   blueprint_compat = false,
   eternal_compat = false,
@@ -19,6 +19,12 @@ SMODS.Joker {
     coder = { 'srockw' }
   },
 
+  check_for_unlock = function (self, args)
+    if args.type == "paperback_lose_to_showdown" then
+      return true
+    end
+  end,
+  
   loc_vars = function(self, info_queue, card)
     local main_end
 

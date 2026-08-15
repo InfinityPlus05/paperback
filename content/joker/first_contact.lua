@@ -24,6 +24,20 @@ SMODS.Joker {
   blueprint_compat = true,
   eternal_compat = true,
   perishable_compat = true,
+  unlocked = false,
+
+  check_for_unlock = function(self, args)
+    return PB_UTIL.count_used_consumables('Spectral', true) >= 5
+  end,
+
+  locked_loc_vars = function(self, info_queue, card)
+    return {
+      vars = {
+        5,
+        localize('k_spectral')
+      }
+    }
+  end,
 
   loc_vars = function(self, info_queue, card)
     info_queue[#info_queue + 1] = PB_UTIL.suit_tooltip('dark')

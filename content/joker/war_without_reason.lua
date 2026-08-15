@@ -8,7 +8,7 @@ SMODS.Joker {
   pools = {
     Music = true
   },
-
+  unlocked = false,
   blueprint_compat = false,
   eternal_compat = true,
   perishable_compat = true,
@@ -22,7 +22,17 @@ SMODS.Joker {
   pos = { x = 23, y = 0 },
   atlas = "jokers_atlas",
 
-  -- TODO: Add unlock
+  locked_loc_vars = function (self, info_queue, card)
+    return {
+      vars = {
+        localize { type = 'name_text', set = 'Spectral', key = 'c_cryptid' }
+      }
+    }
+  end,
+
+  check_for_unlock = function(self, args)
+    return G.GAME and G.GAME.consumeable_usage.c_cryptid
+  end,
 
   calculate = function(self, card, context)
     if context.first_hand_drawn and not context.blueprint then

@@ -14,7 +14,7 @@ SMODS.Joker {
   pos = { x = 24, y = 5 },
   atlas = "jokers_atlas",
   cost = 6,
-  unlocked = true,
+  unlocked = false,
   discovered = false,
   blueprint_compat = true,
   eternal_compat = true,
@@ -27,6 +27,15 @@ SMODS.Joker {
   paperback_credit = {
     coder = { 'vitellary' }
   },
+
+  locked_loc_vars = function(self, info_queue, card)
+    return { vars = { localize('Three of a Kind', 'poker_hands') } }
+  end,
+  check_for_unlock = function(self, args)
+    if args.type == 'win' then
+      return PB_UTIL.get_most_played_hands()[1].key == 'Three of a Kind'
+    end
+  end,
 
   loc_vars = function(self, info_queue, card)
     return {
