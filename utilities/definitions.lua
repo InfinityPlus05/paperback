@@ -344,6 +344,10 @@ SMODS.current_mod.calculate = function(self, context)
       check_for_unlock({ type = 'paperback_hand_scored_1000_chips' })
     end
   end
+
+  if context.end_of_round and context.game_over and G.GAME.blind.boss and G.GAME.blind.config.blind.boss.showdown then
+      check_for_unlock({ type = 'paperback_lose_to_showdown' })
+  end
 end
 
 -- Sleeved cards can't be debuffed

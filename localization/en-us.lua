@@ -1142,6 +1142,10 @@ return {
           "After defeating a {C:attention}Boss Blind{},",
           "destroys itself and the {C:attention}Joker{} to its left,",
           "then makes a copy of {C:attention}Joker{} to its right"
+        },
+        unlock = {
+          "Lose a run to a",
+          "{C:attention,E:1}Showdown Blind"
         }
       },
       j_paperback_b_soda = {
