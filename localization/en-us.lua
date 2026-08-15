@@ -2435,6 +2435,10 @@ return {
           "of a {C:attention}random consumable",
           "{C:inactive}(Must have room)",
         },
+        unlock = {
+          "Play a",
+          "{C:attention,E:1}secret hand",
+        }
       },
       j_paperback_the_sun = {
         name = "The Sun",
