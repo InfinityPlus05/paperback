@@ -2304,6 +2304,10 @@ return {
           "Locks {C:attention}sell value{} of all cards",
           "at {C:money}$0{} until this card is sold",
         },
+        unlock = {
+          "Win a run without",
+          "using {C:attention,E:1}#1#{}",
+        }
       },
       j_paperback_cherry_blossoms = {
         name = "Cherry Blossoms",
