@@ -19,6 +19,19 @@ SMODS.Joker {
   paperback_credit = {
     coder = { 'thermo' }
   },
+  unlocked = false,
+
+  locked_loc_vars = function (self, info_queue, card)
+    return {
+      vars = {
+        localize { type = 'name_text', set = 'paperback_minor_arcana', key = 'c_paperback_nine_of_cups' }
+      }
+    }
+  end,
+
+  check_for_unlock = function (self, args)
+    return args.type == "paperback_rare_nine_of_cups"
+  end,
 
   calculate = function(self, card, context)
     if context.end_of_round and context.main_eval and (context.beat_boss or G.GAME.blind.name == "Big Blind") then

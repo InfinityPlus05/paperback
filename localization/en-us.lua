@@ -3538,6 +3538,10 @@ return {
           "and create a {C:attention}new{} Joker",
           "of equal or higher rarity",
           "{C:inactive}(Cannot upgrade to Legendary Jokers)"
+        },
+        unlock = {
+          "Use {C:paperback_minor_arcana,E:1}#1#",
+          "on a {C:red,E:1}Rare{C:attention,E:1} Joker",
         }
       },
       j_paperback_buckshot = {
