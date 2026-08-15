@@ -355,6 +355,10 @@ return {
           "destroy Joker to the right",
           "and add a random {C:attention}seal",
           "to a card {C:attention}held in hand{}",
+        },
+        unlock = {
+          "Use the {C:attention,E:1}#1#{}",
+          "{C:spectral,E:1}Spectral{} card",
         }
       },
       j_paperback_pinot_noir = {
@@ -686,7 +690,7 @@ return {
           "{C:attention}shuffled{} before scoring",
         },
         unlock = {
-          "Use the {C:attention,E:1}Ouija{}",
+          "Use the {C:attention,E:1}#1#{}",
           "{C:spectral,E:1}Spectral{} card",
         }
       },
