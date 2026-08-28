@@ -22,11 +22,21 @@ SMODS.Joker {
   paperback_credit = {
     coder = { 'thermo' }
   },
+  unlocked = false,
 
   loc_vars = function(self, info_queue, card)
     return { vars = { card.ability.extra.rank } }
   end,
 
+  check_for_unlock = function(self, args)
+    if args.type == 'round_win' then
+      return G.GAME.last_hand_played == 'High Card' and G.GAME.paperback.hand_only_scored_aces
+    end
+  end,
+
+  locked_loc_vars = function (self, info_queue, card)
+    return { vars = { localize('High Card', 'poker_hands') } }
+  end,
 
   calculate = function(self, card, context)
     if context.before then

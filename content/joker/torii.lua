@@ -16,7 +16,7 @@ SMODS.Joker {
   pos = { x = 15, y = 0 },
   atlas = "jokers_atlas",
   cost = 8,
-  unlocked = true,
+  unlocked = false,
   discovered = false,
   blueprint_compat = false,
   eternal_compat = true,
@@ -45,6 +45,14 @@ SMODS.Joker {
         colours = colours,
       }
     }
+  end,
+
+  locked_loc_vars = function(self, info_queue, card)
+    return { vars = { 20, 
+    G.PROFILES[G.SETTINGS.profile].career_stats.paperback_blind_skips and G.PROFILES[G.SETTINGS.profile].career_stats.paperback_blind_skips or 0 } }
+  end,
+  check_for_unlock = function(self, args)
+    return args.type == 'paperback_skip_blind' and G.PROFILES[G.SETTINGS.profile].career_stats.paperback_blind_skips >= 20
   end,
 
   calculate = function(self, card, context)

@@ -1,6 +1,6 @@
 SMODS.Joker {
   key = 'rosary_beads',
-  unlocked = true,
+  unlocked = false,
   discovered = false,
   config = {
     extra = {
@@ -26,6 +26,12 @@ SMODS.Joker {
   paperback_credit = {
     coder = { 'thermo' }
   },
+
+  check_for_unlock = function(self, args)
+    if args.type == 'paperback_played_flush_five_hearts' then
+      return true
+    end
+  end,
 
   loc_vars = function(self, info_queue, card)
     return {

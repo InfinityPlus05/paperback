@@ -7,7 +7,7 @@ SMODS.Joker {
   pos = { x = 4, y = 6 },
   atlas = 'jokers_atlas',
   cost = 4,
-  unlocked = true,
+  unlocked = false,
   discovered = false,
   blueprint_compat = true,
   eternal_compat = true,
@@ -17,6 +17,16 @@ SMODS.Joker {
 
   loc_vars = function(self, info_queue, card)
     info_queue[#info_queue + 1] = G.P_CENTERS.p_buffoon_normal_1
+  end,
+
+  locked_loc_vars = function (self, info_queue, card)
+    return {vars = { 5 }}
+  end,
+
+  check_for_unlock = function (self, args)
+    if args.type == "paperback_bought_buffoon_packs" then
+      return true
+    end
   end,
 
   calculate = function(self, card, context)

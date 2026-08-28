@@ -17,7 +17,7 @@ SMODS.Joker {
   pos = { x = 10, y = 0 },
   atlas = 'jokers_atlas',
   cost = 8,
-  unlocked = true,
+  unlocked = false,
   discovered = false,
   blueprint_compat = false,
   eternal_compat = false,
@@ -30,6 +30,17 @@ SMODS.Joker {
     return {
       vars = { card.ability.extra.heads_req, card.ability.extra.heads }
     }
+  end,
+
+  locked_loc_vars = function(self, info_queue, card)
+    return {
+      vars = { 9 }
+    }
+  end,
+
+  check_for_unlock = function(self, args)
+    return (G.GAME.paperback.destroyed_cards.ranks["Jack"] or 0) 
+    + (G.GAME.paperback.destroyed_cards.ranks["King"] or 0) >= 9
   end,
 
   -- Dear Jimbo in heaven, when will this joker stop being problematic

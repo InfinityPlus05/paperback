@@ -12,7 +12,7 @@ SMODS.Joker {
   pos = { x = 4, y = 4 },
   atlas = "jokers_atlas",
   cost = 7,
-  unlocked = true,
+  unlocked = false,
   discovered = false,
   blueprint_compat = true,
   eternal_compat = true,
@@ -28,6 +28,20 @@ SMODS.Joker {
         card.ability.extra.money_cap
       }
     }
+  end,
+
+  locked_loc_vars = function(self, info_queue, card)
+    return {
+      vars = {
+        5
+      }
+    }
+  end,
+
+  check_for_unlock = function (self, args)
+    if args.type == 'paperback_five_rounds_no_discards' then
+      return true
+    end
   end,
 
   calculate = function(self, card, context)

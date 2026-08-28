@@ -24,6 +24,21 @@ SMODS.Joker {
   eternal_compat = true,
   perishable_compat = true,
   enhancement_gate = "m_steel",
+  unlocked = false,
+
+  check_for_unlock = function(self, args)
+    local count = 0
+    for _, v in ipairs(G.playing_cards or {}) do
+      if SMODS.has_enhancement(v, 'm_steel') then
+        count = count + 1
+      end
+    end
+    return count >= 10
+  end,
+
+  locked_loc_vars = function(self, info_queue, card)
+    return { vars = { 10, localize { type = 'name_text', key = 'm_steel', set = 'Enhanced' } } }
+  end,
 
   update_hands = function(self, card)
     if G.playing_cards then

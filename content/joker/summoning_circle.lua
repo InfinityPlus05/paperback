@@ -14,7 +14,7 @@ SMODS.Joker {
   pos = { x = 1, y = 0 },
   atlas = "jokers_atlas",
   cost = 8,
-  unlocked = true,
+  unlocked = false,
   discovered = false,
   blueprint_compat = true,
   eternal_compat = true,
@@ -22,6 +22,16 @@ SMODS.Joker {
   paperback_credit = {
     coder = { 'oppositewolf' }
   },
+
+  check_for_unlock = function (self, args)
+    if G.GAME.paperback.secret_hands then
+      for _, v in ipairs(G.GAME.paperback.secret_hands) do
+        if PB_UTIL.any_hand_played { v } then
+          return true
+        end
+      end
+    end
+  end,
 
   loc_vars = function(self, info_queue, card)
     local main_end

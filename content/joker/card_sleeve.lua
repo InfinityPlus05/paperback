@@ -11,9 +11,20 @@ SMODS.Joker {
   blueprint_compat = false,
   eternal_compat = false,
   perishable_compat = true,
+  unlocked = false,
   paperback_credit = {
     coder = { 'infinityplus' }
   },
+
+  check_for_unlock = function(self, args)
+    if G.jokers then
+      for _, v in ipairs(G.jokers.cards) do
+        if SMODS.is_eternal(v) then
+          return true
+        end
+      end
+    end
+  end,
 
   loc_vars = function(self, info_queue, card)
     info_queue[#info_queue + 1] = { key = 'eternal', set = 'Other' }

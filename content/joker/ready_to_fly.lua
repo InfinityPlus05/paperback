@@ -33,10 +33,23 @@ SMODS.Joker {
   blueprint_compat = true,
   eternal_compat = true,
   perishable_compat = false,
+  unlocked = false,
 
   paperback_credit = {
     coder = { 'dowfrin' }
   },
+
+  locked_loc_vars = function(self, info_queue, card)
+    return {
+      vars = {
+        number_format(1000)
+      }
+    }
+  end,
+
+  check_for_unlock = function(self, args)
+    return args.type == 'paperback_hand_scored_1000_chips'
+  end,
 
   loc_vars = function(self, info_queue, card)
     return {

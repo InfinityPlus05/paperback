@@ -26,21 +26,9 @@ SMODS.Joker {
   },
 
   check_for_unlock = function(self, args)
-    if args.type == 'hand_contents' then
-      local eval = evaluate_poker_hand(args.cards)
-      local has_spectrum_five = false
-      for hand, contents in pairs(eval) do
-        if string.find(hand, 'Spectrum Five') then
-          if next(eval[hand]) then
-            has_spectrum_five = true
-          end
-        end
-      end
-      if has_spectrum_five then
-        return true
-      end
+    if args.type == 'paperback_played_spectrum_five' then
+      return true
     end
-    return false
   end,
 
   loc_vars = function(self, info_queue, card)

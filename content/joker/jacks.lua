@@ -25,6 +25,15 @@ SMODS.Joker {
   paperback_credit = {
     coder = { 'thermo' }
   },
+  unlocked = false,
+
+  check_for_unlock = function(self, args)
+    if args.type == 'win_no_hand' then
+      if not G.GAME.paperback.ranks_scored_this_run[11] then
+        return true
+      end
+    end
+  end,
 
   loc_vars = function(self, info_queue, card)
     return {

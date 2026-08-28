@@ -18,7 +18,7 @@ SMODS.Joker {
   pos = { x = 22, y = 2 },
   atlas = 'jokers_atlas',
   cost = 9,
-  unlocked = true,
+  unlocked = false,
   discovered = false,
   blueprint_compat = true,
   eternal_compat = true,
@@ -30,6 +30,16 @@ SMODS.Joker {
     artist = { 'dylan_hall' },
     coder = { 'dowfrin' }
   },
+
+  check_for_unlock = function (self, args)
+    if args.type == 'paperback_played_seven_heart_jacks' then
+      return true
+    end
+  end,
+
+  locked_loc_vars = function (self, info_queue, card)
+    return { vars = { 7 }}
+  end,
 
   loc_vars = function(self, info_queue, card)
     return {

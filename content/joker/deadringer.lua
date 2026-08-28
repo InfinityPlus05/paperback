@@ -22,7 +22,7 @@ SMODS.Joker {
   pos = { x = 4, y = 8 },
   atlas = 'jokers_atlas',
   cost = 7,
-  unlocked = true,
+  unlocked = false,
   discovered = false,
   blueprint_compat = true,
   eternal_compat = true,
@@ -38,6 +38,29 @@ SMODS.Joker {
         localize("9", 'ranks'),
       }
     }
+  end,
+
+  locked_loc_vars = function(self, info_queue, card)
+    return {
+      vars = {
+        3
+      }
+    }
+  end,
+
+  check_for_unlock = function(self, args)
+    local jacks = 0
+    if args.type == 'hand_contents' then
+      for i = 1, #args.cards do
+        local v = args.cards[i]
+        if SMODS.has_enhancement(v, 'm_wild') and PB_UTIL.is_rank(v, 'Jack') then
+          jacks = jacks + 1
+        end
+      end
+      if jacks >= 3 then
+        return true
+      end
+    end
   end,
 
   calculate = function(self, card, context)

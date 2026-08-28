@@ -25,6 +25,19 @@ SMODS.Joker {
   paperback_credit = {
     coder = { 'thermo' }
   },
+  unlocked = false,
+
+  locked_loc_vars = function(self, info_queue, back)
+    return {
+      vars = {
+        localize { type = 'name_text', set = 'Stake', key = 'stake_red' },
+        colours = { get_stake_col(2) }
+      }
+    }
+    end,
+  check_for_unlock = function(self, args)
+    return args.type == 'win_stake' and get_deck_win_stake() >= 2
+  end,
 
   loc_vars = function(self, info_queue, card)
     return {

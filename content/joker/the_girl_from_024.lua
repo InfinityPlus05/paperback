@@ -16,7 +16,7 @@ SMODS.Joker {
   soul_pos = { x = 20, y = 12 },
   atlas = "jokers_atlas",
   cost = 7,
-  unlocked = true,
+  unlocked = false,
   discovered = false,
   blueprint_compat = true,
   eternal_compat = true,
@@ -24,6 +24,29 @@ SMODS.Joker {
   paperback_credit = {
     coder = { 'dowfrin' },
   },
+
+  check_for_unlock = function (self, args)
+    if G.hand then
+      local queens = 0
+      for _, card in ipairs(G.hand.cards) do
+        if PB_UTIL.is_rank(card, 12) then
+          queens = queens + 1
+        end
+      end
+
+      if queens >= 5 then
+        return true
+      end
+    end
+  end,
+
+  locked_loc_vars = function(self, info_queue, card)
+    return {
+      vars = {
+        5
+      }
+    }
+  end,
 
   loc_vars = function(self, info_queue, card)
     return {

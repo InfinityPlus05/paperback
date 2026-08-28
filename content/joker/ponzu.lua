@@ -26,6 +26,7 @@ SMODS.Joker {
   paperback_credit = {
     coder = { 'thermo' }
   },
+  unlocked = false,
 
   loc_vars = function(self, info_queue, card)
     local numerator, denominator = PB_UTIL.chance_vars(card)
@@ -41,6 +42,23 @@ SMODS.Joker {
         colours = { G.C.SUITS[suit] }
       }
     }
+  end,
+
+  locked_loc_vars = function (self, info_queue, card)
+    return {vars = { 10 }}
+  end,
+
+  check_for_unlock = function(self, args)
+    if args.type == 'modify_deck' then
+      local count = 0
+      for _, playing_card in ipairs(G.playing_cards or {}) do
+        if playing_card.base.suit == ("Diamonds") and playing_card.ability.set == 'Enhanced' then count = count + 1 end
+        if count >= 10 then
+          return true
+        end
+      end
+    end
+    return false
   end,
 
   calculate = function(self, card, context)

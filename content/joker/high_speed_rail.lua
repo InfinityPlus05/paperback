@@ -17,6 +17,7 @@ SMODS.Joker {
   blueprint_compat = true,
   eternal_compat = true,
   perishable_compat = false,
+  unlocked = false,
 
   paperback_credit = {
     coder = { 'srockw' },
@@ -26,6 +27,24 @@ SMODS.Joker {
     return {
       vars = {
         card.ability.extra.mult
+      }
+    }
+  end,
+
+  check_for_unlock = function(self, args)
+    if args.type == 'paperback_ride_the_bus_scale' then
+      return true
+    end
+  end,
+
+  locked_loc_vars = function(self, info_queue, back)
+    local other_name = localize('k_unknown')
+    if G.P_CENTERS['j_ride_the_bus'].unlocked then
+      other_name = localize { type = 'name_text', set = 'Joker', key = 'j_ride_the_bus' }
+    end
+    return {
+      vars = {
+        other_name, 25
       }
     }
   end,
@@ -90,3 +109,11 @@ SMODS.Joker {
     }
   end,
 }
+
+local scale_card_ref = SMODS.scale_card
+function SMODS.scale_card(card, args)
+  scale_card_ref(card, args)
+  if card.config.center_key == "j_ride_the_bus" and card.ability.mult >= 25 then
+    check_for_unlock({ type = 'paperback_ride_the_bus_scale' })
+  end
+end

@@ -17,13 +17,23 @@ SMODS.Joker {
   blueprint_compat = true,
   eternal_compat = false,
   perishable_compat = true,
-
+  unlocked = false,
   paperback_credit = {
     coder = { 'dowfrin' }
   },
 
   loc_vars = function(self, info_queue, card)
     info_queue[#info_queue + 1] = { set = 'Other', key = 'paperback_temporary' }
+  end,
+
+  check_for_unlock = function (self, args)
+    if args.type == 'paperback_played_five_heart_kings' then
+      return true
+    end
+  end,
+
+  locked_loc_vars = function (self, info_queue, card)
+    return { vars = { 5 }}
   end,
 
   calculate = function(self, card, context)

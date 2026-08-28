@@ -43,12 +43,12 @@ SMODS.Joker {
   end,
 
   locked_loc_vars = function(self, info_queue, back)
-      return {
-        vars = {
-          50
-        }
+    return {
+      vars = {
+        50
       }
-    end,
+    }
+  end,
 
   calculate = function(self, card, context)
     if context.joker_main then

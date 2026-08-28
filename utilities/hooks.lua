@@ -11,31 +11,59 @@ function Game.init_game_object(self)
     if (type(v.visible) == 'function' and not v:visible()) or v.visible == false then table.insert(secrets, k) end
   end
 
+  -- Temporary solution to track paperclip discovery for Clippy
+  -- until paperclips are converted to smods generic card modifier
+  G.PROFILES[G.SETTINGS.profile].career_stats.paperback_temp_paperclip_discovery = 
+  G.PROFILES[G.SETTINGS.profile].career_stats.paperback_temp_paperclip_discovery or {}
+
   ret.paperback = {
     solar_system_ct = 1,
     reference_card_ct = 0,
 
     round = {
+      ranks_scored = {},
+      suits_scored = {},
       scored_clips = 0,
       scored_face_cards = 0,
       destroyed_cards_this_round = 0,
+      played_only_ace_or_king = true,
+      played_only_straights = true,
     },
     ceramic_inc = 0,
     bandaged_inc = 0,
     stained_inc = 0,
-    destroyed_dark_suits = 0,
-    destroyed_light_suits = 0,
-    destroyed_crowns = 0,
-    destroyed_stars = 0,
-    destroyed_cards = 0,
-    destroyed_glass = 0,
-    destroyed_faces = 0,
-    destroyed_card_this_run = false,
+    destroyed_cards = {
+      ["cards"] = 0,
+      suits = {
+        -- stores ['dark'], ['light'], ['suitless'], and suit keys (ex: ['Hearts'], ['Spades'], ['paperback_Crowns'])
+      },
+      ranks = {
+        -- stores ['face'], ['rankless'], and rank keys (ex: ['King'], ['10'], ['paperback_Apostle'])
+      },
+      enhancements = {
+        -- stores enhancements (ex: ['m_glass'], ['m_paperback_ceramic'])
+      }
+    },
     tags_redeemed_this_run = 0,
     last_tarot_energized = false,
     ranks_scored_this_ante = {},
+    ranks_scored_this_run = {},
+    suits_scored_this_ante = {},
+    suits_scored_this_run = {},
+    heart_jacks_scored = 0,
+    heart_kings_scored = 0,
+    bloodstone_triggers = 0,
+    booster_packs_bought = 0,
+    buffoon_packs_bought = 0,
+    num_blinds_disabled = 0,
     last_scored_suit = 'Spades',
     hand_contained_crown = false,
+    hand_contained_star = false,
+    hand_only_scored_aces = true,
+    hand_only_scored_jacks = true,
+    hand_only_scored_8s = true,
+    hand_only_scored_light = true,
+    hand_only_scored_dark = true,
     domino_ranks = {},
     jjjj_count = 0,
     first_contact_count = 0,
@@ -43,16 +71,26 @@ function Game.init_game_object(self)
     secret_hands = secrets,
     arcana_used = {},
     sold_ego_gifts = {},
+    sold_jokers = {},
     finished_antes = {},
     max_consumeables = 0,
     jester_destroying_cards = false,
     coin_collection_adding_money = false,
-    find_jimbo_unlock = false,
     jokers_owned_this_run = {},
     played_pair_this_run = false,
     only_pairs_this_run = true,
-    discarded_this_ante = false,
+    num_discards_this_ante = 0,
+    consecutive_rounds_played_without_discards = 0,
+    played_5_card_hand = false,
     played_flushes = {},
+    played_straight_flushes = {},
+    played_dark_suit_hands = 0,
+    played_light_suit_hands = 0,
+    cards_added_to_deck = 0,
+    highest_amount_of_money_had = 0,
+    money_gained_this_ante = 0,
+    unique_clips_this_run = {},
+    num_bandages_broken_last_hand = 0,
 
     permabonus_odds = 0,
 

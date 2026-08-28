@@ -33,6 +33,18 @@ SMODS.Joker {
       }
     }
   end,
+  unlocked = false,
+
+  check_for_unlock = function(self, args)
+    if G.GAME.round >= 1 then
+      for _, v in ipairs(G.playing_cards or {}) do
+        if v.base.suit ~= ("Hearts") or not PB_UTIL.is_rank(v, 'Ace') then 
+          return false
+        end
+      end
+      return true
+    end
+  end,
 
   in_pool = function(self, args)
     -- Only in pool if you have played a Five of a Kind or a Flush Five
