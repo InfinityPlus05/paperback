@@ -4,7 +4,8 @@ SMODS.Joker {
     extra = {
       increase = 2,
       total = 0,
-      enhancement = 'm_paperback_ceramic'
+      enhancement = 'm_paperback_ceramic',
+      max = 10
     }
   },
   attributes = {
@@ -29,12 +30,12 @@ SMODS.Joker {
     coder = { 'srockw' },
   },
 
-  check_for_unlock = function (self, args)
+  check_for_unlock = function(self, args)
     return (G.GAME.paperback.destroyed_cards.enhancements["m_paperback_ceramic"] or 0) >= 5
   end,
 
-  locked_loc_vars = function (self, info_queue, card)
-    return { vars = { 5 }}
+  locked_loc_vars = function(self, info_queue, card)
+    return { vars = { 5 } }
   end,
 
   loc_vars = function(self, info_queue, card)
@@ -46,7 +47,8 @@ SMODS.Joker {
           set = 'Enhanced',
           key = card.ability.extra.enhancement
         },
-        card.ability.extra.total
+        card.ability.extra.total,
+        card.ability.extra.max
       }
     }
   end,
@@ -69,13 +71,13 @@ SMODS.Joker {
         end
       end
 
-      if inc > 0 then
+      if (inc > 0) and (card.ability.extra.total < card.ability.extra.max) then
         SMODS.scale_card(card, {
           ref_table = card.ability.extra,
           ref_value = 'total',
           scalar_value = 'increase',
           operation = function(ref_table, ref_value, initial, scaling)
-            ref_table[ref_value] = initial + scaling * inc
+            ref_table[ref_value] = math.min(initial + scaling * inc, card.ability.extra.max)
             G.GAME.paperback.ceramic_inc = G.GAME.paperback.ceramic_inc + scaling * inc
           end
         })

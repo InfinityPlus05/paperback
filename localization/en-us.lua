@@ -1132,8 +1132,8 @@ return {
         name = "Kintsugi Joker",
         text = {
           "Increases the payout of",
-          "{C:attention}#2#s{} by {C:money}$#1#{} when",
-          "a {C:attention}#2#{} is destroyed",
+          "{C:attention}#2#s{} by {C:money}$#1#{} up to {C:money}$#4#{}",
+          "when a {C:attention}#2#{} is destroyed",
           "{C:inactive}(Currently increased by {C:money}$#3#{C:inactive})"
         },
         unlock = {
@@ -1531,7 +1531,7 @@ return {
           "for every played {C:attention}#1#{}",
           "{C:inactive}(Currently {C:money}$#3#{C:inactive})"
         },
-         unlock = {
+        unlock = {
           "Have at least {C:attention}#1#",
           "{E:1,C:attention}#2#s{} in",
           "your deck",
@@ -1544,7 +1544,7 @@ return {
           "for each {C:attention}Joker{} card",
           "{C:inactive}(Currently {X:chips,C:white}X#2#{C:inactive} Chips)"
         },
-         unlock = {
+        unlock = {
           "Have at least {C:attention,E:1}#1#",
           "{E:1,C:attention}Jokers{} at once",
         },
@@ -3480,7 +3480,7 @@ return {
           "a {E:1,C:attention}#1#{} as your",
           "most played hand",
         },
-        
+
       },
       j_paperback_jester = {
         name = "Jester",
