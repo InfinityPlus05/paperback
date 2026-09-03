@@ -133,6 +133,34 @@ SMODS.current_mod.config_tab = function()
             }
           }
         }
+      },
+      {
+        n = G.UIT.R,
+        config = { align = 'cm' },
+        nodes = {
+          {
+            n = G.UIT.C,
+            nodes = {
+              UIBox_button({
+                  label = { "Unlock all items" },
+                  button = 'paperback_unlock_all'
+              })
+            }
+          },
+          {
+            n = G.UIT.B,
+            config = { w = 0.5, h = 0.4 }
+          },
+          {
+            n = G.UIT.C,
+            nodes = {
+              UIBox_button({
+                  label = { "Lock all items" },
+                  button = 'paperback_lock_all'
+              }),
+            }
+          },
+        }
       }
     }
   }
@@ -852,4 +880,13 @@ function PB_UTIL.setup_extra_button(center, button_data)
       }
     }
   end
+end
+
+function G.FUNCS.paperback_unlock_all()
+    local keys = PB_UTIL.ENABLED_JOKERS
+
+    for _, key in ipairs(keys) do
+        local card = G.P_CENTERS[key]
+        unlock_card(card)
+    end
 end
