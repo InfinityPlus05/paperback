@@ -254,8 +254,7 @@ SMODS.current_mod.calculate = function(self, context)
 	end
 
 	if context.skip_blind then
-		G.PROFILES[G.SETTINGS.profile].career_stats.paperback_blind_skips = (G.PROFILES[G.SETTINGS.profile].career_stats.paperback_blind_skips or 0) + 1
-		check_for_unlock({type = 'paperback_skip_blind', blind_skips_total = G.PROFILES[G.SETTINGS.profile].career_stats.paperback_blind_skips})
+		PB_UTIL.increment_career_stat("skip_blind")
 	end
 
 	if context.after then

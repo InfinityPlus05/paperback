@@ -286,6 +286,12 @@ function G.FUNCS.paperback_lock_all(e)
   table.sort(G.P_LOCKED, function (a, b) return a.order and b.order and a.order < b.order end)
   table.sort(G.P_CENTER_POOLS["Back"], function (a, b) return (a.order - (a.unlocked and 100 or 0)) < (b.order - (b.unlocked and 100 or 0)) end)
 
+  for stat in pairs(G.PROFILES[G.SETTINGS.profile].career_stats) do
+    if string.sub(stat, 1, 10) == "paperback_" then
+      PB_UTIL.set_career_stat(string.sub(stat, 11), nil, false)
+    end
+  end
+
   local meta_path = G.SETTINGS.profile .. '/meta.jkr'
   local meta = STR_UNPACK(get_compressed(meta_path) or 'return {}')
   meta.unlocked = meta.unlocked or {}

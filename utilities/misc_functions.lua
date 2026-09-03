@@ -1491,26 +1491,34 @@ function PB_UTIL.has_ego_gift()
   return false
 end
 
---- Sets and increments a career stat by either the amount specified, or by 1
+--- Sets and increments a career stat by either the amount specified, or by 1. Checks for unlock by default
 --- @param key string 
 --- @param amount integer?
-function PB_UTIL.increment_career_stat(key, amount)
+--- @param check_for_unlock boolean?
+function PB_UTIL.increment_career_stat(key, amount, check_for_unlock)
   amount = amount or 1
+  check_for_unlock = check_for_unlock or true
   local profile = G.PROFILES[G.SETTINGS.profile]
   local career_stats = profile and profile.career_stats
   local current = career_stats and career_stats["paperback_"..key] or 0
   career_stats["paperback_"..key] = current + amount
-  check_for_unlock({type = "paperback_"..key, total = career_stats["paperback_"..key]})
+  if check_for_unlock then
+    check_for_unlock({type = "paperback_"..key, total = career_stats["paperback_"..key]})
+  end
 end
 
---- Sets a career stat to a specific value, for use with non number career stats
+--- Sets a career stat to a specific value, for use with non number career stats. Checks for unlock by default
 --- @param key string 
 --- @param value any
-function PB_UTIL.set_career_stat(key, value)
+--- @param check_for_unlock boolean?
+function PB_UTIL.set_career_stat(key, value, check_for_unlock)
+  check_for_unlock = check_for_unlock or true
   local profile = G.PROFILES[G.SETTINGS.profile]
   local career_stats = profile and profile.career_stats
   career_stats["paperback_"..key] = value
-  check_for_unlock({type = "paperback_"..key, value = career_stats["paperback_"..key]})
+  if check_for_unlock then
+    check_for_unlock({type = "paperback_"..key, value = career_stats["paperback_"..key]})
+  end
 end
 
 --- Safe get for a career stat
