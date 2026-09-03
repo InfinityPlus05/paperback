@@ -142,7 +142,7 @@ SMODS.current_mod.config_tab = function()
             n = G.UIT.C,
             nodes = {
               UIBox_button({
-                  label = { "Unlock all items" },
+                  label = { localize('paperback_ui_unlock_cards') },
                   button = 'paperback_unlock_all'
               })
             }
@@ -155,15 +155,135 @@ SMODS.current_mod.config_tab = function()
             n = G.UIT.C,
             nodes = {
               UIBox_button({
-                  label = { "Lock all items" },
+                  label = { localize('paperback_ui_lock_cards') },
                   button = 'paperback_lock_all'
               }),
             }
           },
         }
-      }
+      },
+      {n=G.UIT.R, config={align = "cm", padding = 0}, nodes={
+        {n=G.UIT.T, config={id = 'warning_text', text = localize('ph_click_confirm'), scale = 0.4, colour = G.C.CLEAR}}
+      }}
     }
   }
+end
+
+function G.FUNCS.paperback_unlock_all(e)
+  if not e then return end
+
+  local warning_text = e.UIBox:get_UIE_by_ID('warning_text')
+
+  if warning_text and warning_text.config.colour ~= G.C.WHITE then
+    warning_text:juice_up()
+    warning_text.config.colour = G.C.WHITE
+    warning_text.config.shadow = true
+    e.config.disable_button = true
+
+    G.E_MANAGER:add_event(Event({
+      trigger = 'after',
+      delay = 0.35,
+      blockable = false,
+      blocking = false,
+      func = function()
+        e.config.disable_button = nil
+        return true
+      end
+    }))
+
+    play_sound('tarot2', 1, 0.4)
+    return
+  end
+
+  local keys = PB_UTIL.ENABLED_JOKERS
+  local vouchers = PB_UTIL.ENABLED_VOUCHERS
+  local decks = PB_UTIL.ENABLED_DECKS
+
+  for _, key in ipairs(keys) do
+    local card = G.P_CENTERS["j_paperback_" .. key]
+    if card and card.unlocked == false and (card.unlock_condition or card.check_for_unlock) then
+      card.unlocked = true
+    end
+  end
+
+  for _, voucher in ipairs(vouchers) do
+    local card = G.P_CENTERS["v_paperback_" .. voucher]
+    if card and card.unlocked == false and (card.unlock_condition or card.check_for_unlock) then
+      card.unlocked = true
+    end
+  end
+
+  for _, deck in ipairs(decks) do
+    local card = G.P_CENTERS["b_paperback_" .. deck]
+    if card and card.unlocked == false and (card.unlock_condition or card.check_for_unlock) then
+      card.unlocked = true
+      card.discovered = true
+      table.sort(G.P_CENTER_POOLS["Back"], function (a, b) return (a.order - (a.unlocked and 100 or 0)) < (b.order - (b.unlocked and 100 or 0)) end)
+    end
+  end
+  warning_text.config.colour = G.C.CLEAR
+  G:save_progress()
+end
+
+function G.FUNCS.paperback_lock_all(e)
+  if not e then return end
+
+  local warning_text = e.UIBox:get_UIE_by_ID('warning_text')
+
+  if warning_text and warning_text.config.colour ~= G.C.WHITE then
+    warning_text:juice_up()
+    warning_text.config.colour = G.C.WHITE
+    warning_text.config.shadow = true
+    e.config.disable_button = true
+
+    G.E_MANAGER:add_event(Event({
+      trigger = 'after',
+      delay = 0.35,
+      blockable = false,
+      blocking = false,
+      func = function()
+        e.config.disable_button = nil
+        return true
+      end
+    }))
+
+    play_sound('tarot2', 1, 0.4)
+    return
+  end
+
+  local keys = PB_UTIL.ENABLED_JOKERS
+  local vouchers = PB_UTIL.ENABLED_VOUCHERS
+  local decks = PB_UTIL.ENABLED_DECKS
+
+
+  for _, key in ipairs(keys) do
+    local card = G.P_CENTERS["j_paperback_" .. key]
+    if card and card.unlocked == true and (card.unlock_condition or card.check_for_unlock) then
+      card.unlocked = false
+      card.discovered = false
+    end
+  end
+
+  for _, voucher in ipairs(vouchers) do
+    local card = G.P_CENTERS["v_paperback_" .. voucher]
+    if card and card.unlocked == true and (card.unlock_condition or card.check_for_unlock) then
+      card.unlocked = false
+      card.discovered = false
+    end
+  end
+
+  for _, deck in ipairs(decks) do
+    local card = G.P_CENTERS["b_paperback_" .. deck]
+    if card and card.unlocked == true and (card.unlock_condition or card.check_for_unlock) 
+    -- hardcoding this to skip over paper deck because it's running it even though it has no unlock condition
+    and card ~= G.P_CENTERS["b_paperback_paper"] then
+      card.unlocked = false
+      card.discovered = false
+      table.sort(G.P_CENTER_POOLS["Back"], function (a, b) return (a.order - (a.unlocked and 100 or 0)) < (b.order - (b.unlocked and 100 or 0)) end)
+    end
+  end
+  warning_text.config.colour = G.C.CLEAR
+  G:save_progress()
 end
 
 -- Create Credits tab in our mod UI
@@ -880,13 +1000,4 @@ function PB_UTIL.setup_extra_button(center, button_data)
       }
     }
   end
-end
-
-function G.FUNCS.paperback_unlock_all()
-    local keys = PB_UTIL.ENABLED_JOKERS
-
-    for _, key in ipairs(keys) do
-        local card = G.P_CENTERS[key]
-        unlock_card(card)
-    end
 end

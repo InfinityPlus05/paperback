@@ -5668,6 +5668,8 @@ return {
       paperback_ui_enable_vouchers = "Enable Vouchers",
       paperback_ui_enable_tags = "Enable Tags",
       paperback_ui_enable_ranks = "Enable Ranks",
+      paperback_ui_lock_cards = "Lock All Items",
+      paperback_ui_unlock_cards = "Unlock All Items",
       paperback_ui_developers = "Developers",
       paperback_ui_artists = "Artists",
       paperback_ui_localization = "Localization",
