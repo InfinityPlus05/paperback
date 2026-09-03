@@ -249,8 +249,7 @@ SMODS.current_mod.calculate = function(self, context)
 	if context.using_consumeable then
 		-- track minor arcana usage across runs
     if context.consumeable.config.center.set == "paperback_minor_arcana" then
-      G.PROFILES[G.SETTINGS.profile].career_stats.paperback_minor_arcana_used = (G.PROFILES[G.SETTINGS.profile].career_stats.paperback_minor_arcana_used or 0) + 1
-			check_for_unlock({type = 'paperback_use_minor_arcana', minor_arcana_total = G.PROFILES[G.SETTINGS.profile].career_stats.paperback_minor_arcana_used})
+      PB_UTIL.increment_career_stat("minor_arcana_used")
     end
 	end
 

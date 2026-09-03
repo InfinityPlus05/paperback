@@ -255,35 +255,48 @@ function G.FUNCS.paperback_lock_all(e)
   local vouchers = PB_UTIL.ENABLED_VOUCHERS
   local decks = PB_UTIL.ENABLED_DECKS
 
-
-  for _, key in ipairs(keys) do
-    local card = G.P_CENTERS["j_paperback_" .. key]
+  local relocked = {}
+  local function relock_card(card)
     if card and card.unlocked == true and (card.unlock_condition or card.check_for_unlock) then
       card.unlocked = false
       card.discovered = false
+      relocked[card.key] = true
+      table.insert(G.P_LOCKED, card)
     end
+  end
+
+  for _, key in ipairs(keys) do
+    local card = G.P_CENTERS["j_paperback_" .. key]
+    relock_card(card)
   end
 
   for _, voucher in ipairs(vouchers) do
     local card = G.P_CENTERS["v_paperback_" .. voucher]
-    if card and card.unlocked == true and (card.unlock_condition or card.check_for_unlock) then
-      card.unlocked = false
-      card.discovered = false
-    end
+    relock_card(card)
   end
 
   for _, deck in ipairs(decks) do
     local card = G.P_CENTERS["b_paperback_" .. deck]
-    if card and card.unlocked == true and (card.unlock_condition or card.check_for_unlock) 
-    -- hardcoding this to skip over paper deck because it's running it even though it has no unlock condition
-    and card ~= G.P_CENTERS["b_paperback_paper"] then
-      card.unlocked = false
-      card.discovered = false
-      table.sort(G.P_CENTER_POOLS["Back"], function (a, b) return (a.order - (a.unlocked and 100 or 0)) < (b.order - (b.unlocked and 100 or 0)) end)
+    -- Paper deck was having problems being relocked, skip it
+    if card ~= G.P_CENTERS["b_paperback_paper"] then
+      relock_card(card)
     end
   end
+
+  table.sort(G.P_LOCKED, function (a, b) return a.order and b.order and a.order < b.order end)
+  table.sort(G.P_CENTER_POOLS["Back"], function (a, b) return (a.order - (a.unlocked and 100 or 0)) < (b.order - (b.unlocked and 100 or 0)) end)
+
+  local meta_path = G.SETTINGS.profile .. '/meta.jkr'
+  local meta = STR_UNPACK(get_compressed(meta_path) or 'return {}')
+  meta.unlocked = meta.unlocked or {}
+  meta.discovered = meta.discovered or {}
+  for key in pairs(relocked) do
+    meta.unlocked[key] = nil
+    meta.discovered[key] = nil
+  end
+  compress_and_save(meta_path, STR_PACK(meta))
+
   warning_text.config.colour = G.C.CLEAR
-  G:save_progress()
 end
 
 -- Create Credits tab in our mod UI
