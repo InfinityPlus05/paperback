@@ -86,6 +86,7 @@ function Game.init_game_object(self)
     money_gained_this_ante = 0,
     unique_clips_this_run = {},
     num_bandages_broken_last_hand = 0,
+    num_food_jokers_obtained = 0,
 
     permabonus_odds = 0,
 

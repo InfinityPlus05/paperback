@@ -2691,6 +2691,19 @@ return {
           "Eat {C:attention,E:1}#1#{}",
         }
       },
+      j_paperback_toppins = {
+        name = "Toppins",
+        text = {
+          "Cards give {C:mult}+#1#{} Mult when scored.",
+          "Increases by {C:mult}+#2#{} Mult for each",
+          "previously scored card",
+          "{C:inactive}(Resets after each hand played)",
+        },
+        unlock = {
+          "Play a hand",
+          "scoring {C:attention,E:1}#1#{} suits"
+        }
+      },
       j_paperback_prince_of_darkness = {
         name = "Prince of Darkness",
         text = {
