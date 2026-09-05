@@ -3647,6 +3647,23 @@ return {
           "a {E:1,C:attention}Jack",
         },
       },
+      j_paperback_black_knife = {
+        name = "Black Knife",
+        text = {
+          "Create a random",
+          "{C:dark_edition}Negative{C:attention} Joker{}",
+          "for every {C:attention}#1#{C:inactive} [#2#]{} scored {C:paperback_light_suit}Light Suits"
+        },
+        {
+          "Scored {C:paperback_light_suit}Light Suits{} have a",
+          "{C:green}#3#{} in {C:green}#4#{} chance to",
+          "{C:attention}destroy{} random Joker"
+        },
+        unlock = {
+          "Score {C:attention,E:1}#1# {C:paperback_Stars}Stars",
+          "{C:inactive}(#2#)",
+        }
+      },
       j_paperback_red_sun_in_the_sky = {
         name = "Red Sun in the Sky",
         text = {
@@ -5668,6 +5685,7 @@ return {
       paperback_whitebeard_death_ex = "Quake!",
       paperback_proceed_ex = "Proceed",
       paperback_fall_ex = "Fall!",
+      paperback_swoon_ex = "SWOON",
 
       paperback_ui_requires_restart = "Requires Restart",
       paperback_ui_no_requires_restart = "Doesn't Require Restart",

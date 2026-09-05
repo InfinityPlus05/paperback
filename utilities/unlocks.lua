@@ -101,6 +101,10 @@ SMODS.current_mod.calculate = function(self, context)
       if PB_UTIL.is_suit(v, 'light', false, true) then
         light_count = light_count + 1
       end
+      -- Black Knife unlock
+      if v:is_suit('paperback_Stars') then
+        PB_UTIL.increment_career_stat("played_stars")
+      end
       -- Rosary Beads, Technology unlock
       if not (v:is_suit('Hearts') or SMODS.has_any_suit(v)) then
         all_hearts = false

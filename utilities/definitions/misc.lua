@@ -160,7 +160,7 @@ PB_UTIL.ENABLED_JOKERS = {
   "doppler_radar",
   "satellite_array",
   "first_contact",
-  -- "black_knife",
+  "black_knife",
   "aurora_borealis",
   "grand_strategy",
   "moving_out",
