@@ -115,7 +115,8 @@ return {
         text = {
           "Only a random {C:attention}25%{}",
           "of all {C:attention}Jokers{} can",
-          "appear in this run"
+          "appear in this run",
+          "Start run with {C:attention,T:v_overstock_norm}Overstock{}"
         },
         unlock = {
           "Unlock {C:attention}all{} Jokers"

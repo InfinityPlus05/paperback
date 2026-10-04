@@ -3,6 +3,7 @@ SMODS.Back {
   atlas = 'decks_atlas',
   pos = { x = 7, y = 0 },
 
+  config = { vouchers = { "v_overstock_norm" } },
   unlocked = false,
 
   apply = function(self, back)
