@@ -33,6 +33,21 @@ SMODS.Back {
         end
       end
     end
+
+    -- make sure one scoring common is unbanned
+    local scoring = false
+    for i = 1, math.floor(#jokers / 4) - 1 do
+      for j, v in ipairs(G.P_CENTERS[jokers[i]].attributes) do
+        if (v == "chips" or v == "mult") and G.P_CENTERS[jokers[i]].rarity == 1 then
+          scoring = true
+          break
+        end
+      end
+      if scoring then break end
+    end
+    if not scoring then
+      G.GAME.banned_keys.j_paperback_trans_flag = false -- ough im so trans
+    end
   end
 }
 
