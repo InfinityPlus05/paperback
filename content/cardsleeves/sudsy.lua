@@ -18,12 +18,12 @@ PB_UTIL.Sleeve {
     return {
       key = self:loc_key(),
       vars = self:is_buffed() and {
-          localize { type = 'name_text', key = 'tag_top_up', set = 'Tag' }
+        localize { type = 'name_text', key = 'tag_top_up', set = 'Tag' }
       } or {
-          PB_UTIL.force_signed(self.config.extra.mod_joker_slots), 
-          PB_UTIL.force_signed(self.config.extra.mod_hand_size), 
-          PB_UTIL.force_signed(self.config.extra.max_hand_size)
-        }
+        PB_UTIL.force_signed(self.config.extra.mod_joker_slots), 
+        PB_UTIL.force_signed(self.config.extra.mod_hand_size), 
+        PB_UTIL.force_signed(self.config.extra.max_hand_size)
+      }
     }
   end,
 

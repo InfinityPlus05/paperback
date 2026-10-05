@@ -545,5 +545,5 @@ PB_UTIL.ENABLED_SLEEVES = {
   -- 'enchained',
   -- 'potters',
   'sudsy',
-  -- 'commander',
+  'commander',
 }

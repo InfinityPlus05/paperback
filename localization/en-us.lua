@@ -5618,6 +5618,22 @@ return {
           "{C:attention,T:tag_top_up}#1#"
         },
       },
+      sleeve_paperback_commander = {
+        name = "Commander's Sleeve",
+        text = {
+          "The {C:attention}leftmost Joker{}",
+          "triggers {C:attention}twice{} if possible",
+          "Jokers {C:attention}cannot{} be moved",
+          "while in a {C:attention}blind"
+        },
+      },
+      sleeve_paperback_commander_buff = {
+        name = "Commander's Sleeve",
+        text = {
+          "Trigger {C:attention}leftmost Joker{}",
+          "an {C:attention}additional time{}",
+        },
+      },
     },
     texture_packs = {
       texpack_paperback_spectrans = {
