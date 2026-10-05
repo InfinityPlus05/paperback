@@ -96,7 +96,8 @@ return {
           "while in a {C:attention}blind"
         },
         unlock = {
-          "Have a deck with at least 100 cards"
+          "Have a deck with",
+          "at least {C:attention}#1#{} cards"
         }
       },
       b_paperback_potters = {
@@ -107,7 +108,7 @@ return {
           "upon {C:attention}entering{} a Blind"
         },
         unlock = {
-          "Destroy #1# {C:inactive}[#2#]{} Cards"
+          "Destroy {C:attention}#1# {C:inactive}[#2#]{} Cards"
         }
       },
       b_paperback_enchained = {
@@ -5598,7 +5599,25 @@ return {
         text = {
           "TBD"
         }
-      }
+      },
+      sleeve_paperback_sudsy = {
+        name = "Sudsy Sleeve",
+        text = {
+          "After defeating each",
+          "{C:attention}Boss Blind{}, gain",
+          "{C:attention}#1#{} Joker Slot and",
+          "{C:attention}#2#{} Hand Size",
+          "{C:inactive,s:0.85}(Minimum of #3# Hand Size)"
+        },
+      },
+      sleeve_paperback_sudsy_buff = {
+        name = "Sudsy Sleeve",
+        text = {
+          "After defeating each",
+          "{C:attention}Boss Blind{}, gain a",
+          "{C:attention,T:tag_top_up}#1#"
+        },
+      },
     },
     texture_packs = {
       texpack_paperback_spectrans = {
