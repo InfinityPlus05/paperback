@@ -122,6 +122,20 @@ return {
           "Unlock {C:attention}all{} Jokers"
         }
       },
+      b_paperback_sudsy = {
+        name = "Sudsy Deck",
+        text = {
+          "After defeating each",
+          "{C:attention}Boss Blind{}, gain",
+          "{C:attention}#1#{} Joker Slot and",
+          "{C:attention}#2#{} Hand Size",
+          "{C:inactive,s:0.85}(Minimum of #3# Hand Size)"
+        },
+        unlock = {
+          "Win at least {C:attention}#1#{} decks on",
+          "{V:1}#2#{} difficulty",
+        }
+      },
     },
     Blind = {
       bl_paperback_quarter = {
