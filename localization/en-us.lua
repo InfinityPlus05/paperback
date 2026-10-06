@@ -117,7 +117,7 @@ return {
           "Only a random {C:attention}25%{}",
           "of all {C:attention}Jokers{} can",
           "appear in this run",
-          "Start run with {C:attention,T:v_overstock_norm}Overstock{}"
+          "Start run with {C:attention,T:v_overstock_norm}#1#{}"
         },
         unlock = {
           "Unlock {C:attention}all{} Jokers"
@@ -5616,6 +5616,23 @@ return {
           "After defeating each",
           "{C:attention}Boss Blind{}, gain a",
           "{C:attention,T:tag_top_up}#1#"
+        },
+      },
+      sleeve_paperback_enchained = {
+        name = "Enchained Sleeve",
+        text = {
+          "Only a random {C:attention}25%{}",
+          "of all {C:attention}Jokers{} can",
+          "appear in this run",
+          "Start run with {C:attention,T:v_overstock_norm}#1#{}"
+        },
+      },
+      sleeve_paperback_enchained_buff = {
+        name = "Enchained Sleeve",
+        text = {
+          "Only a random {C:attention}25%{}",
+          "of all {C:attention}Consumables{} can",
+          "appear in this run",
         },
       },
       sleeve_paperback_commander = {

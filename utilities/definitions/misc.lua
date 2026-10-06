@@ -542,7 +542,7 @@ PB_UTIL.ENABLED_SLEEVES = {
   'antique',
   'passionate',
   -- 'shimmering',
-  -- 'enchained',
+  'enchained',
   'potters',
   'sudsy',
   'commander',
