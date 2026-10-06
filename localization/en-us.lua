@@ -5634,6 +5634,22 @@ return {
           "an {C:attention}additional time{}",
         },
       },
+      sleeve_paperback_potters = {
+        name = "Potter's Sleeve",
+        text = {
+          "All cards start as {C:attention}Ceramic{}",
+          "{C:Money}Money{} is set to {C:red}0",
+          "upon {C:attention}entering{} a Blind"
+        }
+      },
+      sleeve_paperback_potters_buff = {
+        name = "Potter's Sleeve",
+        text = {
+          "Start run with",
+          "{C:money,T:v_seed_money}#1#{} and",
+          "{C:money,T:v_money_tree}#2#{} vouchers"
+        },
+      },
     },
     texture_packs = {
       texpack_paperback_spectrans = {
