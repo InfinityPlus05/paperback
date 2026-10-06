@@ -5597,7 +5597,9 @@ return {
       sleeve_paperback_shimmering_buff = {
         name = "Shimmering Sleeve",
         text = {
-          "TBD"
+          "{C:red}#2#{} Joker Slots",
+          "Selling an {C:paperback_ego_gift}E.G.O Gift",
+          "gives {C:attention}+#1#{} Joker Slots"
         }
       },
       sleeve_paperback_sudsy = {

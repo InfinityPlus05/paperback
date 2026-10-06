@@ -8,7 +8,7 @@ PB_UTIL.Sleeve {
   loc_vars = function(self)
     return {
       key = self:loc_key(),
-      vars = self:is_buffed() and {
+      vars = {
         localize { type = 'name_text', key = 'v_overstock_norm', set = 'Voucher' }
       }
     }
