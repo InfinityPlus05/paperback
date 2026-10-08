@@ -615,7 +615,6 @@ end
 local cursor_press_ref = Controller.L_cursor_press
 function Controller:L_cursor_press(x, y)
   local ret = cursor_press_ref(self, x, y)
-  ---@type any
   local target = self.cursor_down.target
   if target and target.is and type(target.is) == "function" and target:is(Card)
   and target.states.drag.can and PB_UTIL.prevent_drag(target) then
